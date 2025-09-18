@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Learning Management System Project</title>
+    <title>Travel Booking Platform Project</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #2ecc71;
+            --primary-color: #4CAF50;
             --secondary-color: #ffffff;
-            --accent-color: #27ae60;
+            --accent-color: #45a049;
         }
         
         * {
@@ -206,8 +206,8 @@
         }
         
         .tech-item {
-            background-color: #e3f2fd;
-            color: #1976d2;
+            background-color: #fff3e0;
+            color: #ef6c00;
             padding: 8px 15px;
             border-radius: 20px;
             font-size: 14px;
@@ -326,7 +326,7 @@
         }
         
         .language-option:hover {
-            background-color: #e8f5e8;
+            background-color: #fff3e0;
             color: var(--primary-color);
         }
         
@@ -337,7 +337,7 @@
         .language-option:last-child {
             border-radius: 0 0 13px 13px;
         }
-        
+
         @media screen and (max-width: 768px) {
             .project-card {
                 padding: 2rem 1.5rem;
@@ -404,20 +404,20 @@
     </div>
     <div class="container">
         <div class="project-card">
-            <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Learning Management System" class="project-img">
-            <h1 data-translate="project_title">Learning Management System</h1>
-            <h2 data-translate="project_subtitle">Custom LMS with course creation tools, progress tracking, and interactive quizzes</h2>
+            <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Travel Booking Platform" class="project-img">
+            <h1 data-translate="project_title">Travel Booking Platform</h1>
+            <h2 data-translate="project_subtitle">Comprehensive travel booking system with flight, hotel, and activity reservations</h2>
             
             <div class="project-description">
-                <p data-translate="project_description">This comprehensive learning platform empowers educators to create engaging courses while providing students with intuitive tools for tracking progress and testing knowledge through interactive assessments.</p>
+                <p data-translate="project_description">A full-service travel platform that aggregates flights, hotels, and activities from multiple providers. Features intelligent price comparison, personalized recommendations, and seamless booking experience with integrated payment processing and travel management tools.</p>
                 
                 <div class="tech-stack">
-                    <span class="tech-item">React</span>
-                    <span class="tech-item">Laravel</span>
-                    <span class="tech-item">MySQL</span>
-                    <span class="tech-item">Interactive Quizzes</span>
-                    <span class="tech-item">Progress Analytics</span>
-                    <span class="tech-item">SCORM Compliance</span>
+                    <span class="tech-item">Next.js</span>
+                    <span class="tech-item">TypeScript</span>
+                    <span class="tech-item">GraphQL</span>
+                    <span class="tech-item">Prisma</span>
+                    <span class="tech-item">Amadeus API</span>
+                    <span class="tech-item">Vercel</span>
                 </div>
             </div>
             
@@ -426,20 +426,20 @@
                 <div class="timeline">
                     <div class="timeline-item left">
                         <div class="timeline-content">
-                            <h4 data-translate="technical_implementation_title">Technical Implementation</h4>
-                            <p data-translate="technical_implementation_desc">Built with React for the responsive frontend and Laravel for the robust backend. Used MySQL for reliable data storage and implemented interactive quiz functionality with real-time feedback. Developed comprehensive progress tracking dashboards.</p>
+                            <h4 data-translate="api_integration_title">API Integration</h4>
+                            <p data-translate="api_integration_desc">Integrated with major travel APIs including Amadeus, Booking.com, and Expedia. Built custom aggregation layer to compare prices across 50+ airlines and 100,000+ hotels worldwide in real-time.</p>
                         </div>
                     </div>
                     <div class="timeline-item right">
                         <div class="timeline-content">
-                            <h4 data-translate="challenges_overcome_title">Challenges Overcome</h4>
-                            <p data-translate="challenges_overcome_desc">Solved complex course authoring requirements with intuitive drag-and-drop tools. Optimized quiz engine for various question types and scoring systems. Created seamless integration between learning content and progress tracking.</p>
+                            <h4 data-translate="smart_recommendations_title">Smart Recommendations</h4>
+                            <p data-translate="smart_recommendations_desc">Implemented ML-powered recommendation engine using user preferences, booking history, and seasonal trends. Achieved 40% increase in conversion rates through personalized travel suggestions.</p>
                         </div>
                     </div>
                     <div class="timeline-item left">
                         <div class="timeline-content">
-                            <h4 data-translate="client_satisfaction_title">Client Satisfaction</h4>
-                            <p data-translate="client_satisfaction_desc">Delivered on time with all feature requirements exceeded. Client reported 65% increase in course completion rates and 40% reduction in administrative workload. Platform adopted as primary training tool across their organization.</p>
+                            <h4 data-translate="business_growth_title">Business Growth</h4>
+                            <p data-translate="business_growth_desc">Platform processes over 1,000 bookings monthly with $2M+ in transaction volume. Reduced booking abandonment by 35% through streamlined checkout process and mobile optimization.</p>
                         </div>
                     </div>
                 </div>
@@ -448,92 +448,85 @@
             </div>
         </div>
     </div>
-
     <script>
-        // Language Translation System
+        // Translation object
         const translations = {
             en: {
-                project_title: "Learning Management System",
-                project_subtitle: "Custom LMS with course creation tools, progress tracking, and interactive quizzes",
-                project_description: "This comprehensive learning platform empowers educators to create engaging courses while providing students with intuitive tools for tracking progress and testing knowledge through interactive assessments.",
+                project_title: "Travel Booking Platform",
+                project_subtitle: "Comprehensive travel booking system with flight, hotel, and activity reservations",
+                project_description: "A full-service travel platform that aggregates flights, hotels, and activities from multiple providers. Features intelligent price comparison, personalized recommendations, and seamless booking experience with integrated payment processing and travel management tools.",
                 project_highlights_title: "Project Highlights",
-                technical_implementation_title: "Technical Implementation",
-                technical_implementation_desc: "Built with React for the responsive frontend and Laravel for the robust backend. Used MySQL for reliable data storage and implemented interactive quiz functionality with real-time feedback. Developed comprehensive progress tracking dashboards.",
-                challenges_overcome_title: "Challenges Overcome",
-                challenges_overcome_desc: "Solved complex course authoring requirements with intuitive drag-and-drop tools. Optimized quiz engine for various question types and scoring systems. Created seamless integration between learning content and progress tracking.",
-                client_satisfaction_title: "Client Satisfaction",
-                client_satisfaction_desc: "Delivered on time with all feature requirements exceeded. Client reported 65% increase in course completion rates and 40% reduction in administrative workload. Platform adopted as primary training tool across their organization.",
+                api_integration_title: "API Integration",
+                api_integration_desc: "Integrated with major travel APIs including Amadeus, Booking.com, and Expedia. Built custom aggregation layer to compare prices across 50+ airlines and 100,000+ hotels worldwide in real-time.",
+                smart_recommendations_title: "Smart Recommendations",
+                smart_recommendations_desc: "Implemented ML-powered recommendation engine using user preferences, booking history, and seasonal trends. Achieved 40% increase in conversion rates through personalized travel suggestions.",
+                business_growth_title: "Business Growth",
+                business_growth_desc: "Platform processes over 1,000 bookings monthly with $2M+ in transaction volume. Reduced booking abandonment by 35% through streamlined checkout process and mobile optimization.",
                 cta_button: "Request a Similar Service"
             },
             ar: {
-                project_title: "نظام إدارة التعلم",
-                project_subtitle: "نظام LMS مخصص مع أدوات إنشاء الدورات وتتبع التقدم والاختبارات التفاعلية",
-                project_description: "تمكن منصة التعلم الشاملة هذه المعلمين من إنشاء دورات جذابة بينما توفر للطلاب أدوات بديهية لتتبع التقدم واختبار المعرفة من خلال التقييمات التفاعلية.",
+                project_title: "منصة حجز السفر",
+                project_subtitle: "نظام حجز سفر شامل مع حجوزات الطيران والفنادق والأنشطة",
+                project_description: "منصة سفر متكاملة الخدمات تجمع الرحلات الجوية والفنادق والأنشطة من مقدمي خدمات متعددين. تتميز بمقارنة الأسعار الذكية والتوصيات الشخصية وتجربة حجز سلسة مع معالجة المدفوعات المتكاملة وأدوات إدارة السفر.",
                 project_highlights_title: "أبرز نقاط المشروع",
-                technical_implementation_title: "التنفيذ التقني",
-                technical_implementation_desc: "تم البناء باستخدام React للواجهة الأمامية المتجاوبة و Laravel للخلفية القوية. استخدام MySQL لتخزين البيانات الموثوق وتنفيذ وظائف الاختبار التفاعلي مع التغذية الراجعة في الوقت الفعلي. تطوير لوحات معلومات شاملة لتتبع التقدم.",
-                challenges_overcome_title: "التحديات المتغلب عليها",
-                challenges_overcome_desc: "حل متطلبات تأليف الدورات المعقدة بأدوات السحب والإفلات البديهية. تحسين محرك الاختبارات لأنواع الأسئلة المختلفة وأنظمة التسجيل. إنشاء تكامل سلس بين محتوى التعلم وتتبع التقدم.",
-                client_satisfaction_title: "رضا العميل",
-                client_satisfaction_desc: "تم التسليم في الوقت المحدد مع تجاوز جميع متطلبات الميزات. أبلغ العميل عن زيادة بنسبة 65% في معدلات إكمال الدورة وانخفاض بنسبة 40% في عبء العمل الإداري. تم اعتماد المنصة كأداة تدريب أساسية عبر منظمتهم.",
+                api_integration_title: "تكامل واجهة برمجة التطبيقات",
+                api_integration_desc: "تم التكامل مع واجهات برمجة تطبيقات السفر الرئيسية بما في ذلك Amadeus و Booking.com و Expedia. تم بناء طبقة تجميع مخصصة لمقارنة الأسعار عبر أكثر من 50 شركة طيران و 100,000+ فندق حول العالم في الوقت الفعلي.",
+                smart_recommendations_title: "التوصيات الذكية",
+                smart_recommendations_desc: "تم تنفيذ محرك توصيات مدعوم بالتعلم الآلي باستخدام تفضيلات المستخدم وتاريخ الحجز والاتجاهات الموسمية. تم تحقيق زيادة 40% في معدلات التحويل من خلال اقتراحات السفر الشخصية.",
+                business_growth_title: "نمو الأعمال",
+                business_growth_desc: "تعالج المنصة أكثر من 1,000 حجز شهرياً بحجم معاملات يزيد عن 2 مليون دولار. تم تقليل هجر الحجز بنسبة 35% من خلال عملية دفع مبسطة وتحسين الهاتف المحمول.",
                 cta_button: "اطلب خدمة مماثلة"
             },
             es: {
-                project_title: "Sistema de Gestión de Aprendizaje",
-                project_subtitle: "LMS personalizado con herramientas de creación de cursos, seguimiento de progreso y cuestionarios interactivos",
-                project_description: "Esta plataforma de aprendizaje integral empodera a los educadores para crear cursos atractivos mientras proporciona a los estudiantes herramientas intuitivas para rastrear el progreso y probar conocimientos a través de evaluaciones interactivas.",
+                project_title: "Plataforma de Reservas de Viajes",
+                project_subtitle: "Sistema integral de reservas de viajes con reservas de vuelos, hoteles y actividades",
+                project_description: "Una plataforma de viajes de servicio completo que agrega vuelos, hoteles y actividades de múltiples proveedores. Cuenta con comparación inteligente de precios, recomendaciones personalizadas y experiencia de reserva fluida con procesamiento de pagos integrado y herramientas de gestión de viajes.",
                 project_highlights_title: "Aspectos Destacados del Proyecto",
-                technical_implementation_title: "Implementación Técnica",
-                technical_implementation_desc: "Construido con React para el frontend responsivo y Laravel para el backend robusto. Usó MySQL para almacenamiento confiable de datos e implementó funcionalidad de cuestionarios interactivos con retroalimentación en tiempo real. Desarrolló tableros integrales de seguimiento de progreso.",
-                challenges_overcome_title: "Desafíos Superados",
-                challenges_overcome_desc: "Resolvió requisitos complejos de autoría de cursos con herramientas intuitivas de arrastrar y soltar. Optimizó motor de cuestionarios para varios tipos de preguntas y sistemas de puntuación. Creó integración perfecta entre contenido de aprendizaje y seguimiento de progreso.",
-                client_satisfaction_title: "Satisfacción del Cliente",
-                client_satisfaction_desc: "Entregado a tiempo con todos los requisitos de características superados. El cliente reportó 65% de aumento en tasas de finalización de cursos y 40% de reducción en carga de trabajo administrativa. Plataforma adoptada como herramienta de entrenamiento principal en toda su organización.",
+                api_integration_title: "Integración de API",
+                api_integration_desc: "Integrado con las principales APIs de viajes incluyendo Amadeus, Booking.com y Expedia. Construyó una capa de agregación personalizada para comparar precios en más de 50 aerolíneas y 100,000+ hoteles en todo el mundo en tiempo real.",
+                smart_recommendations_title: "Recomendaciones Inteligentes",
+                smart_recommendations_desc: "Implementó un motor de recomendaciones impulsado por ML usando preferencias de usuario, historial de reservas y tendencias estacionales. Logró un aumento del 40% en las tasas de conversión a través de sugerencias de viaje personalizadas.",
+                business_growth_title: "Crecimiento del Negocio",
+                business_growth_desc: "La plataforma procesa más de 1,000 reservas mensuales con más de $2M en volumen de transacciones. Redujo el abandono de reservas en un 35% a través de un proceso de pago simplificado y optimización móvil.",
                 cta_button: "Solicitar un Servicio Similar"
             },
             fr: {
-                project_title: "Système de Gestion d'Apprentissage",
-                project_subtitle: "LMS personnalisé avec outils de création de cours, suivi de progression et quiz interactifs",
-                project_description: "Cette plateforme d'apprentissage complète permet aux éducateurs de créer des cours engageants tout en fournissant aux étudiants des outils intuitifs pour suivre les progrès et tester les connaissances à travers des évaluations interactives.",
+                project_title: "Plateforme de Réservation de Voyages",
+                project_subtitle: "Système complet de réservation de voyages avec réservations de vols, hôtels et activités",
+                project_description: "Une plateforme de voyage à service complet qui agrège les vols, hôtels et activités de multiples fournisseurs. Propose une comparaison intelligente des prix, des recommandations personnalisées et une expérience de réservation fluide avec traitement des paiements intégré et outils de gestion de voyage.",
                 project_highlights_title: "Points Forts du Projet",
-                technical_implementation_title: "Implémentation Technique",
-                technical_implementation_desc: "Construit avec React pour le frontend responsive et Laravel pour le backend robuste. Utilisé MySQL pour le stockage fiable des données et implémenté la fonctionnalité de quiz interactifs avec feedback en temps réel. Développé des tableaux de bord complets de suivi de progression.",
-                challenges_overcome_title: "Défis Surmontés",
-                challenges_overcome_desc: "Résolu les exigences complexes de création de cours avec des outils intuitifs de glisser-déposer. Optimisé le moteur de quiz pour divers types de questions et systèmes de notation. Créé une intégration transparente entre le contenu d'apprentissage et le suivi de progression.",
-                client_satisfaction_title: "Satisfaction Client",
-                client_satisfaction_desc: "Livré à temps avec toutes les exigences de fonctionnalités dépassées. Le client a rapporté 65% d'augmentation des taux de completion de cours et 40% de réduction de la charge de travail administrative. Plateforme adoptée comme outil de formation principal dans toute leur organisation.",
+                api_integration_title: "Intégration API",
+                api_integration_desc: "Intégré avec les principales APIs de voyage incluant Amadeus, Booking.com et Expedia. Construit une couche d'agrégation personnalisée pour comparer les prix sur plus de 50 compagnies aériennes et 100,000+ hôtels dans le monde en temps réel.",
+                smart_recommendations_title: "Recommandations Intelligentes",
+                smart_recommendations_desc: "Implémenté un moteur de recommandations alimenté par ML utilisant les préférences utilisateur, l'historique de réservation et les tendances saisonnières. Atteint une augmentation de 40% des taux de conversion grâce aux suggestions de voyage personnalisées.",
+                business_growth_title: "Croissance des Affaires",
+                business_growth_desc: "La plateforme traite plus de 1,000 réservations mensuelles avec plus de 2M$ de volume de transactions. Réduit l'abandon de réservation de 35% grâce à un processus de paiement simplifié et une optimisation mobile.",
                 cta_button: "Demander un Service Similaire"
             },
             de: {
-                project_title: "Lernmanagementsystem",
-                project_subtitle: "Maßgeschneidertes LMS mit Kurserstellungstools, Fortschrittsverfolgung und interaktiven Quiz",
-                project_description: "Diese umfassende Lernplattform ermöglicht es Pädagogen, ansprechende Kurse zu erstellen, während sie Studenten intuitive Tools zur Fortschrittsverfolgung und Wissenstestung durch interaktive Bewertungen bietet.",
+                project_title: "Reisebuchungsplattform",
+                project_subtitle: "Umfassendes Reisebuchungssystem mit Flug-, Hotel- und Aktivitätsreservierungen",
+                project_description: "Eine Full-Service-Reiseplattform, die Flüge, Hotels und Aktivitäten von mehreren Anbietern aggregiert. Bietet intelligenten Preisvergleich, personalisierte Empfehlungen und nahtlose Buchungserfahrung mit integrierter Zahlungsabwicklung und Reisemanagement-Tools.",
                 project_highlights_title: "Projekt-Highlights",
-                technical_implementation_title: "Technische Umsetzung",
-                technical_implementation_desc: "Erstellt mit React für das responsive Frontend und Laravel für das robuste Backend. Verwendete MySQL für zuverlässige Datenspeicherung und implementierte interaktive Quiz-Funktionalität mit Echtzeit-Feedback. Entwickelte umfassende Fortschrittsverfolgung-Dashboards.",
-                challenges_overcome_title: "Überwundene Herausforderungen",
-                challenges_overcome_desc: "Löste komplexe Kurserstellungsanforderungen mit intuitiven Drag-and-Drop-Tools. Optimierte Quiz-Engine für verschiedene Fragetypen und Bewertungssysteme. Schuf nahtlose Integration zwischen Lerninhalten und Fortschrittsverfolgung.",
-                client_satisfaction_title: "Kundenzufriedenheit",
-                client_satisfaction_desc: "Pünktlich geliefert mit allen Feature-Anforderungen übertroffen. Kunde berichtete 65% Steigerung der Kursabschlussraten und 40% Reduzierung der Verwaltungsarbeit. Plattform als primäres Schulungstool in ihrer gesamten Organisation übernommen.",
+                api_integration_title: "API-Integration",
+                api_integration_desc: "Integriert mit wichtigen Reise-APIs einschließlich Amadeus, Booking.com und Expedia. Erstellte eine benutzerdefinierte Aggregationsschicht zum Vergleich von Preisen bei über 50 Fluggesellschaften und 100.000+ Hotels weltweit in Echtzeit.",
+                smart_recommendations_title: "Intelligente Empfehlungen",
+                smart_recommendations_desc: "Implementierte ML-gestützte Empfehlungsmaschine mit Benutzerpräferenzen, Buchungshistorie und saisonalen Trends. Erreichte 40% Steigerung der Konversionsraten durch personalisierte Reisevorschläge.",
+                business_growth_title: "Geschäftswachstum",
+                business_growth_desc: "Plattform verarbeitet über 1.000 Buchungen monatlich mit über 2 Mio. $ Transaktionsvolumen. Reduzierte Buchungsabbruch um 35% durch vereinfachten Checkout-Prozess und mobile Optimierung.",
                 cta_button: "Ähnlichen Service Anfordern"
             }
         };
 
-        // Language functions
+        // Language dropdown toggle
         function toggleLanguageDropdown() {
             const dropdown = document.getElementById('languageOptions');
             dropdown.classList.toggle('show');
-            
-            // Close dropdown when clicking outside
-            document.addEventListener('click', function(event) {
-                if (!event.target.closest('.language-dropdown')) {
-                    dropdown.classList.remove('show');
-                }
-            });
         }
 
+        // Change language function
         function changeLanguage(langCode, flagIcon, langText) {
-            // Update the selected language display
+            // Update selected language display
             const selectedLanguage = document.querySelector('.selected-language');
             const flagSpan = selectedLanguage.querySelector('.flag-icon');
             const textSpan = selectedLanguage.querySelector('.language-text');
@@ -541,27 +534,27 @@
             flagSpan.textContent = flagIcon;
             textSpan.textContent = langText;
             
-            // Close the dropdown
-            document.getElementById('languageOptions').classList.remove('show');
+            // Close dropdown
+            const dropdown = document.getElementById('languageOptions');
+            dropdown.classList.remove('show');
             
             // Apply translations
             applyTranslations(langCode);
-            
-            // Handle RTL for Arabic
-            if (langCode === 'ar') {
-                document.documentElement.setAttribute('dir', 'rtl');
-                document.documentElement.setAttribute('lang', 'ar');
-            } else {
-                document.documentElement.setAttribute('dir', 'ltr');
-                document.documentElement.setAttribute('lang', langCode);
-            }
             
             // Save language preference
             localStorage.setItem('selectedLanguage', langCode);
             localStorage.setItem('selectedFlag', flagIcon);
             localStorage.setItem('selectedText', langText);
+            
+            // Handle RTL for Arabic
+            if (langCode === 'ar') {
+                document.documentElement.setAttribute('dir', 'rtl');
+            } else {
+                document.documentElement.setAttribute('dir', 'ltr');
+            }
         }
 
+        // Apply translations
         function applyTranslations(langCode) {
             const elements = document.querySelectorAll('[data-translate]');
             elements.forEach(element => {
@@ -572,17 +565,19 @@
             });
         }
 
-        // Load saved language preference on page load
-        window.addEventListener('load', function() {
+        // Load saved language on page load
+        document.addEventListener('DOMContentLoaded', function() {
             const savedLang = localStorage.getItem('selectedLanguage') || 'en';
             const savedFlag = localStorage.getItem('selectedFlag') || '🇺🇸';
             const savedText = localStorage.getItem('selectedText') || 'EN';
             
-            // Update UI
-            const flagSpan = document.querySelector('.selected-language .flag-icon');
-            const textSpan = document.querySelector('.selected-language .language-text');
-            if (flagSpan) flagSpan.textContent = savedFlag;
-            if (textSpan) textSpan.textContent = savedText;
+            // Update display
+            const selectedLanguage = document.querySelector('.selected-language');
+            const flagSpan = selectedLanguage.querySelector('.flag-icon');
+            const textSpan = selectedLanguage.querySelector('.language-text');
+            
+            flagSpan.textContent = savedFlag;
+            textSpan.textContent = savedText;
             
             // Apply translations
             applyTranslations(savedLang);
@@ -590,10 +585,17 @@
             // Handle RTL for Arabic
             if (savedLang === 'ar') {
                 document.documentElement.setAttribute('dir', 'rtl');
-                document.documentElement.setAttribute('lang', 'ar');
             } else {
                 document.documentElement.setAttribute('dir', 'ltr');
-                document.documentElement.setAttribute('lang', savedLang);
+            }
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            const languageSelector = document.querySelector('.language-selector');
+            if (!languageSelector.contains(event.target)) {
+                const dropdown = document.getElementById('languageOptions');
+                dropdown.classList.remove('show');
             }
         });
     </script>

@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Learning Management System Project</title>
+    <title>Fintech Dashboard Project</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #2ecc71;
+            --primary-color: #4CAF50;
             --secondary-color: #ffffff;
-            --accent-color: #27ae60;
+            --accent-color: #45a049;
         }
         
         * {
@@ -326,7 +326,7 @@
         }
         
         .language-option:hover {
-            background-color: #e8f5e8;
+            background-color: #e3f2fd;
             color: var(--primary-color);
         }
         
@@ -337,7 +337,7 @@
         .language-option:last-child {
             border-radius: 0 0 13px 13px;
         }
-        
+
         @media screen and (max-width: 768px) {
             .project-card {
                 padding: 2rem 1.5rem;
@@ -404,20 +404,20 @@
     </div>
     <div class="container">
         <div class="project-card">
-            <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Learning Management System" class="project-img">
-            <h1 data-translate="project_title">Learning Management System</h1>
-            <h2 data-translate="project_subtitle">Custom LMS with course creation tools, progress tracking, and interactive quizzes</h2>
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Fintech Dashboard" class="project-img">
+            <h1 data-translate="project_title">Fintech Dashboard</h1>
+            <h2 data-translate="project_subtitle">Advanced financial analytics platform with real-time trading and portfolio management</h2>
             
             <div class="project-description">
-                <p data-translate="project_description">This comprehensive learning platform empowers educators to create engaging courses while providing students with intuitive tools for tracking progress and testing knowledge through interactive assessments.</p>
+                <p data-translate="project_description">A sophisticated financial technology platform that provides real-time market data, portfolio analytics, and automated trading capabilities. Built with enterprise-grade security and compliance standards for institutional and retail investors.</p>
                 
                 <div class="tech-stack">
-                    <span class="tech-item">React</span>
-                    <span class="tech-item">Laravel</span>
-                    <span class="tech-item">MySQL</span>
-                    <span class="tech-item">Interactive Quizzes</span>
-                    <span class="tech-item">Progress Analytics</span>
-                    <span class="tech-item">SCORM Compliance</span>
+                    <span class="tech-item">Vue.js</span>
+                    <span class="tech-item">Python</span>
+                    <span class="tech-item">FastAPI</span>
+                    <span class="tech-item">PostgreSQL</span>
+                    <span class="tech-item">WebSocket</span>
+                    <span class="tech-item">Docker</span>
                 </div>
             </div>
             
@@ -426,20 +426,20 @@
                 <div class="timeline">
                     <div class="timeline-item left">
                         <div class="timeline-content">
-                            <h4 data-translate="technical_implementation_title">Technical Implementation</h4>
-                            <p data-translate="technical_implementation_desc">Built with React for the responsive frontend and Laravel for the robust backend. Used MySQL for reliable data storage and implemented interactive quiz functionality with real-time feedback. Developed comprehensive progress tracking dashboards.</p>
+                            <h4 data-translate="realtime_processing_title">Real-time Data Processing</h4>
+                            <p data-translate="realtime_processing_desc">Implemented high-frequency data streaming with WebSocket connections, processing over 10,000 market updates per second. Built custom algorithms for risk assessment and automated portfolio rebalancing.</p>
                         </div>
                     </div>
                     <div class="timeline-item right">
                         <div class="timeline-content">
-                            <h4 data-translate="challenges_overcome_title">Challenges Overcome</h4>
-                            <p data-translate="challenges_overcome_desc">Solved complex course authoring requirements with intuitive drag-and-drop tools. Optimized quiz engine for various question types and scoring systems. Created seamless integration between learning content and progress tracking.</p>
+                            <h4 data-translate="security_compliance_title">Security & Compliance</h4>
+                            <p data-translate="security_compliance_desc">Achieved SOC 2 Type II compliance with end-to-end encryption, multi-factor authentication, and comprehensive audit logging. Implemented advanced fraud detection and regulatory reporting features.</p>
                         </div>
                     </div>
                     <div class="timeline-item left">
                         <div class="timeline-content">
-                            <h4 data-translate="client_satisfaction_title">Client Satisfaction</h4>
-                            <p data-translate="client_satisfaction_desc">Delivered on time with all feature requirements exceeded. Client reported 65% increase in course completion rates and 40% reduction in administrative workload. Platform adopted as primary training tool across their organization.</p>
+                            <h4 data-translate="performance_results_title">Performance Results</h4>
+                            <p data-translate="performance_results_desc">Platform manages over $100M in assets with 99.99% uptime. Reduced trade execution time by 60% and increased user engagement by 200%. Successfully passed regulatory audits and security penetration tests.</p>
                         </div>
                     </div>
                 </div>
@@ -453,68 +453,68 @@
         // Language Translation System
         const translations = {
             en: {
-                project_title: "Learning Management System",
-                project_subtitle: "Custom LMS with course creation tools, progress tracking, and interactive quizzes",
-                project_description: "This comprehensive learning platform empowers educators to create engaging courses while providing students with intuitive tools for tracking progress and testing knowledge through interactive assessments.",
+                project_title: "Fintech Dashboard",
+                project_subtitle: "Advanced financial analytics platform with real-time trading and portfolio management",
+                project_description: "A sophisticated financial technology platform that provides real-time market data, portfolio analytics, and automated trading capabilities. Built with enterprise-grade security and compliance standards for institutional and retail investors.",
                 project_highlights_title: "Project Highlights",
-                technical_implementation_title: "Technical Implementation",
-                technical_implementation_desc: "Built with React for the responsive frontend and Laravel for the robust backend. Used MySQL for reliable data storage and implemented interactive quiz functionality with real-time feedback. Developed comprehensive progress tracking dashboards.",
-                challenges_overcome_title: "Challenges Overcome",
-                challenges_overcome_desc: "Solved complex course authoring requirements with intuitive drag-and-drop tools. Optimized quiz engine for various question types and scoring systems. Created seamless integration between learning content and progress tracking.",
-                client_satisfaction_title: "Client Satisfaction",
-                client_satisfaction_desc: "Delivered on time with all feature requirements exceeded. Client reported 65% increase in course completion rates and 40% reduction in administrative workload. Platform adopted as primary training tool across their organization.",
+                realtime_processing_title: "Real-time Data Processing",
+                realtime_processing_desc: "Implemented high-frequency data streaming with WebSocket connections, processing over 10,000 market updates per second. Built custom algorithms for risk assessment and automated portfolio rebalancing.",
+                security_compliance_title: "Security & Compliance",
+                security_compliance_desc: "Achieved SOC 2 Type II compliance with end-to-end encryption, multi-factor authentication, and comprehensive audit logging. Implemented advanced fraud detection and regulatory reporting features.",
+                performance_results_title: "Performance Results",
+                performance_results_desc: "Platform manages over $100M in assets with 99.99% uptime. Reduced trade execution time by 60% and increased user engagement by 200%. Successfully passed regulatory audits and security penetration tests.",
                 cta_button: "Request a Similar Service"
             },
             ar: {
-                project_title: "نظام إدارة التعلم",
-                project_subtitle: "نظام LMS مخصص مع أدوات إنشاء الدورات وتتبع التقدم والاختبارات التفاعلية",
-                project_description: "تمكن منصة التعلم الشاملة هذه المعلمين من إنشاء دورات جذابة بينما توفر للطلاب أدوات بديهية لتتبع التقدم واختبار المعرفة من خلال التقييمات التفاعلية.",
+                project_title: "لوحة التحكم المالية التقنية",
+                project_subtitle: "منصة تحليلات مالية متقدمة مع التداول في الوقت الفعلي وإدارة المحافظ",
+                project_description: "منصة تكنولوجيا مالية متطورة توفر بيانات السوق في الوقت الفعلي وتحليلات المحافظ وقدرات التداول الآلي. مبنية بمعايير الأمان والامتثال على مستوى المؤسسات للمستثمرين المؤسسيين والأفراد.",
                 project_highlights_title: "أبرز نقاط المشروع",
-                technical_implementation_title: "التنفيذ التقني",
-                technical_implementation_desc: "تم البناء باستخدام React للواجهة الأمامية المتجاوبة و Laravel للخلفية القوية. استخدام MySQL لتخزين البيانات الموثوق وتنفيذ وظائف الاختبار التفاعلي مع التغذية الراجعة في الوقت الفعلي. تطوير لوحات معلومات شاملة لتتبع التقدم.",
-                challenges_overcome_title: "التحديات المتغلب عليها",
-                challenges_overcome_desc: "حل متطلبات تأليف الدورات المعقدة بأدوات السحب والإفلات البديهية. تحسين محرك الاختبارات لأنواع الأسئلة المختلفة وأنظمة التسجيل. إنشاء تكامل سلس بين محتوى التعلم وتتبع التقدم.",
-                client_satisfaction_title: "رضا العميل",
-                client_satisfaction_desc: "تم التسليم في الوقت المحدد مع تجاوز جميع متطلبات الميزات. أبلغ العميل عن زيادة بنسبة 65% في معدلات إكمال الدورة وانخفاض بنسبة 40% في عبء العمل الإداري. تم اعتماد المنصة كأداة تدريب أساسية عبر منظمتهم.",
+                realtime_processing_title: "معالجة البيانات في الوقت الفعلي",
+                realtime_processing_desc: "تم تنفيذ تدفق البيانات عالي التردد مع اتصالات WebSocket، ومعالجة أكثر من 10,000 تحديث سوق في الثانية. بناء خوارزميات مخصصة لتقييم المخاطر وإعادة توازن المحفظة الآلي.",
+                security_compliance_title: "الأمان والامتثال",
+                security_compliance_desc: "تحقيق امتثال SOC 2 Type II مع التشفير من طرف إلى طرف والمصادقة متعددة العوامل وتسجيل التدقيق الشامل. تنفيذ كشف الاحتيال المتقدم وميزات التقارير التنظيمية.",
+                performance_results_title: "نتائج الأداء",
+                performance_results_desc: "تدير المنصة أكثر من 100 مليون دولار من الأصول مع وقت تشغيل 99.99%. تقليل وقت تنفيذ التداول بنسبة 60% وزيادة مشاركة المستخدمين بنسبة 200%. نجحت في اجتياز عمليات التدقيق التنظيمي واختبارات اختراق الأمان.",
                 cta_button: "اطلب خدمة مماثلة"
             },
             es: {
-                project_title: "Sistema de Gestión de Aprendizaje",
-                project_subtitle: "LMS personalizado con herramientas de creación de cursos, seguimiento de progreso y cuestionarios interactivos",
-                project_description: "Esta plataforma de aprendizaje integral empodera a los educadores para crear cursos atractivos mientras proporciona a los estudiantes herramientas intuitivas para rastrear el progreso y probar conocimientos a través de evaluaciones interactivas.",
+                project_title: "Dashboard Fintech",
+                project_subtitle: "Plataforma avanzada de análisis financiero con trading en tiempo real y gestión de portafolios",
+                project_description: "Una plataforma sofisticada de tecnología financiera que proporciona datos de mercado en tiempo real, análisis de portafolios y capacidades de trading automatizado. Construida con estándares de seguridad y cumplimiento de nivel empresarial para inversores institucionales y minoristas.",
                 project_highlights_title: "Aspectos Destacados del Proyecto",
-                technical_implementation_title: "Implementación Técnica",
-                technical_implementation_desc: "Construido con React para el frontend responsivo y Laravel para el backend robusto. Usó MySQL para almacenamiento confiable de datos e implementó funcionalidad de cuestionarios interactivos con retroalimentación en tiempo real. Desarrolló tableros integrales de seguimiento de progreso.",
-                challenges_overcome_title: "Desafíos Superados",
-                challenges_overcome_desc: "Resolvió requisitos complejos de autoría de cursos con herramientas intuitivas de arrastrar y soltar. Optimizó motor de cuestionarios para varios tipos de preguntas y sistemas de puntuación. Creó integración perfecta entre contenido de aprendizaje y seguimiento de progreso.",
-                client_satisfaction_title: "Satisfacción del Cliente",
-                client_satisfaction_desc: "Entregado a tiempo con todos los requisitos de características superados. El cliente reportó 65% de aumento en tasas de finalización de cursos y 40% de reducción en carga de trabajo administrativa. Plataforma adoptada como herramienta de entrenamiento principal en toda su organización.",
+                realtime_processing_title: "Procesamiento de Datos en Tiempo Real",
+                realtime_processing_desc: "Implementó streaming de datos de alta frecuencia con conexiones WebSocket, procesando más de 10,000 actualizaciones de mercado por segundo. Construyó algoritmos personalizados para evaluación de riesgos y rebalanceo automático de portafolios.",
+                security_compliance_title: "Seguridad y Cumplimiento",
+                security_compliance_desc: "Logró cumplimiento SOC 2 Tipo II con cifrado de extremo a extremo, autenticación multifactor y registro de auditoría integral. Implementó detección avanzada de fraude y características de reportes regulatorios.",
+                performance_results_title: "Resultados de Rendimiento",
+                performance_results_desc: "La plataforma gestiona más de $100M en activos con 99.99% de tiempo de actividad. Redujo el tiempo de ejecución de operaciones en 60% y aumentó el compromiso del usuario en 200%. Pasó exitosamente auditorías regulatorias y pruebas de penetración de seguridad.",
                 cta_button: "Solicitar un Servicio Similar"
             },
             fr: {
-                project_title: "Système de Gestion d'Apprentissage",
-                project_subtitle: "LMS personnalisé avec outils de création de cours, suivi de progression et quiz interactifs",
-                project_description: "Cette plateforme d'apprentissage complète permet aux éducateurs de créer des cours engageants tout en fournissant aux étudiants des outils intuitifs pour suivre les progrès et tester les connaissances à travers des évaluations interactives.",
+                project_title: "Tableau de Bord Fintech",
+                project_subtitle: "Plateforme d'analyse financière avancée avec trading en temps réel et gestion de portefeuille",
+                project_description: "Une plateforme sophistiquée de technologie financière qui fournit des données de marché en temps réel, des analyses de portefeuille et des capacités de trading automatisé. Construite avec des standards de sécurité et de conformité de niveau entreprise pour les investisseurs institutionnels et particuliers.",
                 project_highlights_title: "Points Forts du Projet",
-                technical_implementation_title: "Implémentation Technique",
-                technical_implementation_desc: "Construit avec React pour le frontend responsive et Laravel pour le backend robuste. Utilisé MySQL pour le stockage fiable des données et implémenté la fonctionnalité de quiz interactifs avec feedback en temps réel. Développé des tableaux de bord complets de suivi de progression.",
-                challenges_overcome_title: "Défis Surmontés",
-                challenges_overcome_desc: "Résolu les exigences complexes de création de cours avec des outils intuitifs de glisser-déposer. Optimisé le moteur de quiz pour divers types de questions et systèmes de notation. Créé une intégration transparente entre le contenu d'apprentissage et le suivi de progression.",
-                client_satisfaction_title: "Satisfaction Client",
-                client_satisfaction_desc: "Livré à temps avec toutes les exigences de fonctionnalités dépassées. Le client a rapporté 65% d'augmentation des taux de completion de cours et 40% de réduction de la charge de travail administrative. Plateforme adoptée comme outil de formation principal dans toute leur organisation.",
+                realtime_processing_title: "Traitement de Données en Temps Réel",
+                realtime_processing_desc: "Implémenté un streaming de données haute fréquence avec des connexions WebSocket, traitant plus de 10,000 mises à jour de marché par seconde. Construit des algorithmes personnalisés pour l'évaluation des risques et le rééquilibrage automatique de portefeuille.",
+                security_compliance_title: "Sécurité et Conformité",
+                security_compliance_desc: "Atteint la conformité SOC 2 Type II avec chiffrement de bout en bout, authentification multifacteur et journalisation d'audit complète. Implémenté la détection avancée de fraude et les fonctionnalités de rapports réglementaires.",
+                performance_results_title: "Résultats de Performance",
+                performance_results_desc: "La plateforme gère plus de 100M$ d'actifs avec 99,99% de temps de fonctionnement. Réduit le temps d'exécution des transactions de 60% et augmenté l'engagement utilisateur de 200%. Réussi les audits réglementaires et les tests de pénétration sécuritaire.",
                 cta_button: "Demander un Service Similaire"
             },
             de: {
-                project_title: "Lernmanagementsystem",
-                project_subtitle: "Maßgeschneidertes LMS mit Kurserstellungstools, Fortschrittsverfolgung und interaktiven Quiz",
-                project_description: "Diese umfassende Lernplattform ermöglicht es Pädagogen, ansprechende Kurse zu erstellen, während sie Studenten intuitive Tools zur Fortschrittsverfolgung und Wissenstestung durch interaktive Bewertungen bietet.",
+                project_title: "Fintech-Dashboard",
+                project_subtitle: "Erweiterte Finanzanalyseplattform mit Echtzeit-Trading und Portfolio-Management",
+                project_description: "Eine hochentwickelte Finanztechnologie-Plattform, die Echtzeit-Marktdaten, Portfolio-Analysen und automatisierte Trading-Funktionen bereitstellt. Erstellt mit Unternehmens-Sicherheits- und Compliance-Standards für institutionelle und private Investoren.",
                 project_highlights_title: "Projekt-Highlights",
-                technical_implementation_title: "Technische Umsetzung",
-                technical_implementation_desc: "Erstellt mit React für das responsive Frontend und Laravel für das robuste Backend. Verwendete MySQL für zuverlässige Datenspeicherung und implementierte interaktive Quiz-Funktionalität mit Echtzeit-Feedback. Entwickelte umfassende Fortschrittsverfolgung-Dashboards.",
-                challenges_overcome_title: "Überwundene Herausforderungen",
-                challenges_overcome_desc: "Löste komplexe Kurserstellungsanforderungen mit intuitiven Drag-and-Drop-Tools. Optimierte Quiz-Engine für verschiedene Fragetypen und Bewertungssysteme. Schuf nahtlose Integration zwischen Lerninhalten und Fortschrittsverfolgung.",
-                client_satisfaction_title: "Kundenzufriedenheit",
-                client_satisfaction_desc: "Pünktlich geliefert mit allen Feature-Anforderungen übertroffen. Kunde berichtete 65% Steigerung der Kursabschlussraten und 40% Reduzierung der Verwaltungsarbeit. Plattform als primäres Schulungstool in ihrer gesamten Organisation übernommen.",
+                realtime_processing_title: "Echtzeit-Datenverarbeitung",
+                realtime_processing_desc: "Implementierte Hochfrequenz-Datenstreaming mit WebSocket-Verbindungen und verarbeitete über 10.000 Markt-Updates pro Sekunde. Entwickelte maßgeschneiderte Algorithmen für Risikobewertung und automatische Portfolio-Neugewichtung.",
+                security_compliance_title: "Sicherheit & Compliance",
+                security_compliance_desc: "Erreichte SOC 2 Typ II Compliance mit Ende-zu-Ende-Verschlüsselung, Multi-Faktor-Authentifizierung und umfassendem Audit-Logging. Implementierte erweiterte Betrugserkennung und regulatorische Berichtsfunktionen.",
+                performance_results_title: "Leistungsergebnisse",
+                performance_results_desc: "Die Plattform verwaltet über 100 Millionen Dollar an Vermögenswerten mit 99,99% Verfügbarkeit. Reduzierte die Handelsausführungszeit um 60% und steigerte das Benutzerengagement um 200%. Bestand erfolgreich regulatorische Audits und Sicherheits-Penetrationstests.",
                 cta_button: "Ähnlichen Service Anfordern"
             }
         };

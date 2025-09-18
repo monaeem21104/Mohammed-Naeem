@@ -85,6 +85,89 @@
             100% { transform: rotate(360deg); }
         }
         
+        /* Language Selector */
+        .language-selector {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+        }
+        
+        .language-dropdown {
+            position: relative;
+        }
+        
+        .selected-language {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 8px 12px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid var(--primary);
+            backdrop-filter: blur(10px);
+        }
+        
+        .selected-language:hover {
+            background: rgba(255, 255, 255, 1);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .flag-icon {
+            font-size: 1.2rem;
+        }
+        
+        .language-text {
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 0.9rem;
+        }
+        
+        .language-options {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 10px 0;
+            min-width: 150px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+            border: 2px solid var(--primary);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            margin-top: 5px;
+        }
+        
+        .language-options.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .language-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 15px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .language-option:hover {
+            background: rgba(10, 126, 58, 0.1);
+        }
+        
+        .language-option .language-text {
+            color: var(--text);
+            font-size: 0.9rem;
+        }
+        
         /* Dark Mode Toggle */
         .theme-switch-wrapper {
             position: fixed;
@@ -370,6 +453,7 @@
             background-color: rgba(255,255,255,0.2);
             transition: width 0.3s ease;
             z-index: -1;
+            display: none;
         }
         
         .cta-button:hover {
@@ -381,6 +465,7 @@
         
         .cta-button:hover::before {
             width: 100%;
+            display: block;
         }
         
         .scroll-down {
@@ -500,6 +585,75 @@
         
         .journey-content p {
             color: var(--text);
+        }
+        
+        /* Enhanced Arabic text alignment and formatting for journey section */
+        body[data-lang="ar"] .journey-content p {
+            text-align: right;
+            line-height: 2;
+            padding: 15px 20px;
+            font-size: 1.1rem;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            margin: 15px 0;
+            background: linear-gradient(135deg, rgba(10, 126, 58, 0.05), rgba(13, 158, 74, 0.05));
+            border-radius: 8px;
+            border-right: 4px solid var(--primary);
+            white-space: pre-line;
+        }
+        
+        body[data-lang="ar"] .journey-content h3 {
+            text-align: right;
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            padding: 10px 0;
+            border-bottom: 2px solid var(--secondary);
+            color: var(--primary);
+        }
+        
+        body[data-lang="ar"] .journey-year {
+            text-align: right;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--accent);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+            padding: 5px 0;
+        }
+        
+        body[data-lang="ar"] .journey-content {
+            border: 2px solid var(--border);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+            background: linear-gradient(135deg, rgba(248, 249, 250, 0.9), rgba(255, 255, 255, 0.95));
+        }
+        
+        body[data-lang="ar"] .journey-container::before {
+            background: linear-gradient(to bottom, var(--primary), var(--secondary), var(--accent));
+            right: auto;
+            left: 0;
+        }
+        
+        /* تعديل وضع الرحلة للغة العربية */
+        body[data-lang="ar"] .journey-container::before {
+            left: 0;
+            right: auto;
+        }
+        
+        body[data-lang="ar"] .journey-item {
+            width: 100%;
+            padding-left: 40px;
+            padding-right: 0;
+            left: 0 !important;
+        }
+        
+        body[data-lang="ar"] .journey-item:nth-child(odd)::after,
+        body[data-lang="ar"] .journey-item:nth-child(even)::after {
+            left: -10px;
+            right: auto;
         }
         
         .journey-year {
@@ -782,19 +936,52 @@
             margin-bottom: 8px;
         }
         
-        /* Skills Section */
-        .skills-container {
-            max-width: 800px;
+        /* Skills Sections */
+        .technical-skills-container,
+        .soft-skills-container,
+        .language-skills-container {
+            max-width: 1000px;
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
+            padding: 0 20px;
         }
         
-        .skill-category h3 {
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
+        .skill-section {
+            margin-bottom: 3rem;
+            background-color: var(--card-bg);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border: 1px solid var(--border);
+        }
+        
+        .skill-section h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.4rem;
             color: var(--primary);
+            text-align: center;
+            position: relative;
+        }
+        
+        .skill-section h3::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 2px;
+            background-color: var(--secondary);
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .soft-skills-container .skills-grid,
+        .language-skills-container .skills-grid {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         }
         
         .skill-item {
@@ -1013,6 +1200,22 @@
             .journey-item::after {
                 left: 20px;
             }
+            
+            /* تعديلات للغة العربية على الشاشات الصغيرة */
+            body[data-lang="ar"] .journey-container::before {
+                left: 30px;
+                right: auto;
+            }
+            
+            body[data-lang="ar"] .journey-item {
+                padding-left: 70px;
+                padding-right: 20px;
+            }
+            
+            body[data-lang="ar"] .journey-item::after {
+                left: 20px;
+                right: auto;
+            }
         }
         
         /* Dark Mode Styles */
@@ -1089,6 +1292,39 @@
         <i class="fas fa-arrow-up"></i>
     </div>
     
+    <!-- Language Selector -->
+    <div class="language-selector">
+        <div class="language-dropdown">
+            <div class="selected-language" onclick="toggleLanguageDropdown()">
+                <span class="flag-icon">🇺🇸</span>
+                <span class="language-text">EN</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="language-options" id="languageOptions">
+                <div class="language-option" onclick="changeLanguage('en', '🇺🇸', 'EN')">
+                    <span class="flag-icon">🇺🇸</span>
+                    <span class="language-text">English</span>
+                </div>
+                <div class="language-option" onclick="changeLanguage('ar', '🇸🇦', 'AR')">
+                    <span class="flag-icon">🇸🇦</span>
+                    <span class="language-text">العربية</span>
+                </div>
+                <div class="language-option" onclick="changeLanguage('es', '🇪🇸', 'ES')">
+                    <span class="flag-icon">🇪🇸</span>
+                    <span class="language-text">Español</span>
+                </div>
+                <div class="language-option" onclick="changeLanguage('fr', '🇫🇷', 'FR')">
+                    <span class="flag-icon">🇫🇷</span>
+                    <span class="language-text">Français</span>
+                </div>
+                <div class="language-option" onclick="changeLanguage('de', '🇩🇪', 'DE')">
+                    <span class="flag-icon">🇩🇪</span>
+                    <span class="language-text">Deutsch</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Dark Mode Toggle -->
     <div class="theme-switch-wrapper">
         <label class="theme-switch" for="checkbox">
@@ -1115,9 +1351,9 @@
             </div>
             
             <div class="intro">
-                <h1><span class="highlight">Mohammed Naeem | Digital Magic</span></h1>
-                <p id="typewriter-text" class="typewriter"></p>
-                <a href="#contact" class="cta-button">Get In Touch</a>
+                <h1><span class="highlight" data-translate="hero-title">Mohammed Naeem | Digital Magic</span></h1>
+                <p id="typewriter-text" class="typewriter" data-translate="hero-subtitle"></p>
+                <a href="#contact" class="cta-button" data-translate="hero-cta">Get In Touch</a>
             </div>
             
             <div class="scroll-down">
@@ -1129,39 +1365,31 @@
     <!-- My Journey Section -->
     <section id="journey">
         <div class="section-title">
-            <h2>My Journey</h2>
+            <h2 data-translate="journey-title">My Journey</h2>
         </div>
         
         <div class="journey-container">
             <div class="journey-item">
                 <div class="journey-content">
                     <div class="journey-year">2019</div>
-                    <h3>Frontend Development</h3>
-                    <p>My programming journey began in 2019 when I was still in school. I was fascinated by frontend development and spent countless hours learning HTML, CSS, and JavaScript, building small projects and experimenting with different designs.</p>
+                    <h3 data-translate="journey-frontend-title">Frontend Development</h3>
+                    <p data-translate="journey-frontend-desc">My programming journey began in 2019 when I was still in school. I was fascinated by frontend development and spent countless hours learning HTML, CSS, and JavaScript, building small projects and experimenting with different designs.</p>
                 </div>
             </div>
             
             <div class="journey-item">
                 <div class="journey-content">
                     <div class="journey-year">2023</div>
-                    <h3>Backend Development</h3>
-                    <p>I decided to expand my skillset by diving into backend development. I learned Node.js, Python, databases, and server management, which allowed me to become a Full Stack Developer capable of building complete applications from scratch.</p>
-                </div>
-            </div>
-            
-            <div class="journey-item">
-                <div class="journey-content">
-                    <div class="journey-year">2025</div>
-                    <h3>UI/UX Design</h3>
-                    <p>I recognized the importance of good design in creating successful digital products. I immersed myself in UI/UX design principles, learning tools like Figma and Adobe XD, and understanding how to create interfaces that are not just beautiful but also intuitive and user-friendly.</p>
+                    <h3 data-translate="journey-fullstack-title">Full Stack Expansion</h3>
+                    <p data-translate="journey-fullstack-desc">In 2023, I expanded my skills to include backend technologies like Node.js, Python, and database management. This transformation allowed me to build complete web applications from frontend to backend.</p>
                 </div>
             </div>
             
             <div class="journey-item">
                 <div class="journey-content">
                     <div class="journey-year">Present</div>
-                    <h3>Full Stack Developer</h3>
-                    <p>Throughout my journey, I've worked on numerous projects, both personal and professional, gaining valuable experience and earning several certifications along the way. </p>
+                    <h3 data-translate="journey-present-title">Full Stack Developer</h3>
+                    <p data-translate="journey-present-desc">Throughout my journey, I've worked on numerous projects, both personal and professional, gaining valuable experience and earning several certifications along the way.</p>
                 </div>
             </div>
         </div>
@@ -1169,54 +1397,82 @@
     
     <section id="services">
         <div class="section-title">
-            <h2>My Services</h2>
+            <h2 data-translate="services-title">Services</h2>
         </div>
         
         <div class="services-container">
             <div class="service-card">
                 <i class="fas fa-code"></i>
-                <h3>Frontend Development</h3>
-                <p>Beautiful, responsive websites built with React, Vue.js, or vanilla JavaScript tailored to your brand.</p>
-                <div class="price">$25 <span class="original-price">$125</span></div>
-                <div class="discount-badge">80% OFF</div>
-                <a href="service-frontend.html" class="cta-button" style="display: block; margin-top: 15px;">View More</a>
+                <h3 data-translate="service-frontend-title">Frontend Development</h3>
+                <p data-translate="service-frontend-desc">Beautiful, responsive websites built with React, Vue.js, or vanilla JavaScript tailored to your brand.</p>
+                <a href="service-frontend.html" class="cta-button" style="display: block; margin-top: 15px;" data-translate="service-view-packages">View Packages</a>
             </div>
             
             <div class="service-card">
                 <i class="fas fa-server"></i>
-                <h3>Backend Development</h3>
-                <p>Robust server-side solutions with Node.js, Express, Django, or Laravel for your business needs.</p>
-                <div class="price">$150 <span class="original-price">$750</span></div>
-                <div class="discount-badge">80% OFF</div>
-                <a href="service-backend.html" class="cta-button" style="display: block; margin-top: 15px;">View More</a>
+                <h3 data-translate="service-backend-title">Backend Development</h3>
+                <p data-translate="service-backend-desc">Robust server-side solutions with Node.js, Python, and database integration for scalable applications.</p>
+                <a href="service-backend.html" class="cta-button" style="display: block; margin-top: 15px;" data-translate="service-view-packages">View Packages</a>
             </div>
             
             <div class="service-card">
                 <i class="fas fa-layer-group"></i>
-                <h3>Full Stack Development</h3>
-                <p>Complete web applications from front to back with modern technologies and best practices.</p>
-                <div class="price">$160 <span class="original-price">$1066</span></div>
-                <div class="discount-badge">85% OFF</div>
-                <a href="service-fullstack.html" class="cta-button" style="display: block; margin-top: 15px;">View More</a>
+                <h3 data-translate="service-fullstack-title">Full Stack Development</h3>
+                <p data-translate="service-fullstack-desc">Complete web applications from frontend to backend, including database design and deployment.</p>
+                <a href="service-fullstack.html" class="cta-button" style="display: block; margin-top: 15px;" data-translate="service-view-packages">View Packages</a>
             </div>
             
             <div class="service-card">
                 <i class="fas fa-paint-brush"></i>
-                <h3>UI/UX Design</h3>
-                <p>User-centered designs that enhance usability and create engaging digital experiences.</p>
-                <div class="price">$25 <span class="original-price">$125</span></div>
-                <div class="discount-badge">80% OFF</div>
-                <a href="design.html" class="cta-button" style="display: block; margin-top: 15px;">View More</a>
+                <h3 data-translate="service-design-title">UI/UX Design</h3>
+                <p data-translate="service-design-desc">User-centered designs that enhance usability and create engaging digital experiences.</p>
+                <a href="design.html" class="cta-button" style="display: block; margin-top: 15px;" data-translate="service-view-packages">View Packages</a>
             </div>
         </div>
     </section>
     
     <section id="projects">
         <div class="section-title">
-            <h2>Featured Projects</h2>
+            <h2 data-translate="projects-title">Featured Projects</h2>
         </div>
         
         <div class="projects-container">
+            <!-- Project 1 - E-commerce -->
+            <div class="project-card" onclick="window.location.href='project-ecommerce.html'">
+                <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="E-commerce Platform" class="project-img">
+                <div class="project-info">
+                    <h3>E-commerce Platform</h3>
+                    <p>Full-featured online store with payment processing, inventory management, and analytics.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">React</span>
+                        <span class="project-tag">Node.js</span>
+                        <span class="project-tag">MongoDB</span>
+                        <span class="project-tag">Stripe</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="project-ecommerce.html">View More</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2 - Fintech -->
+            <div class="project-card" onclick="window.location.href='project-fintech.html'">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Fintech Dashboard" class="project-img">
+                <div class="project-info">
+                    <h3>Fintech Dashboard</h3>
+                    <p>Advanced financial analytics platform with real-time trading and portfolio management.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Vue.js</span>
+                        <span class="project-tag">Python</span>
+                        <span class="project-tag">FastAPI</span>
+                        <span class="project-tag">PostgreSQL</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="project-fintech.html">View More</a>
+                    </div>
+                </div>
+            </div>
+            
             <!-- Project 3 - Social Dashboard -->
             <div class="project-card" onclick="window.location.href='project-social.html'">
                 <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Social Media Dashboard" class="project-img">
@@ -1287,21 +1543,187 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Project 7 - Travel Platform -->
+            <div class="project-card" onclick="window.location.href='project-travel.html'">
+                <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Travel Booking Platform" class="project-img">
+                <div class="project-info">
+                    <h3>Travel Booking Platform</h3>
+                    <p>Comprehensive travel booking system with flight, hotel, and activity reservations.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Next.js</span>
+                        <span class="project-tag">TypeScript</span>
+                        <span class="project-tag">GraphQL</span>
+                        <span class="project-tag">Prisma</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="project-travel.html">View More</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 8 - Portfolio Website -->
+            <div class="project-card" onclick="window.location.href='project-portfolio.html'">
+                <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Portfolio Website" class="project-img">
+                <div class="project-info">
+                    <h3>Portfolio Website</h3>
+                    <p>Interactive creative portfolio with 3D animations and dynamic content management.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Three.js</span>
+                        <span class="project-tag">React</span>
+                        <span class="project-tag">GSAP</span>
+                        <span class="project-tag">WebGL</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="project-portfolio.html">View More</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
-    
-    <!-- Skills Section -->
-    <section id="skills">
+
+    <!-- Technical Skills Section -->
+    <section id="technical-skills">
         <div class="section-title">
-            <h2>Technical Skills</h2>
+            <h2 data-translate="technical-skills-title">Technical Skills</h2>
         </div>
         
-        <div class="skills-container">
-            <div class="skill-category">
-                <h3>Frontend</h3>
+        <div class="technical-skills-container">
+            <!-- Frontend Skills -->
+            <div class="skill-section">
+                <h3 data-translate="frontend-skills-title">Frontend Development</h3>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>HTML/CSS</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>JavaScript</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>React</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Vue.js</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>TypeScript</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Sass/SCSS</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Backend Skills -->
+            <div class="skill-section">
+                <h3 data-translate="backend-skills-title">Backend Development</h3>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Node.js</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Express.js</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Python</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Django</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>MongoDB</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>PostgreSQL</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Soft Skills Section -->
+    <section id="soft-skills">
+        <div class="section-title">
+            <h2 data-translate="soft-skills-title">Soft Skills</h2>
+        </div>
+        
+        <div class="soft-skills-container">
+            <div class="skills-grid">
                 <div class="skill-item">
                     <div class="skill-name">
-                        <span>HTML/CSS</span>
+                        <span data-translate="problem-solving">Problem Solving</span>
                         <span>95%</span>
                     </div>
                     <div class="skill-bar">
@@ -1310,7 +1732,7 @@
                 </div>
                 <div class="skill-item">
                     <div class="skill-name">
-                        <span>JavaScript</span>
+                        <span data-translate="communication">Communication</span>
                         <span>90%</span>
                     </div>
                     <div class="skill-bar">
@@ -1319,7 +1741,25 @@
                 </div>
                 <div class="skill-item">
                     <div class="skill-name">
-                        <span>React</span>
+                        <span data-translate="teamwork">Teamwork</span>
+                        <span>88%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 88%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span data-translate="creativity">Creativity</span>
+                        <span>92%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 92%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span data-translate="time-management">Time Management</span>
                         <span>85%</span>
                     </div>
                     <div class="skill-bar">
@@ -1328,20 +1768,7 @@
                 </div>
                 <div class="skill-item">
                     <div class="skill-name">
-                        <span>Vue.js</span>
-                        <span>80%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 80%"></div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="skill-category">
-                <h3>Backend</h3>
-                <div class="skill-item">
-                    <div class="skill-name">
-                        <span>Node.js</span>
+                        <span data-translate="adaptability">Adaptability</span>
                         <span>90%</span>
                     </div>
                     <div class="skill-bar">
@@ -1350,79 +1777,47 @@
                 </div>
                 <div class="skill-item">
                     <div class="skill-name">
-                        <span>Express</span>
-                        <span>85%</span>
+                        <span data-translate="leadership">Leadership</span>
+                        <span>87%</span>
                     </div>
                     <div class="skill-bar">
-                        <div class="skill-progress" style="width: 85%"></div>
+                        <div class="skill-progress" style="width: 87%"></div>
                     </div>
                 </div>
                 <div class="skill-item">
                     <div class="skill-name">
-                        <span>Django</span>
-                        <span>80%</span>
+                        <span data-translate="critical-thinking">Critical Thinking</span>
+                        <span>93%</span>
                     </div>
                     <div class="skill-bar">
-                        <div class="skill-progress" style="width: 80%"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-name">
-                        <span>Laravel</span>
-                        <span>75%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 75%"></div>
+                        <div class="skill-progress" style="width: 93%"></div>
                     </div>
                 </div>
             </div>
-            
-            <div class="skill-category">
-                <h3>Database</h3>
+        </div>
+    </section>
+
+    <!-- Language Skills Section -->
+    <section id="language-skills">
+        <div class="section-title">
+            <h2 data-translate="language-skills-title">Language Skills</h2>
+        </div>
+        
+        <div class="language-skills-container">
+            <div class="skills-grid">
                 <div class="skill-item">
                     <div class="skill-name">
-                        <span>MongoDB</span>
-                        <span>85%</span>
+                        <span data-translate="arabic-lang">Arabic</span>
+                        <span data-translate="fluent">Fluent</span>
                     </div>
                     <div class="skill-bar">
-                        <div class="skill-progress" style="width: 85%"></div>
+                        <div class="skill-progress" style="width: 100%"></div>
                     </div>
                 </div>
                 <div class="skill-item">
                     <div class="skill-name">
-                        <span>PostgreSQL</span>
-                        <span>80%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 80%"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-name">
-                        <span>MySQL</span>
-                        <span>75%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 75%"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-name">
-                        <span>Firebase</span>
-                        <span>70%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 70%"></div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="skill-category">
-                <h3>Other</h3>
-                <div class="skill-item">
-                    <div class="skill-name">
-                        <span>Git</span>
-                        <span>90%</span>
+                        <span data-translate="english-lang">English</span>
+                        <span>C1</span>
                     </div>
                     <div class="skill-bar">
                         <div class="skill-progress" style="width: 90%"></div>
@@ -1430,17 +1825,8 @@
                 </div>
                 <div class="skill-item">
                     <div class="skill-name">
-                        <span>Docker</span>
-                        <span>80%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 80%"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-name">
-                        <span>AWS</span>
-                        <span>75%</span>
+                        <span data-translate="french-lang">French</span>
+                        <span>B2</span>
                     </div>
                     <div class="skill-bar">
                         <div class="skill-progress" style="width: 75%"></div>
@@ -1448,11 +1834,20 @@
                 </div>
                 <div class="skill-item">
                     <div class="skill-name">
-                        <span>CI/CD</span>
-                        <span>70%</span>
+                        <span data-translate="spanish-lang">Spanish</span>
+                        <span>B1</span>
                     </div>
                     <div class="skill-bar">
-                        <div class="skill-progress" style="width: 70%"></div>
+                        <div class="skill-progress" style="width: 65%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span data-translate="german-lang">German</span>
+                        <span data-translate="learning">Learning</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 30%"></div>
                     </div>
                 </div>
             </div>
@@ -1461,7 +1856,7 @@
 
     <section id="education">
         <div class="section-title">
-            <h2>Education & Courses</h2>
+            <h2 data-translate="courses-title">Education & Courses</h2>
         </div>
         
         <div class="courses-container">
@@ -1479,7 +1874,7 @@
             
             <div class="course-card">
                 <h3>Computer Science Diploma</h3>
-                <p class="course-provider">free code academy</p>
+                <p class="course-provider">Free Code Academy</p>
                 <p>Diploma in Computer Science with focus on algorithms, data structures, and software engineering.</p>
             </div>
             
@@ -1488,31 +1883,97 @@
                 <p class="course-provider">freeCodeCamp</p>
                 <p>Certification in responsive design principles, CSS Flexbox, Grid, and accessibility standards.</p>
             </div>
+
+            <div class="course-card">
+                <h3>React - The Complete Guide</h3>
+                <p class="course-provider">Udemy</p>
+                <p>Master React with hooks, context, Redux, and advanced patterns for building modern web applications.</p>
+            </div>
+
+            <div class="course-card">
+                <h3>Node.js Backend Development</h3>
+                <p class="course-provider">Coursera</p>
+                <p>Server-side development with Node.js, Express, authentication, and RESTful API design.</p>
+            </div>
+
+            <div class="course-card">
+                <h3>MongoDB University</h3>
+                <p class="course-provider">MongoDB</p>
+                <p>Database design, aggregation pipelines, and performance optimization for MongoDB applications.</p>
+            </div>
+
+            <div class="course-card">
+                <h3>AWS Cloud Practitioner</h3>
+                <p class="course-provider">AWS Training</p>
+                <p>Cloud computing fundamentals, AWS services, and deployment strategies for scalable applications.</p>
+            </div>
+
+            <div class="course-card">
+                <h3>Vue.js Complete Course</h3>
+                <p class="course-provider">Vue Mastery</p>
+                <p>Progressive framework mastery including Vuex, Vue Router, and composition API for modern SPAs.</p>
+            </div>
+
+            <div class="course-card">
+                <h3>Python for Web Development</h3>
+                <p class="course-provider">Python Institute</p>
+                <p>Django and Flask frameworks, ORM, authentication, and API development with Python.</p>
+            </div>
+
+            <div class="course-card">
+                <h3>UI/UX Design Fundamentals</h3>
+                <p class="course-provider">Google UX Design</p>
+                <p>User research, wireframing, prototyping, and design systems for exceptional user experiences.</p>
+            </div>
+
+            <div class="course-card">
+                <h3>Docker & Kubernetes</h3>
+                <p class="course-provider">Docker</p>
+                <p>Containerization, orchestration, and deployment strategies for modern DevOps workflows.</p>
+            </div>
+
+            <div class="course-card">
+                <h3>GraphQL API Development</h3>
+                <p class="course-provider">Apollo GraphQL</p>
+                <p>Modern API development with GraphQL, Apollo Server, and client-side data management.</p>
+            </div>
+
+            <div class="course-card">
+                <h3>TypeScript Mastery</h3>
+                <p class="course-provider">TypeScript Team</p>
+                <p>Advanced TypeScript features, generics, decorators, and integration with modern frameworks.</p>
+            </div>
+
+            <div class="course-card">
+                <h3>Cybersecurity Fundamentals</h3>
+                <p class="course-provider">CompTIA</p>
+                <p>Web security, encryption, authentication protocols, and secure coding practices for developers.</p>
+            </div>
         </div>
     </section>
 
     <section id="contact">
         <div class="section-title">
-            <h2>Get In Touch</h2>
+            <h2 data-translate="contact-title">Contact Me</h2>
         </div>
         
         <div class="contact-container">
-            <p>I'm currently available for freelance work. If you have a project you want to get started or think you need my help with something, then get in touch.</p>
+            <p data-translate="contact-desc">I'm currently available for freelance work. If you have a project you want to get started or think you need my help with something, then get in touch.</p>
             
             <form id="contact-form">
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input type="email" name="email" placeholder="Your Email" required>
-                <textarea name="message" placeholder="Your Message" required></textarea>
-                <button type="submit" class="cta-button">Send Message</button>
+                <input type="text" name="name" data-translate="contact-name-placeholder" placeholder="Your Name" required>
+                <input type="email" name="email" data-translate="contact-email-placeholder" placeholder="Your Email" required>
+                <textarea name="message" data-translate="contact-message-placeholder" placeholder="Your Message" required></textarea>
+                <button type="submit" class="cta-button" data-translate="contact-send-btn">Send Message</button>
             </form>
             
             <div class="success-message">
                 <i class="fas fa-check-circle"></i>
-                <h3>Thank You!</h3>
-                <p>Your message has been sent successfully. I appreciate your trust in me and I'll get back to you as soon as possible.</p>
-                <p>I believe I'm the right person for your project because of my extensive experience in both frontend and backend development, combined with my design skills that ensure creating interfaces that are not just functional but also beautiful and intuitive.</p>
-                <p>You can also reach me directly at <a href="mailto:mohammmedabdelnaeim18@gmail.com">mohammmedabdelnaeim18@gmail.com</a> if you need immediate assistance.</p>
-                <button onclick="closeSuccessMessage()" class="cta-button">Close</button>
+                <h3 data-translate="success-title">Thank You!</h3>
+                <p data-translate="success-message1">Your message has been sent successfully. I appreciate your trust in me and I'll get back to you as soon as possible.</p>
+                <p data-translate="success-message2">I believe I'm the right person for your project because of my extensive experience in both frontend and backend development, combined with my design skills that ensure creating interfaces that are not just functional but also beautiful and intuitive.</p>
+                <p data-translate="success-message3">You can also reach me directly at <a href="mailto:mohammmedabdelnaeim18@gmail.com">mohammmedabdelnaeim18@gmail.com</a> if you need immediate assistance.</p>
+                <button onclick="closeSuccessMessage()" class="cta-button" data-translate="success-close-btn">Close</button>
             </div>
             
             <div class="social-links" style="margin-top: 2rem;">
@@ -1533,7 +1994,7 @@
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     
     <script>
-        // Preloader
+               // Preloader
         window.addEventListener('load', function() {
             setTimeout(function() {
                 document.querySelector('.preloader').classList.add('fade-out');
@@ -1545,7 +2006,7 @@
         
         // Typewriter effect
         const typewriterText = document.getElementById('typewriter-text');
-        const texts = [
+        let texts = [
             "A Full Stack Developer passionate about building web applications.",
             "Specializing in React, Node.js, and modern JavaScript frameworks.",
             "Creating beautiful, functional, and user-friendly digital experiences."
@@ -1658,14 +2119,14 @@
             element.addEventListener('mouseenter', function() {
                 cursor.style.transform = 'scale(1.5)';
                 cursorFollower.style.transform = 'scale(1.5)';
-                cursorFollower.style.borderColor = 'transparent';
+                cursorFollower.style.bearerColor = 'transparent';
                 cursorFollower.style.backgroundColor = 'rgba(10, 126, 58, 0.3)';
             });
             
             element.addEventListener('mouseleave', function() {
                 cursor.style.transform = 'scale(1)';
                 cursorFollower.style.transform = 'scale(1)';
-                cursorFollower.style.borderColor = 'var(--primary)';
+                cursorFollower.style.bearerColor = 'var(--primary)';
                 cursorFollower.style.backgroundColor = 'transparent';
             });
         });
@@ -1826,6 +2287,744 @@
                 }
             },
             "retina_detect": true
+        });
+
+        // Language Selector Functions
+        function toggleLanguageDropdown() {
+            const options = document.getElementById('languageOptions');
+            options.classList.toggle('show');
+        }
+
+        function changeLanguage(langCode, flagIcon, langText) {
+            const selectedLanguage = document.querySelector('.selected-language');
+            const flagSpan = selectedLanguage.querySelector('.flag-icon');
+            const textSpan = selectedLanguage.querySelector('.language-text');
+            
+            flagSpan.textContent = flagIcon;
+            textSpan.textContent = langText;
+            
+            // Close dropdown
+            const options = document.getElementById('languageOptions');
+            options.classList.remove('show');
+            
+            // Store selected language
+            localStorage.setItem('selectedLanguage', langCode);
+            
+            // Set data-lang attribute for CSS targeting
+            document.body.setAttribute('data-lang', langCode);
+            
+            // Apply language translations
+            applyTranslations(langCode);
+        }
+
+        function applyTranslations(langCode) {
+            const translations = {
+                en: {
+                    // النصوص الحالية
+                    'hero-title': 'Mohammed Naeem | Digital Magic',
+                    'hero-subtitle': 'Full Stack Developer & UI/UX Designer',
+                    'hero-cta': 'Get In Touch',
+                    'journey-title': 'My Journey',
+                    'journey-frontend-title': 'Frontend Development',
+                    'journey-frontend-desc': 'My programming journey began in 2019 when I was still in school. I was fascinated by frontend development and spent countless hours learning HTML, CSS, and JavaScript, building small projects and experimenting with different designs.',
+                    'journey-fullstack-title': 'Full Stack Expansion',
+                    'journey-fullstack-desc': 'In 2023, I expanded my skills to include backend technologies like Node.js, Python, and database management. This transformation allowed me to build complete web applications from frontend to backend.',
+                    'journey-present-title': 'Full Stack Developer',
+                    'journey-present-desc': 'Throughout my journey, I\'ve worked on numerous projects, both personal and professional, gaining valuable experience and earning several certifications along the way.',
+                    'services-title': 'Services',
+                    'service-frontend-title': 'Frontend Development',
+                    'service-frontend-desc': 'Beautiful, responsive websites built with React, Vue.js, or vanilla JavaScript tailored to your brand.',
+                    'service-backend-title': 'Backend Development',
+                    'service-backend-desc': 'Robust server-side solutions with Node.js, Python, and database integration for scalable applications.',
+                    'service-fullstack-title': 'Full Stack Development',
+                    'service-fullstack-desc': 'Complete web applications from frontend to backend, including database design and deployment.',
+                    'service-design-title': 'UI/UX Design',
+                    'service-design-desc': 'User-centered designs that enhance usability and create engaging digital experiences.',
+                    'service-view-packages': 'View Packages',
+                    'projects-title': 'Featured Projects',
+                    'courses-title': 'Education & Courses',
+                    'contact-title': 'Contact Me',
+                    'contact-desc': 'I\'m currently available for freelance work. If you have a project you want to get started or think you need my help with something, then get in touch.',
+                    'contact-name-placeholder': 'Your Name',
+                    'contact-email-placeholder': 'Your Email',
+                    'contact-message-placeholder': 'Your Message',
+                    'contact-send-btn': 'Send Message',
+                    'skills-title': 'Skills',
+                    'technical-skills-title': 'Technical Skills',
+                    'frontend-skills-title': 'Frontend Development',
+                    'backend-skills-title': 'Backend Development',
+                    'soft-skills-title': 'Soft Skills',
+                    'language-skills-title': 'Language Skills',
+                    'leadership': 'Leadership',
+                    'critical-thinking': 'Critical Thinking',
+                    'problem-solving': 'Problem Solving',
+                    'communication': 'Communication',
+                    'teamwork': 'Teamwork',
+                    'creativity': 'Creativity',
+                    'time-management': 'Time Management',
+                    'adaptability': 'Adaptability',
+                    'arabic-lang': 'Arabic',
+                    'english-lang': 'English',
+                    'french-lang': 'French',
+                    'spanish-lang': 'Spanish',
+                    'german-lang': 'German',
+                    'fluent': 'Fluent',
+                    'learning': 'Learning',
+                    'success-title': 'Thank You!',
+                    'success-message1': 'Your message has been sent successfully. I appreciate your trust in me and I\'ll get back to you as soon as possible.',
+                    'success-message2': 'I believe I\'m the right person for your project because of my extensive experience in both frontend and backend development, combined with my design skills that ensure creating interfaces that are not just functional but also beautiful and intuitive.',
+                    'success-message3': 'You can also reach me directly at mohammmedabdelnaeim18@gmail.com if you need immediate assistance.',
+                    'success-close-btn': 'Close',
+                    
+                    // نصوص Typewriter Effect
+                    'typewriter-text-1': 'A Full Stack Developer passionate about building web applications.',
+                    'typewriter-text-2': 'Specializing in React, Node.js, and modern JavaScript frameworks.',
+                    'typewriter-text-3': 'Creating beautiful, functional, and user-friendly digital experiences.',
+                    
+                    // أسماء وتفاصيل المشاريع
+                    'project-ecommerce-title': 'E-commerce Platform',
+                    'project-ecommerce-desc': 'Full-featured online store with payment processing, inventory management, and analytics.',
+                    'project-fintech-title': 'Fintech Dashboard',
+                    'project-fintech-desc': 'Advanced financial analytics platform with real-time trading and portfolio management.',
+                    'project-social-title': 'Social Media Dashboard',
+                    'project-social-desc': 'Analytics dashboard that aggregates data from multiple social platforms into one interface.',
+                    'project-healthcare-title': 'Healthcare Portal',
+                    'project-healthcare-desc': 'HIPAA-compliant patient management system with appointment scheduling and telemedicine.',
+                    'project-realestate-title': 'Real Estate Platform',
+                    'project-realestate-desc': 'Property listing platform with advanced search filters, virtual tours, and agent CRM.',
+                    'project-lms-title': 'Learning Management System',
+                    'project-lms-desc': 'Custom LMS with course creation tools, progress tracking, and interactive quizzes.',
+                    'project-travel-title': 'Travel Booking Platform',
+                    'project-travel-desc': 'Comprehensive travel booking system with flight, hotel, and activity reservations.',
+                    'project-portfolio-title': 'Portfolio Website',
+                    'project-portfolio-desc': 'Interactive creative portfolio with 3D animations and dynamic content management.',
+                    
+                    // الكورسات وتفاصيلها
+                    'course-fullstack': 'Full Stack Web Development',
+                    'course-fullstack-desc': 'Comprehensive full stack development course covering HTML, CSS, JavaScript, React, Node.js, and MongoDB.',
+                    'course-javascript': 'Advanced JavaScript Concepts',
+                    'course-javascript-desc': 'Deep dive into JavaScript including closures, prototypes, async programming, and design patterns.',
+                    'course-cs': 'Computer Science Diploma',
+                    'course-cs-desc': 'Diploma in Computer Science with focus on algorithms, data structures, and software engineering.',
+                    'course-responsive': 'Responsive Web Design',
+                    'course-responsive-desc': 'Certification in responsive design principles, CSS Flexbox, Grid, and accessibility standards.',
+                    'course-react': 'React - The Complete Guide',
+                    'course-react-desc': 'Master React with hooks, context, Redux, and advanced patterns for building modern web applications.',
+                    'course-nodejs': 'Node.js Backend Development',
+                    'course-nodejs-desc': 'Server-side development with Node.js, Express, authentication, and RESTful API design.',
+                    'course-mongodb': 'MongoDB University',
+                    'course-mongodb-desc': 'Database design, aggregation pipelines, and performance optimization for MongoDB applications.',
+                    'course-aws': 'AWS Cloud Practitioner',
+                    'course-aws-desc': 'Cloud computing fundamentals, AWS services, and deployment strategies for scalable applications.',
+                    'course-vue': 'Vue.js Complete Course',
+                    'course-vue-desc': 'Progressive framework mastery including Vuex, Vue Router, and composition API for modern SPAs.',
+                    'course-python': 'Python for Web Development',
+                    'course-python-desc': 'Django and Flask frameworks, ORM, authentication, and API development with Python.',
+                    'course-uiux': 'UI/UX Design Fundamentals',
+                    'course-uiux-desc': 'User research, wireframing, prototyping, and design systems for exceptional user experiences.',
+                    'course-docker': 'Docker & Kubernetes',
+                    'course-docker-desc': 'Containerization, orchestration, and deployment strategies for modern DevOps workflows.',
+                    'course-graphql': 'GraphQL API Development',
+                    'course-graphql-desc': 'Modern API development with GraphQL, Apollo Server, and client-side data management.',
+                    'course-typescript': 'TypeScript Mastery',
+                    'course-typescript-desc': 'Advanced TypeScript features, generics, decorators, and integration with modern frameworks.',
+                    'course-cybersecurity': 'Cybersecurity Fundamentals',
+                    'course-cybersecurity-desc': 'Web security, encryption, authentication protocols, and secure coding practices for developers.'
+                },
+                ar: {
+                    // النصوص الحالية
+                    'hero-title': 'محمد نعيم | السحر الرقمي',
+                    'hero-subtitle': 'مطور ويب متكامل ومصمم واجهات',
+                    'hero-cta': 'تواصل معي',
+                    'journey-title': 'رحلتي',
+                    'journey-frontend-title': 'تطوير الواجهات الأمامية',
+                    'journey-frontend-desc': '2019\nتطوير الواجهات الأمامية\nبدأت رحلتي في البرمجة عام 2019 عندما كنت لا أزال في المدرسة. كنت مفتوناً بتطوير الواجهات الأمامية وقضيت ساعات لا تحصى في تعلم HTML و CSS و JavaScript، وبناء مشاريع صغيرة والتجريب مع تصاميم مختلفة.',
+                    'journey-fullstack-title': 'التوسع في التطوير الشامل',
+                    'journey-fullstack-desc': '2023\nالتوسع في التطوير الشامل\nفي عام 2023، وسعت مهاراتي لتشمل تقنيات الخادم مثل Node.js و Python وإدارة قواعد البيانات. هذا التحول سمح لي ببناء تطبيقات ويب كاملة من الواجهة الأمامية إلى الخلفية.',
+                    'journey-present-title': 'مطور ويب متكامل',
+                    'journey-present-desc': 'Present\nمطور ويب متكامل\nخلال رحلتي، عملت على العديد من المشاريع، الشخصية والمهنية، واكتسبت خبرة قيمة وحصلت على عدة شهادات في الطريق.',
+                    'services-title': 'الخدمات',
+                    'service-frontend-title': 'تطوير الواجهات الأمامية',
+                    'service-frontend-desc': 'مواقع ويب جميلة ومتجاوبة مبنية بـ React أو Vue.js أو JavaScript العادي مصممة خصيصاً لعلامتك التجارية.',
+                    'service-backend-title': 'تطوير الخادم',
+                    'service-backend-desc': 'حلول خادم قوية مع Node.js و Python وتكامل قواعد البيانات للتطبيقات القابلة للتوسع.',
+                    'service-fullstack-title': 'التطوير الشامل',
+                    'service-fullstack-desc': 'تطبيقات ويب كاملة من الواجهة الأمامية إلى الخلفية، بما في ذلك تصميم قواعد البيانات والنشر.',
+                    'service-design-title': 'تصميم واجهات المستخدم',
+                    'service-design-desc': 'تصاميم متمحورة حول المستخدم تعزز سهولة الاستخدام وتخلق تجارب رقمية جذابة.',
+                    'service-view-packages': 'عرض الباقات',
+                    'projects-title': 'المشاريع المميزة',
+                    'courses-title': 'التعليم والدورات',
+                    'contact-title': 'تواصل معي',
+                    'contact-desc': 'أنا متاح حالياً للعمل الحر. إذا كان لديك مشروع تريد البدء فيه أو تعتقد أنك بحاجة لمساعدتي في شيء ما، فتواصل معي.',
+                    'contact-name-placeholder': 'اسمك',
+                    'contact-email-placeholder': 'بريدك الإلكتروني',
+                    'contact-message-placeholder': 'رسالتك',
+                    'contact-send-btn': 'إرسال الرسالة',
+                    'skills-title': 'المهارات',
+                    'technical-skills-title': 'المهارات التقنية',
+                    'frontend-skills-title': 'تطوير الواجهات الأمامية',
+                    'backend-skills-title': 'تطوير الخادم',
+                    'soft-skills-title': 'المهارات الشخصية',
+                    'language-skills-title': 'المهارات اللغوية',
+                    'leadership': 'القيادة',
+                    'critical-thinking': 'التفكير النقدي',
+                    'problem-solving': 'حل المشاكل',
+                    'communication': 'التواصل',
+                    'teamwork': 'العوم الجماعي',
+                    'creativity': 'الإبداع',
+                    'time-management': 'إدارة الوقت',
+                    'adaptability': 'القدرة على التكيف',
+                    'arabic-lang': 'العربية',
+                    'english-lang': 'الإنجليزية',
+                    'french-lang': 'الفرنسية',
+                    'spanish-lang': 'الإسبانية',
+                    'german-lang': 'الألمانية',
+                    'fluent': 'طلاقة',
+                    'learning': 'أتعلم',
+                    'success-title': 'شكراً لك!',
+                    'success-message1': 'تم إرسال رسالتك بنجاح. أقدر ثقتك بي وسأعود إليك في أقرب وقت ممكن.',
+                    'success-message2': 'أعتقد أنني الشخص المناسب لمشروعك بسبب خبرتي الواسعة في تطوير الواجهات الأمامية والخلفية، بالإضافة إلى مهاراتي في التصميم التي تضمن إنشاء واجهات ليست فقط وظيفية ولكن أيضاً جميلة وبديهية.',
+                    'success-message3': 'يمكنك أيضاً التواصل معي مباشرة على mohammmedabdelnaeim18@gmail.com إذا كنت بحاجة لمساعدة فورية.',
+                    'success-close-btn': 'إغلاق',
+                    
+                    // نصوص Typewriter Effect
+                    'typewriter-text-1': 'مطور ويب متكامل شغوف ببناء تطبيقات الويب.',
+                    'typewriter-text-2': 'متخصص في React و Node.js وأطر عمل JavaScript الحديثة.',
+                    'typewriter-text-3': 'أخلق تجارب رقمية جميلة ووظيفية وسهلة الاستخدام.',
+                    
+                    // أسماء وتفاصيل المشاريع
+                    'project-ecommerce-title': 'منصة التجارة الإلكترونية',
+                    'project-ecommerce-desc': 'متجر عبر الإنترنت كامل الميزات مع معالجة الدفع وإدارة المخزون والتحليلات.',
+                    'project-fintech-title': 'لوحة تحكم التكنولوجيا المالية',
+                    'project-fintech-desc': 'منصة تحليلات مالية متقدمة مع تداول في الوقت الفعلي وإدارة المحافظ.',
+                    'project-social-title': 'لوحة تحكم وسائل التواصل الاجتماعي',
+                    'project-social-desc': 'لوحة تحليلات تجمع البيانات من منصات التواصل الاجتماعي المتعددة في واجهة واحدة.',
+                    'project-healthcare-title': 'بوابة الرعاية الصحية',
+                    'project-healthcare-desc': 'نظام إدارة المرضى المتوافق مع HIPAA مع جدولة المواعيد والطب عن بعد.',
+                    'project-realestate-title': 'منصة العقارات',
+                    'project-realestate-desc': 'منصة عقارات مع عوامل تصفية متقدمة وجولات افتراضية ونظام CRM للوكلاء.',
+                    'project-lms-title': 'نظام إدارة التعلم',
+                    'project-lms-desc': 'نظام إدارة تعلم مخصص مع أدوات إنشاء الدورات وتتبع التقدم والاختبارات التفاعلية.',
+                    'project-travel-title': 'منصة حجز السفر',
+                    'project-travel-desc': 'نظام حجز سفر شامل مع حجوزات الطيران والفنادق والأنشطة.',
+                    'project-portfolio-title': 'موقع Portfolio',
+                    'project-portfolio-desc': 'Portfolio إبداعي تفاعلي مع رسوم متحركة ثلاثية الأبعاد وإدارة محتوى ديناميكية.',
+                    
+                    // الكورسات وتفاصيلها
+                    'course-fullstack': 'تطوير ويب متكامل',
+                    'course-fullstack-desc': 'دورة تطوير ويب شاملة تغطي HTML و CSS و JavaScript و React و Node.js و MongoDB.',
+                    'course-javascript': 'مفاهيم JavaScript المتقدمة',
+                    'course-javascript-desc': 'غوص عميق في JavaScript يشمل الإغلاق والنماذج الأولية والبرمجة غير المتزامنة وأنماط التصميم.',
+                    'course-cs': 'دبلومة علوم الحاسوب',
+                    'course-cs-desc': 'دبلوم في علوم الحاسوب مع التركيز على الخوارزميات وهياكل البيانات وهندسة البرمجيات.',
+                    'course-responsive': 'تصميم ويب متجاوب',
+                    'course-responsive-desc': 'شهادة في مبادئ التصميم المتجاوب و CSS Flexbox و Grid ومعايير إمكانية الوصول.',
+                    'course-react': 'React - الدليل الشامل',
+                    'course-react-desc': 'إتقان React مع hooks و context و Redux وأنماط متقدمة لبناء تطبيقات ويب حديثة.',
+                    'course-nodejs': 'تطوير خادم Node.js',
+                    'course-nodejs-desc': 'تطوير جانب الخادم مع Node.js و Express والمصادقة وتصميم واجهة برمجة تطبيقات RESTful.',
+                    'course-mongodb': 'جامعة MongoDB',
+                    'course-mongodb-desc': 'تصميم قواعد البيانات وخطوط تجميع وتحسين الأداء لتطبيقات MongoDB.',
+                    'course-aws': 'ممارس AWS السحابي',
+                    'course-aws-desc': 'أساسيات الحوسبة السحابية وخدمات AWS واستراتيجيات النشر للتطبيقات القابلة للتوسع.',
+                    'course-vue': 'دورة Vue.js الكاملة',
+                    'course-vue-desc': 'إتقان الإطار التدريجي بما في ذلك Vuex و Vue Router وواجهة برمجة التطبيقات التركيبية لتطبيقات الصفحة الواحدة الحديثة.',
+                    'course-python': 'Python لتطوير الويب',
+                    'course-python-desc': 'أطر عمل Django و Flask و ORM والمصادقة وتطوير واجهة برمجة التطبيقات باستخدام Python.',
+                    'course-uiux': 'أساسيات تصميم واجهة المستخدم/تجربة المستخدم',
+                    'course-uiux-desc': 'بحث المستخدم ورسم الهياكل والنماذج الأولية وأنظمة التصميم لتجارب مستخدم استثنائية.',
+                    'course-docker': 'Docker و Kubernetes',
+                    'course-docker-desc': 'الحاويات والتنسيق واستراتيجيات النشر لسير عمل DevOps الحديثة.',
+                    'course-graphql': 'تطوير واجهة برمجة تطبيقات GraphQL',
+                    'course-graphql-desc': 'تطوير واجهة برمجة تطبيقات حديثة مع GraphQL و Apollo Server وإدارة البيانات من جانب العميل.',
+                    'course-typescript': 'إتقان TypeScript',
+                    'course-typescript-desc': 'ميزات TypeScript المتقدمة والعاميات والديكورات والتكامل مع الأطر الحديثة.',
+                    'course-cybersecurity': 'أساسيات الأمن السيبراني',
+                    'course-cybersecurity-desc': 'أمان الويب والتشفير وبروتوكولات المصادقة وممارسات الترميز الآمنة للمطورين.'
+                },
+                es: {
+                    // النصوص الحالية
+                    'hero-title': 'Mohammed Naeem | Magia Digital',
+                    'hero-subtitle': 'Desarrollador Full Stack y Diseñador UI/UX',
+                    'hero-cta': 'Contáctame',
+                    'journey-title': 'Mi Viaje',
+                    'journey-frontend-title': 'Desarrollo Frontend',
+                    'journey-frontend-desc': 'Mi viaje de programación comenzó en 2019 cuando aún estaba en la escuela. Me fascinaba el desarrollo frontend y pasé incontables horas aprendiendo HTML, CSS y JavaScript, construyendo pequeños proyectos y experimentando con diferentes diseños.',
+                    'journey-fullstack-title': 'Expansión Full Stack',
+                    'journey-fullstack-desc': 'En 2023, expandí mis habilidades para incluir tecnologías backend como Node.js, Python y gestión de bases de datos. Esta transformación me permitió construir aplicaciones web completas desde frontend hasta backend.',
+                    'journey-present-title': 'Desarrollador Full Stack',
+                    'journey-present-desc': 'A lo largo de mi viaje, he trabajado en numerosos proyectos, tanto personales como profesionales, ganando experiencia valiosa y obteniendo varias certificaciones en el camino.',
+                    'services-title': 'Servicios',
+                    'service-frontend-title': 'Desarrollo Frontend',
+                    'service-frontend-desc': 'Sitios web hermosos y responsivos construidos con React, Vue.js o JavaScript vanilla adaptados a tu marca.',
+                    'service-backend-title': 'Desarrollo Backend',
+                    'service-backend-desc': 'Soluciones robustas del lado del servidor con Node.js, Python e integración de bases de datos para aplicaciones escalables.',
+                    'service-fullstack-title': 'Desarrollo Full Stack',
+                    'service-fullstack-desc': 'Aplicaciones web completas desde frontend hasta backend, incluyendo diseño de bases de datos y despliegue.',
+                    'service-design-title': 'Diseño UI/UX',
+                    'service-design-desc': 'Diseños centrados en el usuario que mejoran la usabilidad y crean experiencias digitales atractivas.',
+                    'service-view-packages': 'Ver Paquetes',
+                    'projects-title': 'Proyectos Destacados',
+                    'courses-title': 'Educación y Cursos',
+                    'contact-title': 'Contáctame',
+                    'contact-desc': 'Actualmente estoy disponible para trabajo freelance. Si tienes un proyecto que quieres comenzar o crees que necesitas mi ayuda con algo, ponte en contacto.',
+                    'contact-name-placeholder': 'Tu Nombre',
+                    'contact-email-placeholder': 'Tu Email',
+                    'contact-message-placeholder': 'Tu Mensaje',
+                    'contact-send-btn': 'Enviar Mensaje',
+                    'skills-title': 'Habilidades',
+                    'technical-skills-title': 'Habilidades Técnicas',
+                    'frontend-skills-title': 'Desarrollo Frontend',
+                    'backend-skills-title': 'Desarrollo Backend',
+                    'soft-skills-title': 'Habilidades Blandas',
+                    'language-skills-title': 'Habilidades Lingüísticas',
+                    'leadership': 'Liderazgo',
+                    'critical-thinking': 'Pensamiento Crítico',
+                    'problem-solving': 'Resolución de Problemas',
+                    'communication': 'Comunicación',
+                    'teamwork': 'Trabajo en Equipo',
+                    'creativity': 'Creatividad',
+                    'time-management': 'Gestión del Tiempo',
+                    'adaptability': 'Adaptabilidad',
+                    'arabic-lang': 'Árabe',
+                    'english-lang': 'Inglés',
+                    'french-lang': 'Francés',
+                    'spanish-lang': 'Español',
+                    'german-lang': 'Alemán',
+                    'fluent': 'Fluido',
+                    'learning': 'Aprendiendo',
+                    'success-title': '¡Gracias!',
+                    'success-message1': 'Tu mensaje ha sido enviado exitosamente. Aprecio tu confianza en mí y te responderé lo antes posible.',
+                    'success-message2': 'Creo que soy la persona adecuada para tu proyecto debido a mi amplia experiencia en desarrollo frontend y backend, combinada con mis habilidades de diseño que aseguran crear interfaces que no solo son funcionales sino también hermosas e intuitivas.',
+                    'success-message3': 'También puedes contactarme directamente en mohammmedabdelnaeim18@gmail.com si necesitas asistencia inmediata.',
+                    'success-close-btn': 'Cerrar',
+                    
+                    // نصوص Typewriter Effect
+                    'typewriter-text-1': 'Un desarrollador Full Stack apasionado por construir aplicaciones web.',
+                    'typewriter-text-2': 'Especializado en React, Node.js y frameworks modernos de JavaScript.',
+                    'typewriter-text-3': 'Creando experiencias digitales hermosas, funcionales y fáciles de usar.',
+                    
+                    // أسماء وتفاصيل المشاريع
+                    'project-ecommerce-title': 'Plataforma de Comercio Electrónico',
+                    'project-ecommerce-desc': 'Tienda en línea con todas las funciones con procesamiento de pagos, gestión de inventario y análisis.',
+                    'project-fintech-title': 'Panel de Fintech',
+                    'project-fintech-desc': 'Plataforma avanzada de análisis financiero con operaciones en tiempo real y gestión de carteras.',
+                    'project-social-title': 'Panel de Redes Sociales',
+                    'project-social-desc': 'Panel de análisis que agrega datos de múltiples plataformas sociales en una interfaz.',
+                    'project-healthcare-title': 'Portal de Salud',
+                    'project-healthcare-desc': 'Sistema de gestión de pacientes compatible con HIPAA con programación de citas y telemedicina.',
+                    'project-realestate-title': 'Plataforma Inmobiliaria',
+                    'project-realestate-desc': 'Plataforma de listados de propiedades con filtros de búsqueda avanzados, tours virtuales y CRM para agentes.',
+                    'project-lms-title': 'Sistema de Gestión de Aprendizaje',
+                    'project-lms-desc': 'LMS personalizado con herramientas de creación de cursos, seguimiento de progreso y cuestionarios interactivos.',
+                    'project-travel-title': 'Plataforma de Reservas de Viajes',
+                    'project-travel-desc': 'Sistema integral de reservas de viajes con reservas de vuelos, hoteles y actividades.',
+                    'project-portfolio-title': 'Sitio Web de Portafolio',
+                    'project-portfolio-desc': 'Portafolio creativo interactivo con animaciones 3D y gestión dinámica de contenido.',
+                    
+                    // الكورسات وتفاصيلها
+                    'course-fullstack': 'Desarrollo Web Full Stack',
+                    'course-fullstack-desc': 'Curso completo de desarrollo full stack que cubre HTML, CSS, JavaScript, React, Node.js y MongoDB.',
+                    'course-javascript': 'Conceptos Avanzados de JavaScript',
+                    'course-javascript-desc': 'Inmersión profunda en JavaScript incluyendo cierres, prototipos, programación asíncrona y patrones de diseño.',
+                    'course-cs': 'Diploma en Ciencias de la Computación',
+                    'course-cs-desc': 'Diploma en Ciencias de la Computación con enfoque en algoritmos, estructuras de datos e ingeniería de software.',
+                    'course-responsive': 'Diseño Web Responsivo',
+                    'course-responsive-desc': 'Certificación en principios de diseño responsivo, CSS Flexbox, Grid y estándares de accesibilidad.',
+                    'course-react': 'React - La Guía Completa',
+                    'course-react-desc': 'Dominio de React con hooks, context, Redux y patrones avanzados para construir aplicaciones web modernas.',
+                    'course-nodejs': 'Desarrollo Backend con Node.js',
+                    'course-nodejs-desc': 'Desarrollo del lado del servidor con Node.js, Express, autenticación y diseño de API RESTful.',
+                    'course-mongodb': 'Universidad MongoDB',
+                    'course-mongodb-desc': 'Diseño de bases de datos, pipelines de agregación y optimización del rendimiento para aplicaciones MongoDB.',
+                    'course-aws': 'Practicante de AWS Cloud',
+                    'course-aws-desc': 'Fundamentos de computación en la nube, servicios AWS y estrategias de implementación para aplicaciones escalables.',
+                    'course-vue': 'Curso Completo de Vue.js',
+                    'course-vue-desc': 'Dominio del framework progresivo incluyendo Vuex, Vue Router y API de composición para SPAs modernas.',
+                    'course-python': 'Python para Desarrollo Web',
+                    'course-python-desc': 'Frameworks Django y Flask, ORM, autenticación y desarrollo de API con Python.',
+                    'course-uiux': 'Fundamentos de Diseño UI/UX',
+                    'course-uiux-desc': 'Investigación de usuarios, wireframing, prototipado y sistemas de diseño para experiencias de usuario excepcionales.',
+                    'course-docker': 'Docker y Kubernetes',
+                    'course-docker-desc': 'Contenerización, orquestación y estrategias de implementación para flujos de trabajo DevOps modernos.',
+                    'course-graphql': 'Desarrollo de API GraphQL',
+                    'course-graphql-desc': 'Desarrollo moderno de API con GraphQL, Apollo Server y gestión de datos del lado del cliente.',
+                    'course-typescript': 'Dominio de TypeScript',
+                    'course-typescript-desc': 'Características avanzadas de TypeScript, genéricos, decoradores e integración con frameworks modernos.',
+                    'course-cybersecurity': 'Fundamentos de Ciberseguridad',
+                    'course-cybersecurity-desc': 'Seguridad web, cifrado, protocolos de autenticación y prácticas de codificación segura para desarrolladores.'
+                },
+                fr: {
+                    // النصوص الحالية
+                    'hero-title': 'Mohammed Naeem | Magie Numérique',
+                    'hero-subtitle': 'Développeur Full Stack et Designer UI/UX',
+                    'hero-cta': 'Contactez-moi',
+                    'journey-title': 'Mon Parcours',
+                    'journey-frontend-title': 'Développement Frontend',
+                    'journey-frontend-desc': 'Mon parcours de programmation a commencé en 2019 quand j\'étais encore à l\'école. J\'étais fasciné par le développement frontend et j\'ai passé d\'innombrables heures à apprendre HTML, CSS et JavaScript, construisant de petits projets et expérimentant avec différents designs.',
+                    'journey-fullstack-title': 'Expansion Full Stack',
+                    'journey-fullstack-desc': 'En 2023, j\'ai élargi mes compétences pour inclure les technologies backend comme Node.js, Python et la gestion de bases de données. Cette transformation m\'a permis de construire des applications web complètes du frontend au backend.',
+                    'journey-present-title': 'Développeur Full Stack',
+                    'journey-present-desc': 'Tout au long de mon parcours, j\'ai travaillé sur de nombreux projets, personnels et professionnels, acquérant une expérience précieuse et obtenant plusieurs certifications en cours de route.',
+                    'services-title': 'Services',
+                    'service-frontend-title': 'Développement Frontend',
+                    'service-frontend-desc': 'Sites web beaux et responsifs construits avec React, Vue.js ou JavaScript vanilla adaptés à votre marque.',
+                    'service-backend-title': 'Développement Backend',
+                    'service-backend-desc': 'Solutions robustes côté serveur avec Node.js, Python et intégration de bases de données pour des applications évolutives.',
+                    'service-fullstack-title': 'Développement Full Stack',
+                    'service-fullstack-desc': 'Applications web complètes du frontend au backend, incluant la conception de bases de données et le déploiement.',
+                    'service-design-title': 'Design UI/UX',
+                    'service-design-desc': 'Designs centrés sur l\'utilisateur qui améliorent l\'utilisabilité et créent des expériences numériques engageantes.',
+                    'service-view-packages': 'Voir les Packages',
+                    'projects-title': 'Projets Phares',
+                    'courses-title': 'Éducation et Cours',
+                    'contact-title': 'Contactez-moi',
+                    'contact-desc': 'Je suis actuellement disponible pour du travail freelance. Si vous avez un projet que vous voulez commencer ou pensez avoir besoin de mon aide, contactez-moi.',
+                    'contact-name-placeholder': 'Votre Nom',
+                    'contact-email-placeholder': 'Votre Email',
+                    'contact-message-placeholder': 'Votre Message',
+                    'contact-send-btn': 'Envoyer le Message',
+                    'skills-title': 'Compétences',
+                    'technical-skills-title': 'Compétences Techniques',
+                    'frontend-skills-title': 'Développement Frontend',
+                    'backend-skills-title': 'Développement Backend',
+                    'soft-skills-title': 'Compétences Relationnelles',
+                    'language-skills-title': 'Compétences Linguistiques',
+                    'leadership': 'Leadership',
+                    'critical-thinking': 'Pensée Critique',
+                    'problem-solving': 'Résolution de Problèmes',
+                    'communication': 'Communication',
+                    'teamwork': 'Travail d\'Équipe',
+                    'creativity': 'Créativité',
+                    'time-management': 'Gestion du Temps',
+                    'adaptability': 'Adaptabilité',
+                    'arabic-lang': 'Arabe',
+                    'english-lang': 'Anglais',
+                    'french-lang': 'Français',
+                    'spanish-lang': 'Espagnol',
+                    'german-lang': 'Allemand',
+                    'fluent': 'Courant',
+                    'learning': 'En Apprentissage',
+                    'success-title': 'Merci !',
+                    'success-message1': 'Votre message a été envoyé avec succès. J\'apprécie votre confiance en moi et je vous répondrai dès que possible.',
+                    'success-message2': 'Je crois que je suis la bonne personne pour votre projet grâce à mon expérience approfondie en développement frontend et backend, combinée à mes compétences en design qui garantissent la création d\'interfaces non seulement fonctionnelles mais aussi belles et intuitives.',
+                    'success-message3': 'Vous pouvez aussi me contacter directement à mohammmedabdelnaeim18@gmail.com si vous avez besoin d\'une assistance immédiate.',
+                    'success-close-btn': 'Fermer',
+                    
+                    // نصوص Typewriter Effect
+                    'typewriter-text-1': 'Un développeur Full Stack passionné par la création d\'applications web.',
+                    'typewriter-text-2': 'Spécialisé dans React, Node.js et les frameworks JavaScript modernes.',
+                    'typewriter-text-3': 'Création d\'expériences numériques belles, fonctionnelles et conviviales.',
+                    
+                    // أسماء وتفاصيل المشاريع
+                    'project-ecommerce-title': 'Plateforme E-commerce',
+                    'project-ecommerce-desc': 'Boutique en ligne complète avec traitement des paiements, gestion des stocks et analyses.',
+                    'project-fintech-title': 'Tableau de Bord Fintech',
+                    'project-fintech-desc': 'Plateforme d\'analyse financière avancée avec trading en temps réel et gestion de portefeuille.',
+                    'project-social-title': 'Tableau de Bord des Médias Sociaux',
+                    'project-social-desc': 'Tableau de bord d\'analyse qui agrège les données de multiples plateformes sociales en une interface.',
+                    'project-healthcare-title': 'Portail de Santé',
+                    'project-healthcare-desc': 'Système de gestion des patients conforme HIPAA avec planification de rendez-vous et télémédecine.',
+                    'project-realestate-title': 'Plateforme Immobilière',
+                    'project-realestate-desc': 'Plateforme de listes de propriétés avec filtres de recherche avancés, visites virtuelles et CRM pour agents.',
+                    'project-lms-title': 'Système de Gestion de l\'Apprentissage',
+                    'project-lms-desc': 'LMS personnalisé avec outils de création de cours, suivi de progression et quiz interactifs.',
+                    'project-travel-title': 'Plateforme de Réservation de Voyages',
+                    'project-travel-desc': 'Système complet de réservation de voyages avec réservations de vols, hôtels et activités.',
+                    'project-portfolio-title': 'Site Web Portfolio',
+                    'project-portfolio-desc': 'Portfolio créatif interactif avec animations 3D et gestion dynamique de contenu.',
+                    
+                    // الكورسات وتفاصيلها
+                    'course-fullstack': 'Développement Web Full Stack',
+                    'course-fullstack-desc': 'Cours complet de développement full stack couvrant HTML, CSS, JavaScript, React, Node.js et MongoDB.',
+                    'course-javascript': 'Concepts Avancés de JavaScript',
+                    'course-javascript-desc': 'Plongée approfondie dans JavaScript incluant les fermetures, prototypes, programmation asynchrone et modèles de conception.',
+                    'course-cs': 'Diplôme en Informatique',
+                    'course-cs-desc': 'Diplôme en informatique avec focus sur les algorithmes, structures de données et ingénierie logicielle.',
+                    'course-responsive': 'Conception Web Réactive',
+                    'course-responsive-desc': 'Certification en principes de conception réactive, CSS Flexbox, Grid et normes d\'accessibilité.',
+                    'course-react': 'React - Le Guide Complet',
+                    'course-react-desc': 'Maîtrise de React avec hooks, context, Redux et modèles avancés pour construire des applications web modernes.',
+                    'course-nodejs': 'Développement Backend Node.js',
+                    'course-nodejs-desc': 'Développement côté serveur avec Node.js, Express, authentification et conception d\'API RESTful.',
+                    'course-mongodb': 'Université MongoDB',
+                    'course-mongodb-desc': 'Conception de bases de données, pipelines d\'agrégation et optimisation des performances pour applications MongoDB.',
+                    'course-aws': 'Practicien AWS Cloud',
+                    'course-aws-desc': 'Fondamentaux du cloud computing, services AWS et stratégies de déploiement pour applications évolutives.',
+                    'course-vue': 'Cours Complet Vue.js',
+                    'course-vue-desc': 'Maîtrise du framework progressif incluant Vuex, Vue Router et API de composition pour SPAs modernes.',
+                    'course-python': 'Python pour le Développement Web',
+                    'course-python-desc': 'Frameworks Django et Flask, ORM, authentification et développement d\'API avec Python.',
+                    'course-uiux': 'Fondamentaux de Conception UI/UX',
+                    'course-uiux-desc': 'Recherche utilisateur, wireframing, prototypage et systèmes de design pour des expériences utilisateur exceptionnelles.',
+                    'course-docker': 'Docker et Kubernetes',
+                    'course-docker-desc': 'Conteneurisation, orchestration et stratégies de déploiement pour flux de travail DevOps modernes.',
+                    'course-graphql': 'Développement d\'API GraphQL',
+                    'course-graphql-desc': 'Développement moderne d\'API avec GraphQL, Apollo Server et gestion des données côté client.',
+                    'course-typescript': 'Maîtrise de TypeScript',
+                    'course-typescript-desc': 'Fonctionnalités avancées de TypeScript, génériques, décorateurs et intégration avec des frameworks modernes.',
+                    'course-cybersecurity': 'Fondamentaux de la Cybersécurité',
+                    'course-cybersecurity-desc': 'Sécurité web, chiffrement, protocoles d\'authentification et pratiques de codage sécurisé pour développeurs.'
+                },
+                de: {
+                    // النصوص الحالية
+                    'hero-title': 'Mohammed Naeem | Digitale Magie',
+                    'hero-subtitle': 'Full Stack Entwickler & UI/UX Designer',
+                    'hero-cta': 'Kontakt aufnehmen',
+                    'journey-title': 'Meine Reise',
+                    'journey-frontend-title': 'Frontend-Entwicklung',
+                    'journey-frontend-desc': 'Meine Programmierreise begann 2019, als ich noch zur Schule ging. Ich war fasziniert von der Frontend-Entwicklung and verbrachte unzählige Stunden damit, HTML, CSS und JavaScript zu lernen, kleine Projekte zu erstellen und mit verschiedenen Designs zu experimentieren.',
+                    'journey-fullstack-title': 'Full Stack Erweiterung',
+                    'journey-fullstack-desc': 'Im Jahr 2023 erweiterte ich meine Fähigkeiten um Backend-Technologien wie Node.js, Python und Datenbankmanagement. Diese Transformation ermöglichte es mir, vollständige Webanwendungen vom Frontend bis zum Backend zu erstellen.',
+                    'journey-present-title': 'Full Stack Entwickler',
+                    'journey-present-desc': 'Während meiner Reise habe ich an zahlreichen Projekten gearbeitet, sowohl persönlichen als auch beruflichen, wertvolle Erfahrungen gesammelt und mehrere Zertifizierungen erhalten.',
+                    'services-title': 'Dienstleistungen',
+                    'service-frontend-title': 'Frontend-Entwicklung',
+                    'service-frontend-desc': 'Schöne, responsive Websites mit React, Vue.js oder Vanilla JavaScript, maßgeschneidert für Ihre Marke.',
+                    'service-backend-title': 'Backend-Entwicklung',
+                    'service-backend-desc': 'Robuste serverseitige Lösungen mit Node.js, Python und Datenbankintegration für skalierbare Anwendungen.',
+                    'service-fullstack-title': 'Full Stack Entwicklung',
+                    'service-fullstack-desc': 'Vollständige Webanwendungen vom Frontend bis zum Backend, einschließlich Datenbankdesign und Deployment.',
+                    'service-design-title': 'UI/UX Design',
+                    'service-design-desc': 'Benutzerzentrierte Designs, die die Benutzerfreundlichkeit verbessern und ansprechende digitale Erfahrungen schaffen.',
+                    'service-view-packages': 'Pakete anzeigen',
+                    'projects-title': 'Ausgewählte Projekte',
+                    'courses-title': 'Bildung und Kurse',
+                    'contact-title': 'Kontaktieren Sie mich',
+                    'contact-desc': 'Ich bin derzeit für Freelance-Arbeit verfügbar. Wenn Sie ein Projekt starten möchten oder denken, dass Sie meine Hilfe benötigen, nehmen Sie Kontakt auf.',
+                    'contact-name-placeholder': 'Ihr Name',
+                    'contact-email-placeholder': 'Ihre E-Mail',
+                    'contact-message-placeholder': 'Ihre Nachricht',
+                    'contact-send-btn': 'Nachricht senden',
+                    'skills-title': 'Fähigkeiten',
+                    'technical-skills-title': 'Technische Fähigkeiten',
+                    'frontend-skills-title': 'Frontend-Entwicklung',
+                    'backend-skills-title': 'Backend-Entwicklung',
+                    'soft-skills-title': 'Soziale Kompetenzen',
+                    'language-skills-title': 'Sprachkenntnisse',
+                    'leadership': 'Führung',
+                    'critical-thinking': 'Kritisches Denken',
+                    'problem-solving': 'Problemlösung',
+                    'communication': 'Kommunikation',
+                    'teamwork': 'Teamarbeit',
+                    'creativity': 'Kreativität',
+                    'time-management': 'Zeitmanagement',
+                    'adaptability': 'Anpassungsfähigkeit',
+                    'arabic-lang': 'Arabisch',
+                    'english-lang': 'Englisch',
+                    'french-lang': 'Französisch',
+                    'spanish-lang': 'Spanisch',
+                    'german-lang': 'Deutsch',
+                    'fluent': 'Fließend',
+                    'learning': 'Lerne',
+                    'success-title': 'Vielen Dank!',
+                    'success-message1': 'Ihre Nachricht wurde erfolgreich gesendet. Ich schätze Ihr Vertrauen in mich und werde Ihnen so schnell wie möglich antworten.',
+                    'success-message2': 'Ich glaube, dass ich die richtige Person für Ihr Projekt bin aufgrund meiner umfangreichen Erfahrung in Frontend- und Backend-Entwicklung, kombiniert mit meinen Design-Fähigkeiten, die sicherstellen, dass Schnittstellen nicht nur funktional, sondern auch schön und intuitiv sind.',
+                    'success-message3': 'Sie können mich auch direkt unter mohammmedabdelnaeim18@gmail.com kontaktieren, wenn Sie sofortige Hilfe benötigen.',
+                    'success-close-btn': 'Schließen',
+                    
+                    // نصوص Typewriter Effect
+                    'typewriter-text-1': 'Ein Full Stack Entwickler, der leidenschaftlich Webanwendungen erstellt.',
+                    'typewriter-text-2': 'Spezialisiert auf React, Node.js und moderne JavaScript-Frameworks.',
+                    'typewriter-text-3': 'Erstellung schöner, funktionaler und benutzerfreundlicher digitaler Erfahrungen.',
+                    
+                    // أسماء وتفاصيل المشاريع
+                    'project-ecommerce-title': 'E-Commerce-Plattform',
+                    'project-ecommerce-desc': 'Voll ausgestatteter Online-Shop mit Zahlungsabwicklung, Bestandsverwaltung und Analysen.',
+                    'project-fintech-title': 'Fintech-Dashboard',
+                    'project-fintech-desc': 'Fortschrittliche Finanzanalyseplattform mit Echtzeithandel und Portfoliomanagement.',
+                    'project-social-title': 'Social Media Dashboard',
+                    'project-social-desc': 'Analytics-Dashboard, das Daten von mehreren Social-Media-Plattformen in einer Oberfläche zusammenführt.',
+                    'project-healthcare-title': 'Gesundheitsportal',
+                    'project-healthcare-desc': 'HIPAA-konformes Patientenmanagementsystem mit Terminplanung und Telemedizin.',
+                    'project-realestate-title': 'Immobilienplattform',
+                    'project-realestate-desc': 'Immobilienliste-Plattform mit erweiterten Suchfiltern, virtuellen Touren und Agenten-CRM.',
+                    'project-lms-title': 'Lernmanagementsystem',
+                    'project-lms-desc': 'Benutzerdefiniertes LMS mit Kurserstellungstools, Fortschrittsverfolgung und interaktiven Quizzen.',
+                    'project-travel-title': 'Reisebuchungsplattform',
+                    'project-travel-desc': 'Umfassendes Reisebuchungssystem mit Flug-, Hotel- und Aktivitätsreservierungen.',
+                    'project-portfolio-title': 'Portfolio-Website',
+                    'project-portfolio-desc': 'Interaktives kreatives Portfolio mit 3D-Animationen und dynamischer Inhaltsverwaltung.',
+                    
+                    // الكورسات وتفاصيلها
+                    'course-fullstack': 'Full Stack Webentwicklung',
+                    'course-fullstack-desc': 'Umfassender Full Stack-Entwicklungskurs covering HTML, CSS, JavaScript, React, Node.js und MongoDB.',
+                    'course-javascript': 'Fortgeschrittene JavaScript-Konzepte',
+                    'course-javascript-desc': 'Tiefgreifende Einführung in JavaScript einschließlich Closures, Prototypen, asynchroner Programmierung und Entwurfsmuster.',
+                    'course-cs': 'Informatik-Diplom',
+                    'course-cs-desc': 'Diplom in Informatik mit Schwerpunkt auf Algorithmen, Datenstrukturen und Softwaretechnik.',
+                    'course-responsive': 'Responsives Webdesign',
+                    'course-responsive-desc': 'Zertifizierung in responsiven Designprinzipien, CSS Flexbox, Grid und Barrierefreiheitsstandards.',
+                    'course-react': 'React - Der vollständige Leitfaden',
+                    'course-react-desc': 'Beherrschung von React mit Hooks, Context, Redux und fortgeschrittenen Mustern für den Bau moderner Webanwendungen.',
+                    'course-nodejs': 'Node.js Backend-Entwicklung',
+                    'course-nodejs-desc': 'Serverseitige Entwicklung mit Node.js, Express, Authentifizierung und RESTful API-Design.',
+                    'course-mongodb': 'MongoDB University',
+                    'course-mongodb-desc': 'Datenbankdesign, Aggregations-Pipelines und Leistungsoptimierung für MongoDB-Anwendungen.',
+                    'course-aws': 'AWS Cloud Practitioner',
+                    'course-aws-desc': 'Grundlagen des Cloud Computing, AWS-Dienste und Bereitstellungsstrategien für skalierbare Anwendungen.',
+                    'course-vue': 'Vue.js Komplettkurs',
+                    'course-vue-desc': 'Beherrschung des progressiven Frameworks einschließlich Vuex, Vue Router und Composition API für moderne SPAs.',
+                    'course-python': 'Python für Webentwicklung',
+                    'course-python-desc': 'Django und Flask Frameworks, ORM, Authentifizierung und API-Entwicklung mit Python.',
+                    'course-uiux': 'UI/UX Design Grundlagen',
+                    'course-uiux-desc': 'Nutzerforschung, Wireframing, Prototyping und Designsysteme für außergewöhnliche Benutzererfahrungen.',
+                    'course-docker': 'Docker & Kubernetes',
+                    'course-docker-desc': 'Containerisierung, Orchestrierung und Bereitstellungsstrategien für moderne DevOps-Workflows.',
+                    'course-graphql': 'GraphQL API-Entwicklung',
+                    'course-graphql-desc': 'Moderne API-Entwicklung mit GraphQL, Apollo Server und clientseitigem Datenmanagement.',
+                    'course-typescript': 'TypeScript-Beherrschung',
+                    'course-typescript-desc': 'Fortgeschrittene TypeScript-Funktionen, Generics, Decorators und Integration mit modernen Frameworks.',
+                    'course-cybersecurity': 'Cybersicherheitsgrundlagen',
+                    'course-cybersecurity-desc': 'Websicherheit, Verschlüsselung, Authentifizierungsprotokolle und sichere Codierungspraktiken für Entwickler.'
+                }
+            };
+
+            const currentTranslations = translations[langCode] || translations.en;
+            
+            // Apply translations to elements with data-translate attributes
+            Object.keys(currentTranslations).forEach(key => {
+                const elements = document.querySelectorAll(`[data-translate="${key}"]`);
+                elements.forEach(element => {
+                    // Handle placeholder attributes for form inputs
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        element.placeholder = currentTranslations[key];
+                    } else {
+                        element.textContent = currentTranslations[key];
+                    }
+                });
+            });
+
+            // Update typewriter texts based on language
+            if (langCode !== 'en') {
+                texts = [
+                    currentTranslations['typewriter-text-1'],
+                    currentTranslations['typewriter-text-2'],
+                    currentTranslations['typewriter-text-3']
+                ];
+                
+                // Reset typewriter effect with new texts
+                textIndex = 0;
+                charIndex = 0;
+                isDeleting = false;
+                typewriterText.textContent = '';
+            }
+
+            // Update project titles and descriptions
+            const projectTitles = document.querySelectorAll('.project-info h3');
+            const projectDescriptions = document.querySelectorAll('.project-info p');
+            
+            if (projectTitles.length >= 8) {
+                projectTitles[0].textContent = currentTranslations['project-ecommerce-title'];
+                projectDescriptions[0].textContent = currentTranslations['project-ecommerce-desc'];
+                
+                projectTitles[1].textContent = currentTranslations['project-fintech-title'];
+                projectDescriptions[1].textContent = currentTranslations['project-fintech-desc'];
+                
+                projectTitles[2].textContent = currentTranslations['project-social-title'];
+                projectDescriptions[2].textContent = currentTranslations['project-social-desc'];
+                
+                projectTitles[3].textContent = currentTranslations['project-healthcare-title'];
+                projectDescriptions[3].textContent = currentTranslations['project-healthcare-desc'];
+                
+                projectTitles[4].textContent = currentTranslations['project-realestate-title'];
+                projectDescriptions[4].textContent = currentTranslations['project-realestate-desc'];
+                
+                projectTitles[5].textContent = currentTranslations['project-lms-title'];
+                projectDescriptions[5].textContent = currentTranslations['project-lms-desc'];
+                
+                projectTitles[6].textContent = currentTranslations['project-travel-title'];
+                projectDescriptions[6].textContent = currentTranslations['project-travel-desc'];
+                
+                projectTitles[7].textContent = currentTranslations['project-portfolio-title'];
+                projectDescriptions[7].textContent = currentTranslations['project-portfolio-desc'];
+            }
+
+            // Update course titles and descriptions
+            const courseTitles = document.querySelectorAll('.course-card h3');
+            const courseDescriptions = document.querySelectorAll('.course-card p:last-child');
+            
+            if (courseTitles.length >= 15) {
+                courseTitles[0].textContent = currentTranslations['course-fullstack'];
+                courseDescriptions[0].textContent = currentTranslations['course-fullstack-desc'];
+                
+                courseTitles[1].textContent = currentTranslations['course-javascript'];
+                courseDescriptions[1].textContent = currentTranslations['course-javascript-desc'];
+                
+                courseTitles[2].textContent = currentTranslations['course-cs'];
+                courseDescriptions[2].textContent = currentTranslations['course-cs-desc'];
+                
+                courseTitles[3].textContent = currentTranslations['course-responsive'];
+                courseDescriptions[3].textContent = currentTranslations['course-responsive-desc'];
+                
+                courseTitles[4].textContent = currentTranslations['course-react'];
+                courseDescriptions[4].textContent = currentTranslations['course-react-desc'];
+                
+                courseTitles[5].textContent = currentTranslations['course-nodejs'];
+                courseDescriptions[5].textContent = currentTranslations['course-nodejs-desc'];
+                
+                courseTitles[6].textContent = currentTranslations['course-mongodb'];
+                courseDescriptions[6].textContent = currentTranslations['course-mongodb-desc'];
+                
+                courseTitles[7].textContent = currentTranslations['course-aws'];
+                courseDescriptions[7].textContent = currentTranslations['course-aws-desc'];
+                
+                courseTitles[8].textContent = currentTranslations['course-vue'];
+                courseDescriptions[8].textContent = currentTranslations['course-vue-desc'];
+                
+                courseTitles[9].textContent = currentTranslations['course-python'];
+                courseDescriptions[9].textContent = currentTranslations['course-python-desc'];
+                
+                courseTitles[10].textContent = currentTranslations['course-uiux'];
+                courseDescriptions[10].textContent = currentTranslations['course-uiux-desc'];
+                
+                courseTitles[11].textContent = currentTranslations['course-docker'];
+                courseDescriptions[11].textContent = currentTranslations['course-docker-desc'];
+                
+                courseTitles[12].textContent = currentTranslations['course-graphql'];
+                courseDescriptions[12].textContent = currentTranslations['course-graphql-desc'];
+                
+                courseTitles[13].textContent = currentTranslations['course-typescript'];
+                courseDescriptions[13].textContent = currentTranslations['course-typescript-desc'];
+                
+                courseTitles[14].textContent = currentTranslations['course-cybersecurity'];
+                courseDescriptions[14].textContent = currentTranslations['course-cybersecurity-desc'];
+            }
+
+            // Update document direction for Arabic
+            if (langCode === 'ar') {
+                document.documentElement.setAttribute('dir', 'rtl');
+                document.documentElement.setAttribute('lang', 'ar');
+            } else {
+                document.documentElement.setAttribute('dir', 'ltr');
+                document.documentElement.setAttribute('lang', langCode);
+            }
+        }
+
+        // Close language dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            const languageSelector = document.querySelector('.language-selector');
+            if (!languageSelector.contains(event.target)) {
+                const options = document.getElementById('languageOptions');
+                options.classList.remove('show');
+            }
+        });
+
+        // Load saved language on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedLanguage = localStorage.getItem('selectedLanguage') || 'en';
+            const languageMap = {
+                'en': { flag: '🇺🇸', text: 'EN' },
+                'ar': { flag: '🇸🇦', text: 'AR' },
+                'es': { flag: '🇪🇸', text: 'ES' },
+                'fr': { flag: '🇫🇷', text: 'FR' },
+                'de': { flag: '🇩🇪', text: 'DE' }
+            };
+            
+            if (languageMap[savedLanguage]) {
+                changeLanguage(savedLanguage, languageMap[savedLanguage].flag, languageMap[savedLanguage].text);
+            }
         });
     </script>
 </body>

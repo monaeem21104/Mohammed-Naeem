@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Social Media Dashboard Project</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -239,6 +240,104 @@
             to { opacity: 1; transform: translateY(0); }
         }
         
+        /* Language Selector */
+        .language-selector {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        
+        .language-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .selected-language {
+            background-color: white;
+            border: 2px solid var(--primary-color);
+            border-radius: 25px;
+            padding: 8px 15px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .selected-language:hover {
+            border-color: var(--accent-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+        
+        .flag-icon {
+            font-size: 1.2rem;
+        }
+        
+        .language-text {
+            font-weight: 600;
+            color: var(--primary-color);
+            font-size: 0.9rem;
+        }
+        
+        .selected-language i {
+            color: var(--primary-color);
+            font-size: 0.8rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .language-options {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: white;
+            border: 2px solid var(--primary-color);
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            min-width: 150px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 1001;
+            margin-top: 5px;
+        }
+        
+        .language-options.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .language-option {
+            padding: 10px 15px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .language-option:last-child {
+            border-bottom: none;
+        }
+        
+        .language-option:hover {
+            background-color: #e8f5e8;
+            color: var(--primary-color);
+        }
+        
+        .language-option:first-child {
+            border-radius: 13px 13px 0 0;
+        }
+        
+        .language-option:last-child {
+            border-radius: 0 0 13px 13px;
+        }
+        
         @media screen and (max-width: 768px) {
             .project-card {
                 padding: 2rem 1.5rem;
@@ -262,18 +361,55 @@
                 left: 0;
                 text-align: left;
             }
+            
+            .language-selector {
+                top: 10px;
+                right: 10px;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Language Selector -->
+    <div class="language-selector">
+        <div class="language-dropdown">
+            <div class="selected-language" onclick="toggleLanguageDropdown()">
+                <span class="flag-icon">🇺🇸</span>
+                <span class="language-text">EN</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="language-options" id="languageOptions">
+                <div class="language-option" onclick="changeLanguage('en', '🇺🇸', 'EN')">
+                    <span class="flag-icon">🇺🇸</span>
+                    <span class="language-text">English</span>
+                </div>
+                <div class="language-option" onclick="changeLanguage('ar', '🇸🇦', 'AR')">
+                    <span class="flag-icon">🇸🇦</span>
+                    <span class="language-text">العربية</span>
+                </div>
+                <div class="language-option" onclick="changeLanguage('es', '🇪🇸', 'ES')">
+                    <span class="flag-icon">🇪🇸</span>
+                    <span class="language-text">Español</span>
+                </div>
+                <div class="language-option" onclick="changeLanguage('fr', '🇫🇷', 'FR')">
+                    <span class="flag-icon">🇫🇷</span>
+                    <span class="language-text">Français</span>
+                </div>
+                <div class="language-option" onclick="changeLanguage('de', '🇩🇪', 'DE')">
+                    <span class="flag-icon">🇩🇪</span>
+                    <span class="language-text">Deutsch</span>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="container">
         <div class="project-card">
             <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Social Media Dashboard" class="project-img">
-            <h1>Social Media Dashboard</h1>
-            <h2>Analytics dashboard that aggregates data from multiple social platforms into one interface</h2>
+            <h1 data-translate="project_title">Social Media Dashboard</h1>
+            <h2 data-translate="project_subtitle">Analytics dashboard that aggregates data from multiple social platforms into one interface</h2>
             
             <div class="project-description">
-                <p>This powerful analytics platform provides marketers with a unified view of their social media performance across multiple networks, offering actionable insights and real-time data visualization.</p>
+                <p data-translate="project_description">This powerful analytics platform provides marketers with a unified view of their social media performance across multiple networks, offering actionable insights and real-time data visualization.</p>
                 
                 <div class="tech-stack">
                     <span class="tech-item">React</span>
@@ -286,31 +422,182 @@
             </div>
             
             <div class="project-details">
-                <h3>Project Highlights</h3>
+                <h3 data-translate="project_highlights_title">Project Highlights</h3>
                 <div class="timeline">
                     <div class="timeline-item left">
                         <div class="timeline-content">
-                            <h4>Technical Implementation</h4>
-                            <p>Built with React for the dynamic frontend and Express for the robust backend. Used D3.js for advanced data visualizations and OAuth for secure social platform integrations. Implemented real-time updates through WebSockets.</p>
+                            <h4 data-translate="technical_implementation_title">Technical Implementation</h4>
+                            <p data-translate="technical_implementation_desc">Built with React for the dynamic frontend and Express for the robust backend. Used D3.js for advanced data visualizations and OAuth for secure social platform integrations. Implemented real-time updates through WebSockets.</p>
                         </div>
                     </div>
                     <div class="timeline-item right">
                         <div class="timeline-content">
-                            <h4>Challenges Overcome</h4>
-                            <p>Solved API rate limit issues with smart queuing system. Normalized data from different social platforms into unified metrics. Optimized dashboard performance to handle large datasets with smooth rendering.</p>
+                            <h4 data-translate="challenges_overcome_title">Challenges Overcome</h4>
+                            <p data-translate="challenges_overcome_desc">Solved API rate limit issues with smart queuing system. Normalized data from different social platforms into unified metrics. Optimized dashboard performance to handle large datasets with smooth rendering.</p>
                         </div>
                     </div>
                     <div class="timeline-item left">
                         <div class="timeline-content">
-                            <h4>Client Satisfaction</h4>
-                            <p>Delivered on time with all analytics requirements met. Client reported 45% reduction in time spent compiling reports and 30% improvement in campaign decision speed. Became essential tool for their marketing team.</p>
+                            <h4 data-translate="client_satisfaction_title">Client Satisfaction</h4>
+                            <p data-translate="client_satisfaction_desc">Delivered on time with all analytics requirements met. Client reported 45% reduction in time spent compiling reports and 30% improvement in campaign decision speed. Became essential tool for their marketing team.</p>
                         </div>
                     </div>
                 </div>
                 
-                <a href="index.html#contact-form" class="cta-button">Request a Similar Service</a>
+                <a href="index.html#contact-form" class="cta-button" data-translate="cta_button">Request a Similar Service</a>
             </div>
         </div>
     </div>
+    <script>
+        // Translation object
+        const translations = {
+            en: {
+                project_title: "Social Media Dashboard",
+                project_subtitle: "Analytics dashboard that aggregates data from multiple social platforms into one interface",
+                project_description: "This powerful analytics platform provides marketers with a unified view of their social media performance across multiple networks, offering actionable insights and real-time data visualization.",
+                project_highlights_title: "Project Highlights",
+                technical_implementation_title: "Technical Implementation",
+                technical_implementation_desc: "Built with React for the dynamic frontend and Express for the robust backend. Used D3.js for advanced data visualizations and OAuth for secure social platform integrations. Implemented real-time updates through WebSockets.",
+                challenges_overcome_title: "Challenges Overcome",
+                challenges_overcome_desc: "Solved API rate limit issues with smart queuing system. Normalized data from different social platforms into unified metrics. Optimized dashboard performance to handle large datasets with smooth rendering.",
+                client_satisfaction_title: "Client Satisfaction",
+                client_satisfaction_desc: "Delivered on time with all analytics requirements met. Client reported 45% reduction in time spent compiling reports and 30% improvement in campaign decision speed. Became essential tool for their marketing team.",
+                cta_button: "Request a Similar Service"
+            },
+            ar: {
+                project_title: "لوحة تحكم وسائل التواصل الاجتماعي",
+                project_subtitle: "لوحة تحليلات تجمع البيانات من منصات اجتماعية متعددة في واجهة واحدة",
+                project_description: "توفر منصة التحليلات القوية هذه للمسوقين رؤية موحدة لأداء وسائل التواصل الاجتماعي عبر شبكات متعددة، مما يقدم رؤى قابلة للتنفيذ وتصور البيانات في الوقت الفعلي.",
+                project_highlights_title: "أبرز نقاط المشروع",
+                technical_implementation_title: "التنفيذ التقني",
+                technical_implementation_desc: "تم البناء باستخدام React للواجهة الأمامية الديناميكية و Express للخلفية القوية. استخدم D3.js لتصورات البيانات المتقدمة و OAuth لتكاملات المنصات الاجتماعية الآمنة. تم تنفيذ التحديثات في الوقت الفعلي من خلال WebSockets.",
+                challenges_overcome_title: "التحديات المتغلب عليها",
+                challenges_overcome_desc: "حل مشاكل حدود معدل API بنظام طوابير ذكي. تطبيع البيانات من منصات اجتماعية مختلفة إلى مقاييس موحدة. تحسين أداء لوحة التحكم للتعامل مع مجموعات البيانات الكبيرة مع عرض سلس.",
+                client_satisfaction_title: "رضا العميل",
+                client_satisfaction_desc: "تم التسليم في الوقت المحدد مع تلبية جميع متطلبات التحليلات. أفاد العميل بتقليل 45% في الوقت المستغرق لتجميع التقارير وتحسن 30% في سرعة اتخاذ قرارات الحملات. أصبحت أداة أساسية لفريق التسويق.",
+                cta_button: "اطلب خدمة مماثلة"
+            },
+            es: {
+                project_title: "Panel de Redes Sociales",
+                project_subtitle: "Panel de análisis que agrega datos de múltiples plataformas sociales en una interfaz",
+                project_description: "Esta poderosa plataforma de análisis proporciona a los especialistas en marketing una vista unificada de su rendimiento en redes sociales a través de múltiples redes, ofreciendo insights accionables y visualización de datos en tiempo real.",
+                project_highlights_title: "Aspectos Destacados del Proyecto",
+                technical_implementation_title: "Implementación Técnica",
+                technical_implementation_desc: "Construido con React para el frontend dinámico y Express para el backend robusto. Utilizó D3.js para visualizaciones avanzadas de datos y OAuth para integraciones seguras de plataformas sociales. Implementó actualizaciones en tiempo real a través de WebSockets.",
+                challenges_overcome_title: "Desafíos Superados",
+                challenges_overcome_desc: "Resolvió problemas de límites de velocidad de API con sistema de colas inteligente. Normalizó datos de diferentes plataformas sociales en métricas unificadas. Optimizó el rendimiento del panel para manejar grandes conjuntos de datos con renderizado suave.",
+                client_satisfaction_title: "Satisfacción del Cliente",
+                client_satisfaction_desc: "Entregado a tiempo con todos los requisitos de análisis cumplidos. El cliente reportó 45% de reducción en tiempo gastado compilando reportes y 30% de mejora en velocidad de decisión de campañas. Se convirtió en herramienta esencial para su equipo de marketing.",
+                cta_button: "Solicitar un Servicio Similar"
+            },
+            fr: {
+                project_title: "Tableau de Bord Réseaux Sociaux",
+                project_subtitle: "Tableau d'analyse qui agrège les données de multiples plateformes sociales en une interface",
+                project_description: "Cette puissante plateforme d'analyse fournit aux marketeurs une vue unifiée de leur performance sur les réseaux sociaux à travers plusieurs réseaux, offrant des insights actionnables et une visualisation de données en temps réel.",
+                project_highlights_title: "Points Forts du Projet",
+                technical_implementation_title: "Implémentation Technique",
+                technical_implementation_desc: "Construit avec React pour le frontend dynamique et Express pour le backend robuste. Utilisé D3.js pour les visualisations avancées de données et OAuth pour les intégrations sécurisées de plateformes sociales. Implémenté des mises à jour en temps réel via WebSockets.",
+                challenges_overcome_title: "Défis Surmontés",
+                challenges_overcome_desc: "Résolu les problèmes de limites de taux API avec un système de files d'attente intelligent. Normalisé les données de différentes plateformes sociales en métriques unifiées. Optimisé les performances du tableau de bord pour gérer de grands ensembles de données avec un rendu fluide.",
+                client_satisfaction_title: "Satisfaction Client",
+                client_satisfaction_desc: "Livré à temps avec toutes les exigences d'analyse respectées. Le client a rapporté 45% de réduction du temps passé à compiler les rapports et 30% d'amélioration de la vitesse de décision des campagnes. Devenu outil essentiel pour leur équipe marketing.",
+                cta_button: "Demander un Service Similaire"
+            },
+            de: {
+                project_title: "Social Media Dashboard",
+                project_subtitle: "Analytics-Dashboard, das Daten von mehreren sozialen Plattformen in einer Oberfläche aggregiert",
+                project_description: "Diese leistungsstarke Analytics-Plattform bietet Marketern eine einheitliche Sicht auf ihre Social-Media-Performance über mehrere Netzwerke hinweg und liefert umsetzbare Erkenntnisse und Echtzeit-Datenvisualisierung.",
+                project_highlights_title: "Projekt-Highlights",
+                technical_implementation_title: "Technische Umsetzung",
+                technical_implementation_desc: "Erstellt mit React für das dynamische Frontend und Express für das robuste Backend. Verwendete D3.js für erweiterte Datenvisualisierungen und OAuth für sichere Social-Platform-Integrationen. Implementierte Echtzeit-Updates über WebSockets.",
+                challenges_overcome_title: "Überwundene Herausforderungen",
+                challenges_overcome_desc: "Löste API-Rate-Limit-Probleme mit intelligentem Warteschlangensystem. Normalisierte Daten von verschiedenen sozialen Plattformen zu einheitlichen Metriken. Optimierte Dashboard-Performance für große Datensätze mit flüssigem Rendering.",
+                client_satisfaction_title: "Kundenzufriedenheit",
+                client_satisfaction_desc: "Pünktlich geliefert mit allen Analytics-Anforderungen erfüllt. Kunde berichtete 45% Reduzierung der Zeit für Report-Erstellung und 30% Verbesserung der Kampagnen-Entscheidungsgeschwindigkeit. Wurde essentielles Tool für ihr Marketing-Team.",
+                cta_button: "Ähnlichen Service Anfordern"
+            }
+        };
+
+        // Language dropdown toggle
+        function toggleLanguageDropdown() {
+            const dropdown = document.getElementById('languageOptions');
+            dropdown.classList.toggle('show');
+        }
+
+        // Change language function
+        function changeLanguage(langCode, flagIcon, langText) {
+            // Update selected language display
+            const selectedLanguage = document.querySelector('.selected-language');
+            const flagSpan = selectedLanguage.querySelector('.flag-icon');
+            const textSpan = selectedLanguage.querySelector('.language-text');
+            
+            flagSpan.textContent = flagIcon;
+            textSpan.textContent = langText;
+            
+            // Close dropdown
+            const dropdown = document.getElementById('languageOptions');
+            dropdown.classList.remove('show');
+            
+            // Apply translations
+            applyTranslations(langCode);
+            
+            // Save language preference
+            localStorage.setItem('selectedLanguage', langCode);
+            localStorage.setItem('selectedFlag', flagIcon);
+            localStorage.setItem('selectedText', langText);
+            
+            // Handle RTL for Arabic
+            if (langCode === 'ar') {
+                document.documentElement.setAttribute('dir', 'rtl');
+            } else {
+                document.documentElement.setAttribute('dir', 'ltr');
+            }
+        }
+
+        // Apply translations
+        function applyTranslations(langCode) {
+            const elements = document.querySelectorAll('[data-translate]');
+            elements.forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[langCode] && translations[langCode][key]) {
+                    element.textContent = translations[langCode][key];
+                }
+            });
+        }
+
+        // Load saved language on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedLang = localStorage.getItem('selectedLanguage') || 'en';
+            const savedFlag = localStorage.getItem('selectedFlag') || '🇺🇸';
+            const savedText = localStorage.getItem('selectedText') || 'EN';
+            
+            // Update display
+            const selectedLanguage = document.querySelector('.selected-language');
+            const flagSpan = selectedLanguage.querySelector('.flag-icon');
+            const textSpan = selectedLanguage.querySelector('.language-text');
+            
+            flagSpan.textContent = savedFlag;
+            textSpan.textContent = savedText;
+            
+            // Apply translations
+            applyTranslations(savedLang);
+            
+            // Handle RTL for Arabic
+            if (savedLang === 'ar') {
+                document.documentElement.setAttribute('dir', 'rtl');
+            } else {
+                document.documentElement.setAttribute('dir', 'ltr');
+            }
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            const languageSelector = document.querySelector('.language-selector');
+            if (!languageSelector.contains(event.target)) {
+                const dropdown = document.getElementById('languageOptions');
+                dropdown.classList.remove('show');
+            }
+        });
+    </script>
 </body>
 </html>

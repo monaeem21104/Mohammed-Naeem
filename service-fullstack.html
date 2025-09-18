@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Professional Full Stack Development Services by Mohammed Naeem">
-    <meta name="keywords" content="Full Stack Development, Web Development, Frontend, Backend, React, Node.js">
+    <meta name="description" content="Professional Full Stack Development Packages by Mohammed Naeem - Choose from Basic, Professional, or Enterprise plans">
+    <meta name="keywords" content="Full Stack Development, Web Development, Frontend, Backend, React, Node.js, Pricing Packages">
     <meta name="author" content="Mohammed Naeem">
-    <title>Full Stack Development Service | Mohammed Naeem</title>
+    <title>Full Stack Development Packages | Mohammed Naeem</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -474,6 +474,113 @@
             margin-bottom: 1rem;
         }
         
+        /* Pricing Packages */
+        .pricing-packages {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .package-card {
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 2px solid var(--border);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .package-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            border-color: var(--primary);
+        }
+        
+        .package-card.featured {
+            border-color: var(--accent);
+            transform: scale(1.05);
+        }
+        
+        .package-card.featured::before {
+            content: 'Most Popular';
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            background: var(--accent);
+            color: white;
+            padding: 5px 40px;
+            transform: rotate(45deg);
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .package-title {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .package-price {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+        
+        .package-price span {
+            font-size: 1rem;
+            color: var(--text-light);
+        }
+        
+        .package-description {
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+        }
+        
+        .package-features {
+            list-style: none;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+        
+        .package-features li {
+            padding: 0.5rem 0;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .package-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+        
+        .package-cta {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .package-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
         /* Service Features Section */
         .service-features {
             background-color: var(--light);
@@ -671,6 +778,137 @@
         .social-links a i {
             color: var(--primary);
         }
+
+        /* Language Selector Styles */
+        .language-selector {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+        }
+
+        .language-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .selected-language {
+            background-color: var(--card-bg);
+            border: 2px solid var(--border);
+            border-radius: 25px;
+            padding: 8px 15px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .selected-language:hover {
+            border-color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+
+        .language-dropdown.active .selected-language {
+            border-color: var(--primary);
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .flag-icon {
+            font-size: 1.2rem;
+        }
+
+        .language-text {
+            font-weight: 500;
+            font-size: 0.9rem;
+            color: var(--text);
+        }
+
+        .language-dropdown.active .language-text {
+            color: white;
+        }
+
+        .selected-language i {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            transition: transform 0.3s ease;
+        }
+
+        .language-dropdown.active .selected-language i {
+            color: white;
+            transform: rotate(180deg);
+        }
+
+        .language-options {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background-color: var(--card-bg);
+            border: 2px solid var(--border);
+            border-radius: 15px;
+            margin-top: 5px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            overflow: hidden;
+        }
+
+        .language-options.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .language-option {
+            padding: 10px 15px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: background-color 0.2s ease;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .language-option:last-child {
+            border-bottom: none;
+        }
+
+        .language-option:hover {
+            background-color: var(--light);
+        }
+
+        .language-option .language-text {
+            font-size: 0.9rem;
+        }
+
+        /* Dark mode language selector */
+        body.dark-mode .selected-language,
+        body.dark-mode .language-options {
+            background-color: var(--dark-card-bg);
+            border-color: var(--dark-border);
+        }
+
+        body.dark-mode .language-text {
+            color: var(--dark-text);
+        }
+
+        body.dark-mode .language-dropdown.active .language-text {
+            color: white;
+        }
+
+        body.dark-mode .language-option:hover {
+            background-color: var(--dark-light);
+        }
+
+        body.dark-mode .selected-language i {
+            color: var(--dark-text-light);
+        }
     </style>
 </head>
 <body>
@@ -691,6 +929,39 @@
         <i class="fas fa-arrow-up"></i>
     </div>
     
+    <!-- Language Selector -->
+    <div class="language-selector">
+        <div class="language-dropdown">
+            <div class="selected-language" onclick="toggleLanguageDropdown()">
+                <span class="flag-icon">🇺🇸</span>
+                <span class="language-text">EN</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="language-options" id="languageOptions">
+                <div class="language-option" onclick="changeLanguage('en', '🇺🇸', 'EN')">
+                    <span class="flag-icon">🇺🇸</span>
+                    <span class="language-text">English</span>
+                </div>
+                <div class="language-option" onclick="changeLanguage('ar', '🇸🇦', 'AR')">
+                    <span class="flag-icon">🇸🇦</span>
+                    <span class="language-text">العربية</span>
+                </div>
+                <div class="language-option" onclick="changeLanguage('es', '🇪🇸', 'ES')">
+                    <span class="flag-icon">🇪🇸</span>
+                    <span class="language-text">Español</span>
+                </div>
+                <div class="language-option" onclick="changeLanguage('fr', '🇫🇷', 'FR')">
+                    <span class="flag-icon">🇫🇷</span>
+                    <span class="language-text">Français</span>
+                </div>
+                <div class="language-option" onclick="changeLanguage('de', '🇩🇪', 'DE')">
+                    <span class="flag-icon">🇩🇪</span>
+                    <span class="language-text">Deutsch</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Dark Mode Toggle -->
     <div class="theme-switch-wrapper">
         <label class="theme-switch" for="checkbox">
@@ -705,9 +976,9 @@
         <div class="particles-js" id="particles-js"></div>
         <div class="header-content">
             <div class="intro">
-                <h1><span class="highlight">Full Stack Development</span></h1>
-                <p>Complete web solutions from frontend to backend with seamless integration</p>
-                <a href="#service-details" class="cta-button">Explore Service Details</a>
+                <h1><span class="highlight" data-translate="fullstack-title">Full Stack Development</span></h1>
+                <p data-translate="fullstack-subtitle">Complete web solutions from frontend to backend with seamless integration</p>
+                <a href="#service-details" class="cta-button" data-translate="explore-details-btn">Explore Service Details</a>
             </div>
             
             <div class="scroll-down">
@@ -718,7 +989,7 @@
     
     <section id="service-details">
         <div class="section-title">
-            <h2>Service Details</h2>
+            <h2 data-translate="service-details-title">Service Details</h2>
         </div>
         
         <div class="service-details">
@@ -727,47 +998,113 @@
                     <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Full Stack Development">
                 </div>
                 <div class="service-content">
-                    <h3>Professional Full Stack Development</h3>
-                    <p>As a full-stack developer with expertise in both frontend and backend technologies, I build complete web applications that deliver exceptional user experiences with robust functionality. My solutions cover everything from UI design to database architecture and server configuration.</p>
-                    <p>I specialize in creating seamless integrations between frontend and backend systems, ensuring optimal performance, security, and scalability. Whether you need a simple website or a complex web application, I can deliver a complete solution tailored to your requirements.</p>
+                    <h3 data-translate="professional-fullstack-title">Professional Full Stack Development</h3>
+                    <p data-translate="fullstack-desc1">As a full-stack developer with expertise in both frontend and backend technologies, I build complete web applications that deliver exceptional user experiences with robust functionality. My solutions cover everything from UI design to database architecture and server configuration.</p>
+                    <p data-translate="fullstack-desc2">I specialize in creating seamless integrations between frontend and backend systems, ensuring optimal performance, security, and scalability. Whether you need a simple website or a complex web application, I can deliver a complete solution tailored to your requirements.</p>
                     
-                    <div class="price-tag">
-                        <div class="discount-badge">85% OFF LIMITED TIME</div>
-                        <div class="price">$160</div>
-                        <span class="original-price">$1,066</span>
-                        <a href="index.html#contact" class="cta-button">Request Service</a>
-                    </div>
+                    <!-- <div class="price-tag"> -->
+                        <!-- <div class="discount-badge" data-translate="discount-badge">50% OFF - Professional Package</div> -->
+                        <!-- <div class="price">$599</div> -->
+                        <!-- <span class="original-price">$1,200</span> -->
+                        <!-- <a href="index.html#contact" class="cta-button" data-translate="request-service-btn">Request Service</a> -->
+                    <!-- </div> -->
                 </div>
             </div>
             
             <div class="why-choose">
-                <h3>Why Choose Me for Your Full Stack Project?</h3>
-                <p>My programming journey began in 2019 when I was still in school, initially focusing on frontend development. In 2023, I expanded my skills to include backend technologies, becoming a versatile full-stack developer capable of handling all aspects of web application development.</p>
-                <p>What sets me apart is my ability to see the big picture while paying attention to technical details. I understand how frontend and backend components interact, which allows me to create more efficient and cohesive solutions. My full-stack expertise means you get a unified approach to your project rather than pieced-together components.</p>
-                <p>I take pride in delivering applications that are not just functional but optimized for performance, security, and maintainability. My experience across the entire stack ensures your project will work harmoniously from the user interface down to the database layer.</p>
+                <h3 data-translate="why-choose-title">Why Choose Me for Your Full Stack Project?</h3>
+                <p data-translate="why-choose-desc1">My programming journey began in 2019 when I was still in school, initially focusing on frontend development. In 2023, I expanded my skills to include backend technologies, becoming a versatile full-stack developer capable of handling all aspects of web application development.</p>
+                <p data-translate="why-choose-desc2">What sets me apart is my ability to see the big picture while paying attention to technical details. I understand how frontend and backend components interact, which allows me to create more efficient and cohesive solutions. My full-stack expertise means you get a unified approach to your project rather than pieced-together components.</p>
+                <p data-translate="why-choose-desc3">I take pride in delivering applications that are not just functional but optimized for performance, security, and maintainability. My experience across the entire stack ensures your project will work harmoniously from the user interface down to the database layer.</p>
             </div>
             
             <div class="service-features">
-                <h3>Service Features</h3>
+                <h3 data-translate="service-features-title">Service Features</h3>
                 <ul>
-                    <li>Complete web application development from start to finish</li>
-                    <li>Responsive frontend development with modern frameworks</li>
-                    <li>Custom backend API development (RESTful and GraphQL)</li>
-                    <li>Database design and optimization (SQL and NoSQL)</li>
-                    <li>User authentication and authorization systems</li>
-                    <li>Third-party API integrations</li>
-                    <li>Server deployment and cloud configuration</li>
-                    <li>Performance optimization across the entire stack</li>
-                    <li>Cross-browser compatibility and responsive design</li>
-                    <li>SEO-friendly architecture</li>
-                    <li>Security best practices implementation</li>
-                    <li>Comprehensive testing and documentation</li>
+                    <li data-translate="feature1">Complete web application development from start to finish</li>
+                    <li data-translate="feature2">Responsive frontend development with modern frameworks</li>
+                    <li data-translate="feature3">Custom backend API development (RESTful and GraphQL)</li>
+                    <li data-translate="feature4">Database design and optimization (SQL and NoSQL)</li>
+                    <li data-translate="feature5">User authentication and authorization systems</li>
+                    <li data-translate="feature6">Third-party API integrations</li>
+                    <li data-translate="feature7">Server deployment and cloud configuration</li>
+                    <li data-translate="feature8">Performance optimization across the entire stack</li>
+                    <li data-translate="feature9">Cross-browser compatibility and responsive design</li>
+                    <li data-translate="feature10">SEO-friendly architecture</li>
+                    <li data-translate="feature11">Security best practices implementation</li>
+                    <li data-translate="feature12">Comprehensive testing and documentation</li>
                 </ul>
+            </div>
+            
+            <!-- Pricing Packages Section -->
+            <div class="section-title">
+                <h2 data-translate="pricing-packages-title">Pricing Packages</h2>
+            </div>
+            
+            <div class="pricing-packages">
+                <div class="package-card">
+                    <h3 class="package-title" data-translate="basic-package-title">Basic Package</h3>
+                    <div class="package-price">$299<span data-translate="package-price-suffix">/project</span></div>
+                    <p class="package-description" data-translate="basic-package-desc">Perfect for small businesses and personal projects</p>
+                    <ul class="package-features">
+                        <li data-translate="basic-feature1">Simple web application (up to 5 pages)</li>
+                        <li data-translate="basic-feature2">Responsive frontend design</li>
+                        <li data-translate="basic-feature3">Basic backend API</li>
+                        <li data-translate="basic-feature4">Database setup and configuration</li>
+                        <li data-translate="basic-feature5">User authentication system</li>
+                        <li data-translate="basic-feature6">Basic deployment and hosting setup</li>
+                        <li data-translate="basic-feature7">2 weeks delivery time</li>
+                        <li data-translate="basic-feature8">1 month free support</li>
+                    </ul>
+                    <a href="index.html#contact" class="package-cta" data-translate="choose-package-btn">Choose Package</a>
+                </div>
+                
+                <div class="package-card featured">
+                    <h3 class="package-title" data-translate="professional-package-title">Professional Package</h3>
+                    <div class="package-price">$599<span data-translate="package-price-suffix">/project</span></div>
+                    <p class="package-description" data-translate="professional-package-desc">Ideal for growing businesses with advanced needs</p>
+                    <ul class="package-features">
+                        <li data-translate="pro-feature1">Complex web application (up to 15 pages)</li>
+                        <li data-translate="pro-feature2">Advanced responsive design with animations</li>
+                        <li data-translate="pro-feature3">RESTful API with advanced features</li>
+                        <li data-translate="pro-feature4">Optimized database design</li>
+                        <li data-translate="pro-feature5">Advanced user management system</li>
+                        <li data-translate="pro-feature6">Third-party API integrations</li>
+                        <li data-translate="pro-feature7">Admin dashboard</li>
+                        <li data-translate="pro-feature8">SEO optimization</li>
+                        <li data-translate="pro-feature9">Performance optimization</li>
+                        <li data-translate="pro-feature10">4 weeks delivery time</li>
+                        <li data-translate="pro-feature11">3 months free support</li>
+                    </ul>
+                    <a href="index.html#contact" class="package-cta" data-translate="choose-package-btn">Choose Package</a>
+                </div>
+                
+                <div class="package-card">
+                    <h3 class="package-title" data-translate="enterprise-package-title">Enterprise Package</h3>
+                    <div class="package-price">$1299<span data-translate="package-price-suffix">/project</span></div>
+                    <p class="package-description" data-translate="enterprise-package-desc">Complete solution for large-scale applications</p>
+                    <ul class="package-features">
+                        <li data-translate="enterprise-feature1">Large-scale web application (unlimited pages)</li>
+                        <li data-translate="enterprise-feature2">Custom UI/UX design</li>
+                        <li data-translate="enterprise-feature3">GraphQL API with microservices</li>
+                        <li data-translate="enterprise-feature4">Advanced database architecture</li>
+                        <li data-translate="enterprise-feature5">Multi-role user system</li>
+                        <li data-translate="enterprise-feature6">Multiple API integrations</li>
+                        <li data-translate="enterprise-feature7">Advanced admin panel</li>
+                        <li data-translate="enterprise-feature8">Real-time features (chat, notifications)</li>
+                        <li data-translate="enterprise-feature9">Advanced security implementation</li>
+                        <li data-translate="enterprise-feature10">Cloud deployment with CI/CD</li>
+                        <li data-translate="enterprise-feature11">Comprehensive testing suite</li>
+                        <li data-translate="enterprise-feature12">8 weeks delivery time</li>
+                        <li data-translate="enterprise-feature13">6 months free support</li>
+                    </ul>
+                    <a href="index.html#contact" class="package-cta" data-translate="choose-package-btn">Choose Package</a>
+                </div>
             </div>
             
             <div class="tools-section">
                 <div class="section-title">
-                    <h2>Technologies & Tools</h2>
+                    <h2 data-translate="technologies-tools-title">Technologies & Tools</h2>
                 </div>
                 
                 <div class="tools-grid">
@@ -858,9 +1195,9 @@
             </div>
             
             <div class="contact-cta">
-                <h3>Ready to Build Your Complete Web Solution?</h3>
-                <p>Let's discuss how I can bring your full-stack project to life with comprehensive development expertise.</p>
-                <a href="index.html#contact" class="cta-button">Request Service Now</a>
+                <h3 data-translate="ready-build-title">Ready to Build Your Complete Web Solution?</h3>
+                <p data-translate="ready-build-desc">Let's discuss how I can bring your full-stack project to life with comprehensive development expertise.</p>
+                <a href="index.html#contact" class="cta-button" data-translate="request-service-now-btn">Request Service Now</a>
             </div>
         </div>
     </section>
@@ -872,8 +1209,8 @@
             <a href="https://x.com/MohammedNaeeeem?t=WMkESJEVaI7K8ZFsbCdkfQ&s=09" target="_blank"><i class="fab fa-twitter"></i></a>
             <a href="mailto:mohammedabdelnaeim18@gmail.com"><i class="fas fa-envelope"></i></a>
         </div>
-        <p>&copy; <span id="year"></span> Mohammed Naeem. All rights reserved.</p>
-        <p class="designer-credit">Designed by Mohammed Naeem</p>
+        <p data-translate="copyright">&copy; <span id="year"></span> Mohammed Naeem. All rights reserved.</p>
+        <p class="designer-credit" data-translate="designed-by">Designed by Mohammed Naeem</p>
     </footer>
 
     <!-- Particles.js -->
@@ -986,6 +1323,338 @@
         }
         
         toggleSwitch.addEventListener('change', switchTheme, false);
+
+        // Language Selector Functions
+        function toggleLanguageDropdown() {
+            const dropdown = document.getElementById('languageOptions');
+            const languageDropdown = document.querySelector('.language-dropdown');
+            dropdown.classList.toggle('show');
+            languageDropdown.classList.toggle('active');
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            const languageSelector = document.querySelector('.language-selector');
+            if (!languageSelector.contains(event.target)) {
+                document.getElementById('languageOptions').classList.remove('show');
+                document.querySelector('.language-dropdown').classList.remove('active');
+            }
+        });
+
+        function changeLanguage(langCode, flagIcon, langText) {
+            const selectedLanguage = document.querySelector('.selected-language');
+            const flagSpan = selectedLanguage.querySelector('.flag-icon');
+            const textSpan = selectedLanguage.querySelector('.language-text');
+            
+            flagSpan.textContent = flagIcon;
+            textSpan.textContent = langText;
+            
+            // Close dropdown
+            document.getElementById('languageOptions').classList.remove('show');
+            document.querySelector('.language-dropdown').classList.remove('active');
+            
+            // Save language preference
+            localStorage.setItem('selectedLanguage', langCode);
+            localStorage.setItem('selectedFlag', flagIcon);
+            localStorage.setItem('selectedText', langText);
+            
+            // Apply translations
+            applyTranslations(langCode);
+        }
+
+        function applyTranslations(langCode) {
+            const translations = {
+                en: {
+                    'fullstack-title': 'Full Stack Development',
+                    'fullstack-subtitle': 'Complete web solutions from frontend to backend with seamless integration',
+                    'explore-details-btn': 'Explore Service Details',
+                    'service-details-title': 'Service Details',
+                    'professional-fullstack-title': 'Professional Full Stack Development',
+                    'fullstack-desc1': 'As a full-stack developer with expertise in both frontend and backend technologies, I build complete web applications that deliver exceptional user experiences with robust functionality. My solutions cover everything from UI design to database architecture and server configuration.',
+                    'fullstack-desc2': 'I specialize in creating seamless integrations between frontend and backend systems, ensuring optimal performance, security, and scalability. Whether you need a simple website or a complex web application, I can deliver a complete solution tailored to your requirements.',
+                    'discount-badge': '85% OFF LIMITED TIME',
+                    'request-service-btn': 'Request Service',
+                    'why-choose-title': 'Why Choose Me for Your Full Stack Project?',
+                    'why-choose-desc1': 'My programming journey began in 2019 when I was still in school, initially focusing on frontend development. In 2023, I expanded my skills to include backend technologies, becoming a versatile full-stack developer capable of handling all aspects of web application development.',
+                    'why-choose-desc2': 'What sets me apart is my ability to see the big picture while paying attention to technical details. I understand how frontend and backend components interact, which allows me to create more efficient and cohesive solutions. My full-stack expertise means you get a unified approach to your project rather than pieced-together components.',
+                    'why-choose-desc3': 'I take pride in delivering applications that are not just functional but optimized for performance, security, and maintainability. My experience across the entire stack ensures your project will work harmoniously from the user interface down to the database layer.',
+                    'service-features-title': 'Service Features',
+                    'feature1': 'Complete web application development from start to finish',
+                    'feature2': 'Responsive frontend development with modern frameworks',
+                    'feature3': 'Custom backend API development (RESTful and GraphQL)',
+                    'feature4': 'Database design and optimization (SQL and NoSQL)',
+                    'feature5': 'User authentication and authorization systems',
+                    'feature6': 'Third-party API integrations',
+                    'feature7': 'Server deployment and cloud configuration',
+                    'feature8': 'Performance optimization across the entire stack',
+                    'feature9': 'Cross-browser compatibility and responsive design',
+                    'feature10': 'SEO-friendly architecture',
+                    'feature11': 'Security best practices implementation',
+                    'feature12': 'Comprehensive testing and documentation',
+                    'technologies-tools-title': 'Technologies & Tools',
+                    'pricing-packages-title': 'Pricing Packages',
+                    'basic-package-title': 'Basic Package',
+                    'professional-package-title': 'Professional Package',
+                    'enterprise-package-title': 'Enterprise Package',
+                    'package-price-suffix': '/project',
+                    'basic-package-desc': 'Perfect for small businesses and personal projects',
+                    'professional-package-desc': 'Ideal for growing businesses with advanced needs',
+                    'enterprise-package-desc': 'Complete solution for large-scale applications',
+                    'basic-feature1': 'Simple web application (up to 5 pages)',
+                    'basic-feature2': 'Responsive frontend design',
+                    'basic-feature3': 'Basic backend API',
+                    'basic-feature4': 'Database setup and configuration',
+                    'basic-feature5': 'User authentication system',
+                    'basic-feature6': 'Basic deployment and hosting setup',
+                    'basic-feature7': '2 weeks delivery time',
+                    'basic-feature8': '1 month free support',
+                    'pro-feature1': 'Complex web application (up to 15 pages)',
+                    'pro-feature2': 'Advanced responsive design with animations',
+                    'pro-feature3': 'RESTful API with advanced features',
+                    'pro-feature4': 'Optimized database design',
+                    'pro-feature5': 'Advanced user management system',
+                    'pro-feature6': 'Third-party API integrations',
+                    'pro-feature7': 'Admin dashboard',
+                    'pro-feature8': 'SEO optimization',
+                    'pro-feature9': 'Performance optimization',
+                    'pro-feature10': '4 weeks delivery time',
+                    'pro-feature11': '3 months free support',
+                    'enterprise-feature1': 'Large-scale web application (unlimited pages)',
+                    'enterprise-feature2': 'Custom UI/UX design',
+                    'enterprise-feature3': 'GraphQL API with microservices',
+                    'enterprise-feature4': 'Advanced database architecture',
+                    'enterprise-feature5': 'Multi-role user system',
+                    'enterprise-feature6': 'Multiple API integrations',
+                    'enterprise-feature7': 'Advanced admin panel',
+                    'enterprise-feature8': 'Real-time features (chat, notifications)',
+                    'enterprise-feature9': 'Advanced security implementation',
+                    'enterprise-feature10': 'Cloud deployment with CI/CD',
+                    'enterprise-feature11': 'Comprehensive testing suite',
+                    'enterprise-feature12': '8 weeks delivery time',
+                    'enterprise-feature13': '6 months free support',
+                    'choose-package-btn': 'Choose Package',
+                    'ready-build-title': 'Ready to build your complete web solution?',
+                    'ready-build-desc': 'Let\'s discuss how I can bring your full-stack project to life with comprehensive development expertise.',
+                    'request-service-now-btn': 'Request Service Now',
+                    'copyright': ' Mohammed Naeem. All rights reserved.',
+                    'designed-by': 'Designed by Mohammed Naeem'
+                },
+                ar: {
+                    'fullstack-title': 'تطوير المكدس الكامل',
+                    'fullstack-subtitle': 'حلول ويب كاملة من الواجهة الأمامية إلى الخلفية مع التكامل السلس',
+                    'explore-details-btn': 'استكشف تفاصيل الخدمة',
+                    'service-details-title': 'تفاصيل الخدمة',
+                    'professional-fullstack-title': 'تطوير المكدس الكامل الاحترافي',
+                    'fullstack-desc1': 'كمطور مكدس كامل بخبرة في تقنيات الواجهة الأمامية والخلفية، أقوم ببناء تطبيقات ويب كاملة تقدم تجارب مستخدم استثنائية مع وظائف قوية. حلولي تغطي كل شيء من تصميم واجهة المستخدم إلى هيكل قاعدة البيانات وتكوين الخادم.',
+                    'fullstack-desc2': 'أتخصص في إنشاء تكاملات سلسة بين أنظمة الواجهة الأمامية والخلفية، مما يضمن الأداء الأمثل والأمان وقابلية التوسع. سواء كنت تحتاج موقع ويب بسيط أو تطبيق ويب معقد، يمكنني تقديم حل كامل مصمم خصيصاً لمتطلباتك.',
+                    'discount-badge': 'خصم 85% لفترة محدودة',
+                    'request-service-btn': 'اطلب الخدمة',
+                    'why-choose-title': 'لماذا تختارني لمشروع المكدس الكامل؟',
+                    'why-choose-desc1': 'بدأت رحلتي في البرمجة عام 2019 عندما كنت لا أزال في المدرسة، ركزت في البداية على تطوير الواجهة الأمامية. في عام 2023، وسعت مهاراتي لتشمل تقنيات الخادم، لأصبح مطور مكدس كامل متعدد الاستخدامات قادر على التعامل مع جميع جوانب تطوير تطبيقات الويب.',
+                    'why-choose-desc2': 'ما يميزني هو قدرتي على رؤية الصورة الكبيرة مع الانتباه للتفاصيل التقنية. أفهم كيف تتفاعل مكونات الواجهة الأمامية والخلفية، مما يسمح لي بإنشاء حلول أكثر كفاءة وتماسكاً. خبرتي في المكدس الكامل تعني أنك تحصل على نهج موحد لمشروعك بدلاً من مكونات مجمعة.',
+                    'why-choose-desc3': 'أفتخر بتقديم تطبيقات ليست فقط وظيفية ولكن محسنة للأداء والأمان وسهولة الصيانة. خبرتي عبر المكدس بأكمله تضمن أن مشروعك سيعمل بانسجام من واجهة المستخدم وصولاً إلى طبقة قاعدة البيانات.',
+                    'service-features-title': 'ميزات الخدمة',
+                    'feature1': 'تطوير تطبيق ويب كامل من البداية إلى النهاية',
+                    'feature2': 'تطوير واجهة أمامية متجاوبة بأطر عمل حديثة',
+                    'feature3': 'تطوير واجهة برمجة تطبيقات خلفية مخصصة (RESTful و GraphQL)',
+                    'feature4': 'تصميم وتحسين قاعدة البيانات (SQL و NoSQL)',
+                    'feature5': 'أنظمة مصادقة وترخيص المستخدم',
+                    'feature6': 'تكاملات واجهة برمجة تطبيقات طرف ثالث',
+                    'feature7': 'نشر الخادم وتكوين السحابة',
+                    'feature8': 'تحسين الأداء عبر المكدس بأكمله',
+                    'feature9': 'التوافق مع المتصفحات والتصميم المتجاوب',
+                    'feature10': 'هيكل صديق لمحركات البحث',
+                    'feature11': 'تنفيذ أفضل ممارسات الأمان',
+                    'feature12': 'الاختبار والتوثيق الشامل',
+                    'technologies-tools-title': 'التقنيات والأدوات',
+                    'pricing-packages-title': 'باقات الأسعار',
+                    'basic-package-title': 'الباقة الأساسية',
+                    'professional-package-title': 'الباقة الاحترافية',
+                    'enterprise-package-title': 'باقة المؤسسات',
+                    'package-price-suffix': '/مشروع',
+                    'basic-package-desc': 'مثالية للشركات الصغيرة والمشاريع الشخصية',
+                    'professional-package-desc': 'مناسبة للشركات النامية ذات الاحتياجات المتقدمة',
+                    'enterprise-package-desc': 'حل شامل للتطبيقات واسعة النطاق',
+                    'basic-feature1': 'تطبيق ويب بسيط (حتى 5 صفحات)',
+                    'basic-feature2': 'تصميم واجهة أمامية متجاوبة',
+                    'basic-feature3': 'واجهة برمجة تطبيقات خلفية أساسية',
+                    'basic-feature4': 'إعداد وتكوين قاعدة البيانات',
+                    'basic-feature5': 'نظام مصادقة المستخدمين',
+                    'basic-feature6': 'إعداد النشر والاستضافة الأساسي',
+                    'basic-feature7': 'وقت التسليم أسبوعان',
+                    'basic-feature8': 'دعم مجاني لشهر واحد',
+                    'pro-feature1': 'تطبيق ويب معقد (حتى 15 صفحة)',
+                    'pro-feature2': 'تصميم متجاوب متقدم مع الرسوم المتحركة',
+                    'pro-feature3': 'واجهة برمجة تطبيقات RESTful مع ميزات متقدمة',
+                    'pro-feature4': 'تصميم قاعدة بيانات محسنة',
+                    'pro-feature5': 'نظام إدارة مستخدمين متقدم',
+                    'pro-feature6': 'تكاملات واجهات برمجة تطبيقات خارجية',
+                    'pro-feature7': 'لوحة تحكم إدارية',
+                    'pro-feature8': 'تحسين محركات البحث',
+                    'pro-feature9': 'تحسين الأداء',
+                    'pro-feature10': 'وقت التسليم 4 أسابيع',
+                    'pro-feature11': 'دعم مجاني لـ 3 أشهر',
+                    'enterprise-feature1': 'تطبيق ويب واسع النطاق (صفحات غير محدودة)',
+                    'enterprise-feature2': 'تصميم UI/UX مخصص',
+                    'enterprise-feature3': 'واجهة برمجة تطبيقات GraphQL مع الخدمات المصغرة',
+                    'enterprise-feature4': 'هندسة قاعدة بيانات متقدمة',
+                    'enterprise-feature5': 'نظام مستخدمين متعدد الأدوار',
+                    'enterprise-feature6': 'تكاملات واجهات برمجة تطبيقات متعددة',
+                    'enterprise-feature7': 'لوحة إدارية متقدمة',
+                    'enterprise-feature8': 'ميزات الوقت الفعلي (الدردشة، الإشعارات)',
+                    'enterprise-feature9': 'تنفيذ الأمان المتقدم',
+                    'enterprise-feature10': 'النشر السحابي مع CI/CD',
+                    'enterprise-feature11': 'مجموعة اختبارات شاملة',
+                    'enterprise-feature12': 'وقت التسليم 8 أسابيع',
+                    'enterprise-feature13': 'دعم مجاني لـ 6 أشهر',
+                    'choose-package-btn': 'اختر الباقة',
+                    'ready-build-title': 'مستعد لبناء حلك الويب الكامل؟',
+                    'ready-build-desc': 'دعنا نناقش كيف يمكنني إحياء مشروعك الكامل بخبرة تطوير شاملة.',
+                    'request-service-now-btn': 'اطلب الخدمة الآن',
+                    'copyright': ' محمد نعيم. جميع الحقوق محفوظة.',
+                    'designed-by': 'مصمم بواسطة محمد نعيم'
+                },
+                es: {
+                    'fullstack-title': 'Desarrollo Full Stack',
+                    'fullstack-subtitle': 'Soluciones web completas desde frontend hasta backend con integración perfecta',
+                    'explore-details-btn': 'Explorar Detalles del Servicio',
+                    'service-details-title': 'Detalles del Servicio',
+                    'professional-fullstack-title': 'Desarrollo Full Stack Profesional',
+                    'fullstack-desc1': 'Como desarrollador full-stack con experiencia en tecnologías frontend y backend, construyo aplicaciones web completas que ofrecen experiencias de usuario excepcionales con funcionalidad robusta. Mis soluciones cubren todo desde diseño de UI hasta arquitectura de base de datos y configuración de servidor.',
+                    'fullstack-desc2': 'Me especializo en crear integraciones perfectas entre sistemas frontend y backend, asegurando rendimiento óptimo, seguridad y escalabilidad. Ya sea que necesite un sitio web simple o una aplicación web compleja, puedo entregar una solución completa adaptada a sus requisitos.',
+                    'discount-badge': '85% DE DESCUENTO TIEMPO LIMITADO',
+                    'request-service-btn': 'Solicitar Servicio',
+                    'why-choose-title': '¿Por qué elegirme para su proyecto Full Stack?',
+                    'why-choose-desc1': 'Mi viaje de programación comenzó en 2019 cuando aún estaba en la escuela, inicialmente enfocándome en desarrollo frontend. En 2023, expandí mis habilidades para incluir tecnologías backend, convirtiéndome en un desarrollador full-stack versátil capaz de manejar todos los aspectos del desarrollo de aplicaciones web.',
+                    'why-choose-desc2': 'Lo que me distingue es mi capacidad de ver el panorama general mientras presto atención a los detalles técnicos. Entiendo cómo interactúan los componentes frontend y backend, lo que me permite crear soluciones más eficientes y cohesivas. Mi experiencia full-stack significa que obtiene un enfoque unificado para su proyecto en lugar de componentes ensamblados.',
+                    'why-choose-desc3': 'Me enorgullezco de entregar aplicaciones que no solo son funcionales sino optimizadas para rendimiento, seguridad y mantenibilidad. Mi experiencia en todo el stack asegura que su proyecto funcionará armoniosamente desde la interfaz de usuario hasta la capa de base de datos.',
+                    'service-features-title': 'Características del Servicio',
+                    'feature1': 'Desarrollo completo de aplicación web de principio a fin',
+                    'feature2': 'Desarrollo frontend responsivo con frameworks modernos',
+                    'feature3': 'Desarrollo de API backend personalizada (RESTful y GraphQL)',
+                    'feature4': 'Diseño y optimización de base de datos (SQL y NoSQL)',
+                    'feature5': 'Sistemas de autenticación y autorización de usuario',
+                    'feature6': 'Integraciones de API de terceros',
+                    'feature7': 'Despliegue de servidor y configuración en la nube',
+                    'feature8': 'Optimización de rendimiento en todo el stack',
+                    'feature9': 'Compatibilidad entre navegadores y diseño responsivo',
+                    'feature10': 'Arquitectura amigable con SEO',
+                    'feature11': 'Implementación de mejores prácticas de seguridad',
+                    'feature12': 'Pruebas y documentación integral',
+                    'technologies-tools-title': 'Tecnologías y Herramientas',
+                    'ready-build-title': '¿Listo para construir su solución web completa?',
+                    'ready-build-desc': 'Discutamos cómo puedo dar vida a su proyecto full-stack con experiencia de desarrollo integral.',
+                    'request-service-now-btn': 'Solicitar Servicio Ahora',
+                    'copyright': '© Mohammed Naeem. Todos los derechos reservados.',
+                    'designed-by': 'Diseñado por Mohammed Naeem'
+                },
+                fr: {
+                    'fullstack-title': 'Développement Full Stack',
+                    'fullstack-subtitle': 'Solutions web complètes du frontend au backend avec intégration transparente',
+                    'explore-details-btn': 'Explorer les détails du service',
+                    'service-details-title': 'Détails du service',
+                    'professional-fullstack-title': 'Développement Full Stack Professionnel',
+                    'fullstack-desc1': 'En tant que développeur full-stack avec une expertise en technologies frontend et backend, je construis des applications web complètes qui offrent des expériences utilisateur exceptionnelles avec une fonctionnalité robuste. Mes solutions couvrent tout, de la conception UI à l\'architecture de base de données et la configuration serveur.',
+                    'fullstack-desc2': 'Je me spécialise dans la création d\'intégrations transparentes entre les systèmes frontend et backend, assurant des performances optimales, la sécurité et l\'évolutivité. Que vous ayez besoin d\'un site web simple ou d\'une application web complexe, je peux livrer une solution complète adaptée à vos exigences.',
+                    'discount-badge': '85% DE RÉDUCTION TEMPS LIMITÉ',
+                    'request-service-btn': 'Demander le Service',
+                    'why-choose-title': 'Pourquoi me choisir pour votre projet Full Stack?',
+                    'why-choose-desc1': 'Mon parcours de programmation a commencé en 2019 quand j\'étais encore à l\'école, me concentrant initialement sur le développement frontend. En 2023, j\'ai élargi mes compétences pour inclure les technologies backend, devenant un développeur full-stack polyvalent capable de gérer tous les aspects du développement d\'applications web.',
+                    'why-choose-desc2': 'Ce qui me distingue est ma capacité à voir la vue d\'ensemble tout en prêtant attention aux détails techniques. Je comprends comment les composants frontend et backend interagissent, ce qui me permet de créer des solutions plus efficaces et cohésives. Mon expertise full-stack signifie que vous obtenez une approche unifiée pour votre projet plutôt que des composants assemblés.',
+                    'why-choose-desc3': 'Je suis fier de livrer des applications qui ne sont pas seulement fonctionnelles mais optimisées pour les performances, la sécurité et la maintenabilité. Mon expérience sur toute la pile assure que votre projet fonctionnera harmonieusement de l\'interface utilisateur jusqu\'à la couche de base de données.',
+                    'service-features-title': 'Caractéristiques du Service',
+                    'feature1': 'Développement complet d\'application web du début à la fin',
+                    'feature2': 'Développement frontend responsive avec des frameworks modernes',
+                    'feature3': 'Développement d\'API backend personnalisée (RESTful et GraphQL)',
+                    'feature4': 'Conception et optimisation de base de données (SQL et NoSQL)',
+                    'feature5': 'Systèmes d\'authentification et d\'autorisation utilisateur',
+                    'feature6': 'Intégrations d\'API tierces',
+                    'feature7': 'Déploiement serveur et configuration cloud',
+                    'feature8': 'Optimisation des performances sur toute la pile',
+                    'feature9': 'Compatibilité inter-navigateurs et design responsive',
+                    'feature10': 'Architecture conviviale pour le SEO',
+                    'feature11': 'Implémentation des meilleures pratiques de sécurité',
+                    'feature12': 'Tests et documentation complets',
+                    'technologies-tools-title': 'Technologies et Outils',
+                    'ready-build-title': 'Prêt à construire votre solution web complète?',
+                    'ready-build-desc': 'Discutons de comment je peux donner vie à votre projet full-stack avec une expertise de développement complète.',
+                    'request-service-now-btn': 'Demander le Service Maintenant',
+                    'copyright': '© Mohammed Naeem. Tous droits réservés.',
+                    'designed-by': 'Conçu par Mohammed Naeem'
+                },
+                de: {
+                    'fullstack-title': 'Full Stack Entwicklung',
+                    'fullstack-subtitle': 'Komplette Web-Lösungen vom Frontend bis Backend mit nahtloser Integration',
+                    'explore-details-btn': 'Service-Details erkunden',
+                    'service-details-title': 'Service-Details',
+                    'professional-fullstack-title': 'Professionelle Full Stack Entwicklung',
+                    'fullstack-desc1': 'Als Full-Stack-Entwickler mit Expertise in Frontend- und Backend-Technologien erstelle ich komplette Webanwendungen, die außergewöhnliche Benutzererfahrungen mit robuster Funktionalität bieten. Meine Lösungen decken alles ab, von UI-Design bis Datenbankarchitektur und Server-Konfiguration.',
+                    'fullstack-desc2': 'Ich spezialisiere mich auf die Erstellung nahtloser Integrationen zwischen Frontend- und Backend-Systemen und gewährleiste optimale Leistung, Sicherheit und Skalierbarkeit. Ob Sie eine einfache Website oder eine komplexe Webanwendung benötigen, ich kann eine komplette, auf Ihre Anforderungen zugeschnittene Lösung liefern.',
+                    'discount-badge': '85% RABATT BEGRENZTE ZEIT',
+                    'request-service-btn': 'Service anfordern',
+                    'why-choose-title': 'Warum mich für Ihr Full Stack Projekt wählen?',
+                    'why-choose-desc1': 'Meine Programmierreise begann 2019, als ich noch in der Schule war und mich zunächst auf Frontend-Entwicklung konzentrierte. 2023 erweiterte ich meine Fähigkeiten um Backend-Technologien und wurde ein vielseitiger Full-Stack-Entwickler, der alle Aspekte der Webanwendungsentwicklung bewältigen kann.',
+                    'why-choose-desc2': 'Was mich auszeichnet, ist meine Fähigkeit, das große Ganze zu sehen und gleichzeitig auf technische Details zu achten. Ich verstehe, wie Frontend- und Backend-Komponenten interagieren, was es mir ermöglicht, effizientere und kohäsivere Lösungen zu schaffen. Meine Full-Stack-Expertise bedeutet, dass Sie einen einheitlichen Ansatz für Ihr Projekt erhalten, anstatt zusammengesetzte Komponenten.',
+                    'why-choose-desc3': 'Ich bin stolz darauf, Anwendungen zu liefern, die nicht nur funktional sind, sondern für Leistung, Sicherheit und Wartbarkeit optimiert sind. Meine Erfahrung über den gesamten Stack hinweg stellt sicher, dass Ihr Projekt harmonisch von der Benutzeroberfläche bis zur Datenbankschicht funktioniert.',
+                    'service-features-title': 'Service-Features',
+                    'feature1': 'Komplette Webanwendungsentwicklung von Anfang bis Ende',
+                    'feature2': 'Responsive Frontend-Entwicklung mit modernen Frameworks',
+                    'feature3': 'Benutzerdefinierte Backend-API-Entwicklung (RESTful und GraphQL)',
+                    'feature4': 'Datenbankdesign und -optimierung (SQL und NoSQL)',
+                    'feature5': 'Benutzerauthentifizierung und Autorisierungssysteme',
+                    'feature6': 'Drittanbieter-API-Integrationen',
+                    'feature7': 'Server-Deployment und Cloud-Konfiguration',
+                    'feature8': 'Performance-Optimierung über den gesamten Stack',
+                    'feature9': 'Cross-Browser-Kompatibilität und responsives Design',
+                    'feature10': 'SEO-freundliche Architektur',
+                    'feature11': 'Implementierung von Sicherheits-Best-Practices',
+                    'feature12': 'Umfassende Tests und Dokumentation',
+                    'technologies-tools-title': 'Technologien & Tools',
+                    'ready-build-title': 'Bereit, Ihre komplette Web-Lösung zu erstellen?',
+                    'ready-build-desc': 'Lassen Sie uns besprechen, wie ich Ihr Full-Stack-Projekt mit umfassender Entwicklungsexpertise zum Leben erwecken kann.',
+                    'request-service-now-btn': 'Service jetzt anfordern',
+                    'copyright': '© Mohammed Naeem. Alle Rechte vorbehalten.',
+                    'designed-by': 'Entworfen von Mohammed Naeem'
+                }
+            };
+
+            const currentTranslations = translations[langCode] || translations.en;
+            
+            // Apply translations to elements with data-translate attributes
+            Object.keys(currentTranslations).forEach(key => {
+                const elements = document.querySelectorAll(`[data-translate="${key}"]`);
+                elements.forEach(element => {
+                    element.textContent = currentTranslations[key];
+                });
+            });
+
+            // Update document direction for Arabic
+            if (langCode === 'ar') {
+                document.documentElement.setAttribute('dir', 'rtl');
+                document.documentElement.setAttribute('lang', 'ar');
+            } else {
+                document.documentElement.setAttribute('dir', 'ltr');
+                document.documentElement.setAttribute('lang', langCode);
+            }
+        }
+
+        // Load saved language preference on page load
+        window.addEventListener('load', function() {
+            const savedLang = localStorage.getItem('selectedLanguage') || 'en';
+            const savedFlag = localStorage.getItem('selectedFlag') || '🇺🇸';
+            const savedText = localStorage.getItem('selectedText') || 'EN';
+            
+            const selectedLanguage = document.querySelector('.selected-language');
+            if (selectedLanguage) {
+                const flagSpan = selectedLanguage.querySelector('.flag-icon');
+                const textSpan = selectedLanguage.querySelector('.language-text');
+                
+                if (flagSpan) flagSpan.textContent = savedFlag;
+                if (textSpan) textSpan.textContent = savedText;
+                
+                applyTranslations(savedLang);
+            }
+        });
         
         // Particles.js configuration
         particlesJS('particles-js', {

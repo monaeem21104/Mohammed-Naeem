@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Real Estate Platform Project</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -239,6 +240,104 @@
             to { opacity: 1; transform: translateY(0); }
         }
         
+        /* Language Selector */
+        .language-selector {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        
+        .language-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .selected-language {
+            background-color: white;
+            border: 2px solid var(--primary-color);
+            border-radius: 25px;
+            padding: 8px 15px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .selected-language:hover {
+            border-color: var(--accent-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+        
+        .flag-icon {
+            font-size: 1.2rem;
+        }
+        
+        .language-text {
+            font-weight: 600;
+            color: var(--primary-color);
+            font-size: 0.9rem;
+        }
+        
+        .selected-language i {
+            color: var(--primary-color);
+            font-size: 0.8rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .language-options {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: white;
+            border: 2px solid var(--primary-color);
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            min-width: 150px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 1001;
+            margin-top: 5px;
+        }
+        
+        .language-options.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .language-option {
+            padding: 10px 15px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .language-option:last-child {
+            border-bottom: none;
+        }
+        
+        .language-option:hover {
+            background-color: #e8f5e8;
+            color: var(--primary-color);
+        }
+        
+        .language-option:first-child {
+            border-radius: 13px 13px 0 0;
+        }
+        
+        .language-option:last-child {
+            border-radius: 0 0 13px 13px;
+        }
+        
         @media screen and (max-width: 768px) {
             .project-card {
                 padding: 2rem 1.5rem;
@@ -262,18 +361,55 @@
                 left: 0;
                 text-align: left;
             }
+            
+            .language-selector {
+                top: 10px;
+                right: 10px;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Language Selector -->
+    <div class="language-selector">
+        <div class="language-dropdown">
+            <div class="selected-language" onclick="toggleLanguageDropdown()">
+                <span class="flag-icon">🇺🇸</span>
+                <span class="language-text">EN</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="language-options" id="languageOptions">
+                <div class="language-option" onclick="changeLanguage('en', '🇺🇸', 'EN')">
+                    <span class="flag-icon">🇺🇸</span>
+                    <span class="language-text">English</span>
+                </div>
+                <div class="language-option" onclick="changeLanguage('ar', '🇸🇦', 'AR')">
+                    <span class="flag-icon">🇸🇦</span>
+                    <span class="language-text">العربية</span>
+                </div>
+                <div class="language-option" onclick="changeLanguage('es', '🇪🇸', 'ES')">
+                    <span class="flag-icon">🇪🇸</span>
+                    <span class="language-text">Español</span>
+                </div>
+                <div class="language-option" onclick="changeLanguage('fr', '🇫🇷', 'FR')">
+                    <span class="flag-icon">🇫🇷</span>
+                    <span class="language-text">Français</span>
+                </div>
+                <div class="language-option" onclick="changeLanguage('de', '🇩🇪', 'DE')">
+                    <span class="flag-icon">🇩🇪</span>
+                    <span class="language-text">Deutsch</span>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="container">
         <div class="project-card">
             <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Real Estate Platform" class="project-img">
-            <h1>Real Estate Platform</h1>
-            <h2>Property listing platform with advanced search filters, virtual tours, and agent CRM</h2>
+            <h1 data-translate="project_title">Real Estate Platform</h1>
+            <h2 data-translate="project_subtitle">Property listing platform with advanced search filters, virtual tours, and agent CRM</h2>
             
             <div class="project-description">
-                <p>This comprehensive real estate solution transforms property search and management with cutting-edge features including interactive maps, virtual property tours, and a powerful CRM system for agents.</p>
+                <p data-translate="project_description">This comprehensive real estate solution transforms property search and management with cutting-edge features including interactive maps, virtual property tours, and a powerful CRM system for agents.</p>
                 
                 <div class="tech-stack">
                     <span class="tech-item">Next.js</span>
@@ -286,31 +422,182 @@
             </div>
             
             <div class="project-details">
-                <h3>Project Highlights</h3>
+                <h3 data-translate="project_highlights_title">Project Highlights</h3>
                 <div class="timeline">
                     <div class="timeline-item left">
                         <div class="timeline-content">
-                            <h4>Technical Implementation</h4>
-                            <p>Built with Next.js for server-rendered frontend and NestJS for scalable backend services. Used MongoDB for flexible data storage and Mapbox for interactive property maps. Implemented virtual tours using 3D rendering technology.</p>
+                            <h4 data-translate="technical_implementation_title">Technical Implementation</h4>
+                            <p data-translate="technical_implementation_desc">Built with Next.js for server-rendered frontend and NestJS for scalable backend services. Used MongoDB for flexible data storage and Mapbox for interactive property maps. Implemented virtual tours using 3D rendering technology.</p>
                         </div>
                     </div>
                     <div class="timeline-item right">
                         <div class="timeline-content">
-                            <h4>Challenges Overcome</h4>
-                            <p>Solved complex property search requirements with advanced filtering algorithms. Optimized virtual tours for smooth performance across devices. Created seamless integration between public listings and private agent CRM tools.</p>
+                            <h4 data-translate="challenges_overcome_title">Challenges Overcome</h4>
+                            <p data-translate="challenges_overcome_desc">Solved complex property search requirements with advanced filtering algorithms. Optimized virtual tours for smooth performance across devices. Created seamless integration between public listings and private agent CRM tools.</p>
                         </div>
                     </div>
                     <div class="timeline-item left">
                         <div class="timeline-content">
-                            <h4>Client Satisfaction</h4>
-                            <p>Delivered ahead of schedule with all feature requirements met. Client reported 50% increase in property inquiries and 30% reduction in time-to-sale. Platform became market leader in their region within 6 months.</p>
+                            <h4 data-translate="client_satisfaction_title">Client Satisfaction</h4>
+                            <p data-translate="client_satisfaction_desc">Delivered ahead of schedule with all feature requirements met. Client reported 50% increase in property inquiries and 30% reduction in time-to-sale. Platform became market leader in their region within 6 months.</p>
                         </div>
                     </div>
                 </div>
                 
-                <a href="index.html#contact-form" class="cta-button">Request a Similar Service</a>
+                <a href="index.html#contact-form" class="cta-button" data-translate="cta_button">Request a Similar Service</a>
             </div>
         </div>
     </div>
+    <script>
+        // Translation object
+        const translations = {
+            en: {
+                project_title: "Real Estate Platform",
+                project_subtitle: "Property listing platform with advanced search filters, virtual tours, and agent CRM",
+                project_description: "This comprehensive real estate solution transforms property search and management with cutting-edge features including interactive maps, virtual property tours, and a powerful CRM system for agents.",
+                project_highlights_title: "Project Highlights",
+                technical_implementation_title: "Technical Implementation",
+                technical_implementation_desc: "Built with Next.js for server-rendered frontend and NestJS for scalable backend services. Used MongoDB for flexible data storage and Mapbox for interactive property maps. Implemented virtual tours using 3D rendering technology.",
+                challenges_overcome_title: "Challenges Overcome",
+                challenges_overcome_desc: "Solved complex property search requirements with advanced filtering algorithms. Optimized virtual tours for smooth performance across devices. Created seamless integration between public listings and private agent CRM tools.",
+                client_satisfaction_title: "Client Satisfaction",
+                client_satisfaction_desc: "Delivered ahead of schedule with all feature requirements met. Client reported 50% increase in property inquiries and 30% reduction in time-to-sale. Platform became market leader in their region within 6 months.",
+                cta_button: "Request a Similar Service"
+            },
+            ar: {
+                project_title: "منصة العقارات",
+                project_subtitle: "منصة قوائم العقارات مع مرشحات بحث متقدمة وجولات افتراضية ونظام إدارة علاقات العملاء للوكلاء",
+                project_description: "يحول هذا الحل العقاري الشامل البحث عن العقارات وإدارتها بميزات متطورة تشمل الخرائط التفاعلية والجولات الافتراضية للعقارات ونظام إدارة علاقات العملاء القوي للوكلاء.",
+                project_highlights_title: "أبرز نقاط المشروع",
+                technical_implementation_title: "التنفيذ التقني",
+                technical_implementation_desc: "تم البناء باستخدام Next.js للواجهة الأمامية المعروضة من الخادم و NestJS لخدمات الخلفية القابلة للتوسع. استخدم MongoDB لتخزين البيانات المرن و Mapbox للخرائط التفاعلية للعقارات. تم تنفيذ الجولات الافتراضية باستخدام تقنية العرض ثلاثي الأبعاد.",
+                challenges_overcome_title: "التحديات المتغلب عليها",
+                challenges_overcome_desc: "حل متطلبات البحث المعقدة للعقارات باستخدام خوارزميات التصفية المتقدمة. تم تحسين الجولات الافتراضية للأداء السلس عبر الأجهزة. تم إنشاء تكامل سلس بين القوائم العامة وأدوات إدارة علاقات العملاء الخاصة للوكلاء.",
+                client_satisfaction_title: "رضا العميل",
+                client_satisfaction_desc: "تم التسليم قبل الموعد المحدد مع تلبية جميع متطلبات الميزات. أفاد العميل بزيادة 50% في استفسارات العقارات وتقليل 30% في وقت البيع. أصبحت المنصة رائدة في السوق في منطقتهم خلال 6 أشهر.",
+                cta_button: "اطلب خدمة مماثلة"
+            },
+            es: {
+                project_title: "Plataforma Inmobiliaria",
+                project_subtitle: "Plataforma de listados de propiedades con filtros de búsqueda avanzados, tours virtuales y CRM para agentes",
+                project_description: "Esta solución inmobiliaria integral transforma la búsqueda y gestión de propiedades con características de vanguardia que incluyen mapas interactivos, tours virtuales de propiedades y un poderoso sistema CRM para agentes.",
+                project_highlights_title: "Aspectos Destacados del Proyecto",
+                technical_implementation_title: "Implementación Técnica",
+                technical_implementation_desc: "Construido con Next.js para frontend renderizado desde servidor y NestJS para servicios backend escalables. Utilizó MongoDB para almacenamiento flexible de datos y Mapbox para mapas interactivos de propiedades. Implementó tours virtuales usando tecnología de renderizado 3D.",
+                challenges_overcome_title: "Desafíos Superados",
+                challenges_overcome_desc: "Resolvió requisitos complejos de búsqueda de propiedades con algoritmos de filtrado avanzados. Optimizó tours virtuales para rendimiento fluido en todos los dispositivos. Creó integración perfecta entre listados públicos y herramientas CRM privadas para agentes.",
+                client_satisfaction_title: "Satisfacción del Cliente",
+                client_satisfaction_desc: "Entregado antes del cronograma con todos los requisitos de características cumplidos. El cliente reportó 50% de aumento en consultas de propiedades y 30% de reducción en tiempo de venta. La plataforma se convirtió en líder del mercado en su región en 6 meses.",
+                cta_button: "Solicitar un Servicio Similar"
+            },
+            fr: {
+                project_title: "Plateforme Immobilière",
+                project_subtitle: "Plateforme de listings immobiliers avec filtres de recherche avancés, visites virtuelles et CRM pour agents",
+                project_description: "Cette solution immobilière complète transforme la recherche et la gestion de propriétés avec des fonctionnalités de pointe incluant des cartes interactives, des visites virtuelles de propriétés et un système CRM puissant pour les agents.",
+                project_highlights_title: "Points Forts du Projet",
+                technical_implementation_title: "Implémentation Technique",
+                technical_implementation_desc: "Construit avec Next.js pour le frontend rendu côté serveur et NestJS pour les services backend évolutifs. Utilisé MongoDB pour le stockage flexible des données et Mapbox pour les cartes interactives de propriétés. Implémenté des visites virtuelles utilisant la technologie de rendu 3D.",
+                challenges_overcome_title: "Défis Surmontés",
+                challenges_overcome_desc: "Résolu les exigences complexes de recherche de propriétés avec des algorithmes de filtrage avancés. Optimisé les visites virtuelles pour des performances fluides sur tous les appareils. Créé une intégration transparente entre les listings publics et les outils CRM privés pour agents.",
+                client_satisfaction_title: "Satisfaction Client",
+                client_satisfaction_desc: "Livré en avance sur le calendrier avec toutes les exigences de fonctionnalités respectées. Le client a rapporté 50% d'augmentation des demandes de propriétés et 30% de réduction du temps de vente. La plateforme est devenue leader du marché dans leur région en 6 mois.",
+                cta_button: "Demander un Service Similaire"
+            },
+            de: {
+                project_title: "Immobilienplattform",
+                project_subtitle: "Immobilien-Listing-Plattform mit erweiterten Suchfiltern, virtuellen Touren und Agenten-CRM",
+                project_description: "Diese umfassende Immobilienlösung transformiert die Immobiliensuche und -verwaltung mit modernsten Funktionen einschließlich interaktiver Karten, virtueller Immobilientouren und einem leistungsstarken CRM-System für Makler.",
+                project_highlights_title: "Projekt-Highlights",
+                technical_implementation_title: "Technische Umsetzung",
+                technical_implementation_desc: "Erstellt mit Next.js für server-gerenderte Frontend und NestJS für skalierbare Backend-Services. Verwendete MongoDB für flexible Datenspeicherung und Mapbox für interaktive Immobilienkarten. Implementierte virtuelle Touren mit 3D-Rendering-Technologie.",
+                challenges_overcome_title: "Überwundene Herausforderungen",
+                challenges_overcome_desc: "Löste komplexe Immobiliensuchanforderungen mit erweiterten Filteralgorithmen. Optimierte virtuelle Touren für reibungslose Leistung auf allen Geräten. Schuf nahtlose Integration zwischen öffentlichen Listings und privaten Agenten-CRM-Tools.",
+                client_satisfaction_title: "Kundenzufriedenheit",
+                client_satisfaction_desc: "Vor dem Zeitplan geliefert mit allen Feature-Anforderungen erfüllt. Kunde berichtete 50% Steigerung bei Immobilienanfragen und 30% Reduzierung der Verkaufszeit. Plattform wurde Marktführer in ihrer Region innerhalb von 6 Monaten.",
+                cta_button: "Ähnlichen Service Anfordern"
+            }
+        };
+
+        // Language dropdown toggle
+        function toggleLanguageDropdown() {
+            const dropdown = document.getElementById('languageOptions');
+            dropdown.classList.toggle('show');
+        }
+
+        // Change language function
+        function changeLanguage(langCode, flagIcon, langText) {
+            // Update selected language display
+            const selectedLanguage = document.querySelector('.selected-language');
+            const flagSpan = selectedLanguage.querySelector('.flag-icon');
+            const textSpan = selectedLanguage.querySelector('.language-text');
+            
+            flagSpan.textContent = flagIcon;
+            textSpan.textContent = langText;
+            
+            // Close dropdown
+            const dropdown = document.getElementById('languageOptions');
+            dropdown.classList.remove('show');
+            
+            // Apply translations
+            applyTranslations(langCode);
+            
+            // Save language preference
+            localStorage.setItem('selectedLanguage', langCode);
+            localStorage.setItem('selectedFlag', flagIcon);
+            localStorage.setItem('selectedText', langText);
+            
+            // Handle RTL for Arabic
+            if (langCode === 'ar') {
+                document.documentElement.setAttribute('dir', 'rtl');
+            } else {
+                document.documentElement.setAttribute('dir', 'ltr');
+            }
+        }
+
+        // Apply translations
+        function applyTranslations(langCode) {
+            const elements = document.querySelectorAll('[data-translate]');
+            elements.forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[langCode] && translations[langCode][key]) {
+                    element.textContent = translations[langCode][key];
+                }
+            });
+        }
+
+        // Load saved language on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedLang = localStorage.getItem('selectedLanguage') || 'en';
+            const savedFlag = localStorage.getItem('selectedFlag') || '🇺🇸';
+            const savedText = localStorage.getItem('selectedText') || 'EN';
+            
+            // Update display
+            const selectedLanguage = document.querySelector('.selected-language');
+            const flagSpan = selectedLanguage.querySelector('.flag-icon');
+            const textSpan = selectedLanguage.querySelector('.language-text');
+            
+            flagSpan.textContent = savedFlag;
+            textSpan.textContent = savedText;
+            
+            // Apply translations
+            applyTranslations(savedLang);
+            
+            // Handle RTL for Arabic
+            if (savedLang === 'ar') {
+                document.documentElement.setAttribute('dir', 'rtl');
+            } else {
+                document.documentElement.setAttribute('dir', 'ltr');
+            }
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            const languageSelector = document.querySelector('.language-selector');
+            if (!languageSelector.contains(event.target)) {
+                const dropdown = document.getElementById('languageOptions');
+                dropdown.classList.remove('show');
+            }
+        });
+    </script>
 </body>
 </html>

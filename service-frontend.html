@@ -667,9 +667,223 @@
             background-color: var(--dark-light);
         }
         
+        /* Pricing Packages Styles */
+        .pricing-packages {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .package-card {
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 2px solid var(--border);
+            position: relative;
+        }
+        
+        .package-card.featured {
+            border-color: var(--primary);
+            transform: scale(1.05);
+        }
+        
+        .package-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .package-card.featured:hover {
+            transform: scale(1.05) translateY(-10px);
+        }
+        
+        .popular-badge {
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 5px 20px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .package-card h4 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .package-price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+        
+        .package-features {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 2rem;
+        }
+        
+        .package-features li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--border);
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .package-features li:last-child {
+            border-bottom: none;
+        }
+        
+        .package-features li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: var(--accent);
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+        }
+        
+        .package-button {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .package-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
         /* Social media icons color in light mode */
         .social-links a i {
             color: var(--primary);
+        }
+
+        /* Language Selector Styles */
+        .language-selector {
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .language-dropdown {
+            position: relative;
+        }
+
+        .selected-language {
+            display: flex;
+            align-items: center;
+            background: var(--card-bg);
+            border: 2px solid var(--border);
+            border-radius: 25px;
+            padding: 8px 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .selected-language:hover {
+            border-color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+
+        .flag-icon {
+            font-size: 1.2rem;
+            margin-right: 8px;
+        }
+
+        .language-text {
+            font-weight: 500;
+            color: var(--text);
+            margin-right: 8px;
+        }
+
+        .selected-language i {
+            color: var(--text-light);
+            transition: transform 0.3s ease;
+        }
+
+        .language-dropdown.active .selected-language i {
+            transform: rotate(180deg);
+        }
+
+        .language-options {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: var(--card-bg);
+            border: 2px solid var(--border);
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            min-width: 150px;
+            margin-top: 5px;
+        }
+
+        .language-options.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .language-option {
+            display: flex;
+            align-items: center;
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .language-option:last-child {
+            border-bottom: none;
+        }
+
+        .language-option:hover {
+            background: var(--light);
+            color: var(--primary);
+        }
+
+        .language-option .language-text {
+            margin-right: 0;
+        }
+
+        /* Dark mode language selector */
+        body.dark-mode .selected-language,
+        body.dark-mode .language-options {
+            background: var(--dark-card-bg);
+            border-color: var(--dark-border);
+        }
+
+        body.dark-mode .language-text {
+            color: var(--dark-text);
+        }
+
+        body.dark-mode .language-option:hover {
+            background: var(--dark-light);
+            color: var(--dark-primary);
         }
     </style>
 </head>
@@ -691,6 +905,39 @@
         <i class="fas fa-arrow-up"></i>
     </div>
     
+    <!-- Language Selector -->
+    <div class="language-selector">
+        <div class="language-dropdown">
+            <div class="selected-language" onclick="toggleLanguageDropdown()">
+                <span class="flag-icon">🇺🇸</span>
+                <span class="language-text">EN</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="language-options" id="languageOptions">
+                <div class="language-option" onclick="changeLanguage('en', '🇺🇸', 'EN')">
+                    <span class="flag-icon">🇺🇸</span>
+                    <span class="language-text">English</span>
+                </div>
+                <div class="language-option" onclick="changeLanguage('ar', '🇸🇦', 'AR')">
+                    <span class="flag-icon">🇸🇦</span>
+                    <span class="language-text">العربية</span>
+                </div>
+                <div class="language-option" onclick="changeLanguage('es', '🇪🇸', 'ES')">
+                    <span class="flag-icon">🇪🇸</span>
+                    <span class="language-text">Español</span>
+                </div>
+                <div class="language-option" onclick="changeLanguage('fr', '🇫🇷', 'FR')">
+                    <span class="flag-icon">🇫🇷</span>
+                    <span class="language-text">Français</span>
+                </div>
+                <div class="language-option" onclick="changeLanguage('de', '🇩🇪', 'DE')">
+                    <span class="flag-icon">🇩🇪</span>
+                    <span class="language-text">Deutsch</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Dark Mode Toggle -->
     <div class="theme-switch-wrapper">
         <label class="theme-switch" for="checkbox">
@@ -705,9 +952,9 @@
         <div class="particles-js" id="particles-js"></div>
         <div class="header-content">
             <div class="intro">
-                <h1><span class="highlight">Frontend Development</span></h1>
-                <p>Professional, responsive, and pixel-perfect frontend solutions tailored to your needs</p>
-                <a href="#service-details" class="cta-button">Explore Service Details</a>
+                <h1><span class="highlight" data-translate="frontend-title">Frontend Development</span></h1>
+                <p data-translate="frontend-subtitle">Professional, responsive, and pixel-perfect frontend solutions tailored to your needs</p>
+                <a href="#service-details" class="cta-button" data-translate="explore-details-btn">Explore Service Details</a>
             </div>
             
             <div class="scroll-down">
@@ -718,7 +965,7 @@
     
     <section id="service-details">
         <div class="section-title">
-            <h2>Service Details</h2>
+            <h2 data-translate="service-details-title">Service Details</h2>
         </div>
         
         <div class="service-details">
@@ -727,45 +974,88 @@
                     <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Frontend Development">
                 </div>
                 <div class="service-content">
-                    <h3>Professional Frontend Development</h3>
-                    <p>As a passionate frontend developer with years of experience, I create stunning, responsive websites that deliver exceptional user experiences across all devices. My approach combines aesthetic design with technical excellence to build interfaces that are both beautiful and functional.</p>
-                    <p>I specialize in transforming complex requirements into intuitive interfaces that users love. Whether you need a complete website from scratch or enhancements to an existing project, I can deliver solutions that exceed your expectations.</p>
+                    <h3 data-translate="professional-frontend-title">Professional Frontend Development</h3>
+                    <p data-translate="frontend-desc1">As a passionate frontend developer with years of experience, I create stunning, responsive websites that deliver exceptional user experiences across all devices. My approach combines aesthetic design with technical excellence to build interfaces that are both beautiful and functional.</p>
+                    <p data-translate="frontend-desc2">I specialize in transforming complex requirements into intuitive interfaces that users love. Whether you need a complete website from scratch or enhancements to an existing project, I can deliver solutions that exceed your expectations.</p>
                     
-                    <div class="price-tag">
-                        <div class="discount-badge">80% OFF LIMITED TIME</div>
-                        <div class="price">$25</div>
-                        <span class="original-price">$125</span>
-                        <a href="index.html#contact" class="cta-button">Request Service</a>
+                    <div class="pricing-packages">
+                        <div class="package-card basic">
+                            <h4 data-translate="basic-package">Basic Package</h4>
+                            <div class="package-price">$125</div>
+                            <ul class="package-features">
+                                <li data-translate="basic-feature1">5-page responsive website</li>
+                                <li data-translate="basic-feature2">Mobile-first design</li>
+                                <li data-translate="basic-feature3">Basic SEO optimization</li>
+                                <li data-translate="basic-feature4">Contact form integration</li>
+                                <li data-translate="basic-feature5">2 rounds of revisions</li>
+                                <li data-translate="basic-feature6">1 month support</li>
+                            </ul>
+                            <a href="index.html#contact" class="package-button" data-translate="choose-basic">Choose Basic</a>
+                        </div>
+                        
+                        <div class="package-card premium featured">
+                            <div class="popular-badge" data-translate="most-popular">Most Popular</div>
+                            <h4 data-translate="premium-package">Premium Package</h4>
+                            <div class="package-price">$520</div>
+                            <ul class="package-features">
+                                <li data-translate="premium-feature1">10-page responsive website</li>
+                                <li data-translate="premium-feature2">Custom animations & interactions</li>
+                                <li data-translate="premium-feature3">Advanced SEO optimization</li>
+                                <li data-translate="premium-feature4">CMS integration</li>
+                                <li data-translate="premium-feature5">E-commerce functionality</li>
+                                <li data-translate="premium-feature6">Performance optimization</li>
+                                <li data-translate="premium-feature7">5 rounds of revisions</li>
+                                <li data-translate="premium-feature8">3 months support</li>
+                            </ul>
+                            <a href="index.html#contact" class="package-button" data-translate="choose-premium">Choose Premium</a>
+                        </div>
+                        
+                        <div class="package-card enterprise">
+                            <h4 data-translate="enterprise-package">Enterprise Package</h4>
+                            <div class="package-price">$899</div>
+                            <ul class="package-features">
+                                <li data-translate="enterprise-feature1">Unlimited pages</li>
+                                <li data-translate="enterprise-feature2">Custom web application</li>
+                                <li data-translate="enterprise-feature3">Advanced integrations</li>
+                                <li data-translate="enterprise-feature4">Multi-language support</li>
+                                <li data-translate="enterprise-feature5">Advanced analytics</li>
+                                <li data-translate="enterprise-feature6">Security hardening</li>
+                                <li data-translate="enterprise-feature7">Unlimited revisions</li>
+                                <li data-translate="enterprise-feature8">6 months support</li>
+                                <li data-translate="enterprise-feature9">Priority development</li>
+                            </ul>
+                            <a href="index.html#contact" class="package-button" data-translate="choose-enterprise">Choose Enterprise</a>
+                        </div>
                     </div>
                 </div>
             </div>
             
             <div class="why-choose">
-                <h3>Why Choose Me for Your Frontend Project?</h3>
-                <p>With my extensive experience in frontend development and UI/UX design, I bring a unique combination of technical skills and design sensibility to every project. I don't just write code - I create experiences that engage users and drive results.</p>
-                <p>My journey in frontend development began in 2019, and since then I've mastered the latest technologies and best practices. I've worked on diverse projects ranging from small business websites to complex web applications, giving me the versatility to handle any challenge.</p>
-                <p>What sets me apart is my attention to detail, commitment to quality, and ability to understand exactly what your users need. I take pride in delivering work that not only meets but exceeds expectations.</p>
+                <h3 data-translate="why-choose-title">Why Choose Me for Your Frontend Project?</h3>
+                <p data-translate="why-choose-desc1">With my extensive experience in frontend development and UI/UX design, I bring a unique combination of technical skills and design sensibility to every project. I don't just write code - I create experiences that engage users and drive results.</p>
+                <p data-translate="why-choose-desc2">My journey in frontend development began in 2019, and since then I've mastered the latest technologies and best practices. I've worked on diverse projects ranging from small business websites to complex web applications, giving me the versatility to handle any challenge.</p>
+                <p data-translate="why-choose-desc3">What sets me apart is my attention to detail, commitment to quality, and ability to understand exactly what your users need. I take pride in delivering work that not only meets but exceeds expectations.</p>
             </div>
             
             <div class="service-features">
-                <h3>Service Features</h3>
+                <h3 data-translate="service-features-title">Service Features</h3>
                 <ul>
-                    <li>Fully responsive design that works perfectly on all devices</li>
-                    <li>Clean, semantic HTML5 markup</li>
-                    <li>Modular, maintainable CSS/Sass with BEM methodology</li>
-                    <li>Cross-browser compatibility (Chrome, Firefox, Safari, Edge)</li>
-                    <li>Optimized performance with lazy loading and efficient assets</li>
-                    <li>SEO-friendly structure and metadata</li>
-                    <li>Accessibility compliance (WCAG 2.1 AA standards)</li>
-                    <li>Pixel-perfect implementation of designs</li>
-                    <li>Integration with backend APIs and services</li>
-                    <li>Thorough testing across devices and scenarios</li>
+                    <li data-translate="feature1">Fully responsive design that works perfectly on all devices</li>
+                    <li data-translate="feature2">Clean, semantic HTML5 markup</li>
+                    <li data-translate="feature3">Modular, maintainable CSS/Sass with BEM methodology</li>
+                    <li data-translate="feature4">Cross-browser compatibility (Chrome, Firefox, Safari, Edge)</li>
+                    <li data-translate="feature5">Optimized performance with lazy loading and efficient assets</li>
+                    <li data-translate="feature6">SEO-friendly structure and metadata</li>
+                    <li data-translate="feature7">Accessibility compliance (WCAG 2.1 AA standards)</li>
+                    <li data-translate="feature8">Pixel-perfect implementation of designs</li>
+                    <li data-translate="feature9">Integration with backend APIs and services</li>
+                    <li data-translate="feature10">Thorough testing across devices and scenarios</li>
                 </ul>
             </div>
             
             <div class="tools-section">
                 <div class="section-title">
-                    <h2>Technologies & Tools</h2>
+                    <h2 data-translate="technologies-tools-title">Technologies & Tools</h2>
                 </div>
                 
                 <div class="tools-grid">
@@ -821,9 +1111,9 @@
             </div>
             
             <div class="contact-cta">
-                <h3>Ready to Build Something Amazing?</h3>
-                <p>Let's discuss how I can help bring your vision to life with exceptional frontend development.</p>
-                <a href="index.html#contact" class="cta-button">Request Service Now</a>
+                <h3 data-translate="ready-build-title">Ready to Build Something Amazing?</h3>
+                <p data-translate="ready-build-desc">Let's discuss how I can help bring your vision to life with exceptional frontend development.</p>
+                <a href="index.html#contact" class="cta-button" data-translate="request-service-btn">Request Service Now</a>
             </div>
         </div>
     </section>
@@ -835,8 +1125,8 @@
             <a href="https://x.com/MohammedNaeeeem?t=WMkESJEVaI7K8ZFsbCdkfQ&s=09" target="_blank"><i class="fab fa-twitter"></i></a>
             <a href="mailto:mohammedabdelnaeim18@gmail.com"><i class="fas fa-envelope"></i></a>
         </div>
-        <p>&copy; <span id="year"></span> Mohammed Naeem. All rights reserved.</p>
-        <p class="designer-credit">Designed by Mohammed Naeem</p>
+        <p data-translate="copyright">&copy; <span id="year"></span> Mohammed Naeem. All rights reserved.</p>
+        <p class="designer-credit" data-translate="designed-by">Designed by Mohammed Naeem</p>
     </footer>
 
     <!-- Particles.js -->
@@ -949,6 +1239,386 @@
         }
         
         toggleSwitch.addEventListener('change', switchTheme, false);
+
+        // Language Selector Functions
+        function toggleLanguageDropdown() {
+            const dropdown = document.getElementById('languageOptions');
+            const languageDropdown = document.querySelector('.language-dropdown');
+            dropdown.classList.toggle('show');
+            languageDropdown.classList.toggle('active');
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            const languageSelector = document.querySelector('.language-selector');
+            if (!languageSelector.contains(event.target)) {
+                document.getElementById('languageOptions').classList.remove('show');
+                document.querySelector('.language-dropdown').classList.remove('active');
+            }
+        });
+
+        function changeLanguage(langCode, flagIcon, langText) {
+            const selectedLanguage = document.querySelector('.selected-language');
+            const flagSpan = selectedLanguage.querySelector('.flag-icon');
+            const textSpan = selectedLanguage.querySelector('.language-text');
+            
+            flagSpan.textContent = flagIcon;
+            textSpan.textContent = langText;
+            
+            // Close dropdown
+            document.getElementById('languageOptions').classList.remove('show');
+            document.querySelector('.language-dropdown').classList.remove('active');
+            
+            // Save language preference
+            localStorage.setItem('selectedLanguage', langCode);
+            localStorage.setItem('selectedFlag', flagIcon);
+            localStorage.setItem('selectedText', langText);
+            
+            // Apply translations
+            applyTranslations(langCode);
+        }
+
+        function applyTranslations(langCode) {
+            const translations = {
+                en: {
+                    'frontend-title': 'Frontend Development',
+                    'frontend-subtitle': 'Professional, responsive, and pixel-perfect frontend solutions tailored to your needs',
+                    'explore-details-btn': 'Explore Service Details',
+                    'service-details-title': 'Service Details',
+                    'professional-frontend-title': 'Professional Frontend Development',
+                    'frontend-desc1': 'As a passionate frontend developer with years of experience, I create stunning, responsive websites that deliver exceptional user experiences across all devices. My approach combines aesthetic design with technical excellence to build interfaces that are both beautiful and functional.',
+                    'frontend-desc2': 'I specialize in transforming complex requirements into intuitive interfaces that users love. Whether you need a complete website from scratch or enhancements to an existing project, I can deliver solutions that exceed your expectations.',
+                    'basic-package': 'Basic Package',
+                    'basic-feature1': '5-page responsive website',
+                    'basic-feature2': 'Mobile-first design',
+                    'basic-feature3': 'Basic SEO optimization',
+                    'basic-feature4': 'Contact form integration',
+                    'basic-feature5': '2 rounds of revisions',
+                    'basic-feature6': '1 month support',
+                    'choose-basic': 'Choose Basic',
+                    'most-popular': 'Most Popular',
+                    'premium-package': 'Premium Package',
+                    'premium-feature1': '10-page responsive website',
+                    'premium-feature2': 'Custom animations & interactions',
+                    'premium-feature3': 'Advanced SEO optimization',
+                    'premium-feature4': 'CMS integration',
+                    'premium-feature5': 'E-commerce functionality',
+                    'premium-feature6': 'Performance optimization',
+                    'premium-feature7': '5 rounds of revisions',
+                    'premium-feature8': '3 months support',
+                    'choose-premium': 'Choose Premium',
+                    'enterprise-package': 'Enterprise Package',
+                    'enterprise-feature1': 'Unlimited pages',
+                    'enterprise-feature2': 'Custom web application',
+                    'enterprise-feature3': 'Advanced integrations',
+                    'enterprise-feature4': 'Multi-language support',
+                    'enterprise-feature5': 'Advanced analytics',
+                    'enterprise-feature6': 'Security hardening',
+                    'enterprise-feature7': 'Unlimited revisions',
+                    'enterprise-feature8': '6 months support',
+                    'enterprise-feature9': 'Priority development',
+                    'choose-enterprise': 'Choose Enterprise',
+                    'why-choose-title': 'Why Choose Me for Your Frontend Project?',
+                    'why-choose-desc1': 'With my extensive experience in frontend development and UI/UX design, I bring a unique combination of technical skills and design sensibility to every project. I don\'t just write code - I create experiences that engage users and drive results.',
+                    'why-choose-desc2': 'My journey in frontend development began in 2019, and since then I\'ve mastered the latest technologies and best practices. I\'ve worked on diverse projects ranging from small business websites to complex web applications, giving me the versatility to handle any challenge.',
+                    'why-choose-desc3': 'What sets me apart is my attention to detail, commitment to quality, and ability to understand exactly what your users need. I take pride in delivering work that not only meets but exceeds expectations.',
+                    'service-features-title': 'Service Features',
+                    'feature1': 'Fully responsive design that works perfectly on all devices',
+                    'feature2': 'Clean, semantic HTML5 markup',
+                    'feature3': 'Modular, maintainable CSS/Sass with BEM methodology',
+                    'feature4': 'Cross-browser compatibility (Chrome, Firefox, Safari, Edge)',
+                    'feature5': 'Optimized performance with lazy loading and efficient assets',
+                    'feature6': 'SEO-friendly structure and metadata',
+                    'feature7': 'Accessibility compliance (WCAG 2.1 AA standards)',
+                    'feature8': 'Pixel-perfect implementation of designs',
+                    'feature9': 'Integration with backend APIs and services',
+                    'feature10': 'Thorough testing across devices and scenarios',
+                    'technologies-tools-title': 'Technologies & Tools',
+                    'ready-build-title': 'Ready to Build Something Amazing?',
+                    'ready-build-desc': 'Let\'s discuss how I can help bring your vision to life with exceptional frontend development.',
+                    'request-service-btn': 'Request Service Now',
+                    'copyright': '© Mohammed Naeem. All rights reserved.',
+                    'designed-by': 'Designed by Mohammed Naeem'
+                },
+                ar: {
+                    'frontend-title': 'تطوير الواجهات الأمامية',
+                    'frontend-subtitle': 'حلول واجهات أمامية احترافية ومتجاوبة ومثالية البكسل مصممة خصيصاً لاحتياجاتك',
+                    'explore-details-btn': 'استكشف تفاصيل الخدمة',
+                    'service-details-title': 'تفاصيل الخدمة',
+                    'professional-frontend-title': 'تطوير الواجهات الأمامية الاحترافي',
+                    'frontend-desc1': 'كمطور واجهات أمامية شغوف بسنوات من الخبرة، أقوم بإنشاء مواقع ويب مذهلة ومتجاوبة توفر تجارب مستخدم استثنائية عبر جميع الأجهزة. يجمع منهجي بين التصميم الجمالي والتميز التقني لبناء واجهات جميلة ووظيفية.',
+                    'frontend-desc2': 'أتخصص في تحويل المتطلبات المعقدة إلى واجهات بديهية يحبها المستخدمون. سواء كنت تحتاج موقعاً إلكترونياً كاملاً من الصفر أو تحسينات لمشروع موجود، يمكنني تقديم حلول تتجاوز توقعاتك.',
+                    'basic-package': 'الباقة الأساسية',
+                    'basic-feature1': 'موقع ويب متجاوب من 5 صفحات',
+                    'basic-feature2': 'تصميم يركز على الهاتف المحمول أولاً',
+                    'basic-feature3': 'تحسين SEO أساسي',
+                    'basic-feature4': 'تكامل نموذج الاتصال',
+                    'basic-feature5': 'جولتان من المراجعات',
+                    'basic-feature6': 'دعم لمدة شهر واحد',
+                    'choose-basic': 'اختر الأساسية',
+                    'most-popular': 'الأكثر شعبية',
+                    'premium-package': 'الباقة المميزة',
+                    'premium-feature1': 'موقع ويب متجاوب من 10 صفحات',
+                    'premium-feature2': 'رسوم متحركة وتفاعلات مخصصة',
+                    'premium-feature3': 'تحسين SEO متقدم',
+                    'premium-feature4': 'تكامل نظام إدارة المحتوى',
+                    'premium-feature5': 'وظائف التجارة الإلكترونية',
+                    'premium-feature6': 'تحسين الأداء',
+                    'premium-feature7': '5 جولات من المراجعات',
+                    'premium-feature8': 'دعم لمدة 3 أشهر',
+                    'choose-premium': 'اختر المميزة',
+                    'enterprise-package': 'باقة المؤسسات',
+                    'enterprise-feature1': 'صفحات غير محدودة',
+                    'enterprise-feature2': 'تطبيق ويب مخصص',
+                    'enterprise-feature3': 'تكاملات متقدمة',
+                    'enterprise-feature4': 'دعم متعدد اللغات',
+                    'enterprise-feature5': 'تحليلات متقدمة',
+                    'enterprise-feature6': 'تعزيز الأمان',
+                    'enterprise-feature7': 'مراجعات غير محدودة',
+                    'enterprise-feature8': 'دعم لمدة 6 أشهر',
+                    'enterprise-feature9': 'تطوير ذو أولوية',
+                    'choose-enterprise': 'اختر المؤسسات',
+                    'why-choose-title': 'لماذا تختارني لمشروع الواجهة الأمامية؟',
+                    'why-choose-desc1': 'بخبرتي الواسعة في تطوير الواجهات الأمامية وتصميم UI/UX، أجلب مزيجاً فريداً من المهارات التقنية والحس التصميمي لكل مشروع. لا أكتب الكود فقط - أخلق تجارب تشرك المستخدمين وتحقق النتائج.',
+                    'why-choose-desc2': 'بدأت رحلتي في تطوير الواجهات الأمامية عام 2019، ومنذ ذلك الحين أتقنت أحدث التقنيات وأفضل الممارسات. عملت على مشاريع متنوعة تتراوح من مواقع الأعمال الصغيرة إلى تطبيقات الويب المعقدة، مما منحني المرونة للتعامل مع أي تحدٍ.',
+                    'why-choose-desc3': 'ما يميزني هو اهتمامي بالتفاصيل والتزامي بالجودة وقدرتي على فهم ما يحتاجه مستخدموك بالضبط. أفتخر بتقديم عمل لا يلبي التوقعات فحسب بل يتجاوزها.',
+                    'service-features-title': 'ميزات الخدمة',
+                    'feature1': 'تصميم متجاوب بالكامل يعمل بشكل مثالي على جميع الأجهزة',
+                    'feature2': 'ترميز HTML5 نظيف ودلالي',
+                    'feature3': 'CSS/Sass معياري وقابل للصيانة مع منهجية BEM',
+                    'feature4': 'توافق مع المتصفحات المختلفة (Chrome, Firefox, Safari, Edge)',
+                    'feature5': 'أداء محسن مع التحميل الكسول والأصول الفعالة',
+                    'feature6': 'هيكل وبيانات وصفية صديقة لمحركات البحث',
+                    'feature7': 'امتثال إمكانية الوصول (معايير WCAG 2.1 AA)',
+                    'feature8': 'تنفيذ مثالي البكسل للتصاميم',
+                    'feature9': 'تكامل مع واجهات برمجة التطبيقات والخدمات الخلفية',
+                    'feature10': 'اختبار شامل عبر الأجهزة والسيناريوهات',
+                    'technologies-tools-title': 'التقنيات والأدوات',
+                    'ready-build-title': 'مستعد لبناء شيء مذهل؟',
+                    'ready-build-desc': 'دعنا نناقش كيف يمكنني مساعدتك في تحقيق رؤيتك بتطوير واجهات أمامية استثنائي.',
+                    'request-service-btn': 'اطلب الخدمة الآن',
+                    'copyright': '© محمد نعيم. جميع الحقوق محفوظة.',
+                    'designed-by': 'مصمم بواسطة محمد نعيم'
+                },
+                es: {
+                    'frontend-title': 'Desarrollo Frontend',
+                    'frontend-subtitle': 'Soluciones frontend profesionales, responsivas y pixel-perfect adaptadas a tus necesidades',
+                    'explore-details-btn': 'Explorar Detalles del Servicio',
+                    'service-details-title': 'Detalles del Servicio',
+                    'professional-frontend-title': 'Desarrollo Frontend Profesional',
+                    'frontend-desc1': 'Como desarrollador frontend apasionado con años de experiencia, creo sitios web impresionantes y responsivos que ofrecen experiencias de usuario excepcionales en todos los dispositivos. Mi enfoque combina diseño estético con excelencia técnica para construir interfaces hermosas y funcionales.',
+                    'frontend-desc2': 'Me especializo en transformar requisitos complejos en interfaces intuitivas que los usuarios aman. Ya sea que necesites un sitio web completo desde cero o mejoras a un proyecto existente, puedo entregar soluciones que superen tus expectativas.',
+                    'basic-package': 'Paquete Básico',
+                    'basic-feature1': 'Sitio web responsivo de 5 páginas',
+                    'basic-feature2': 'Diseño mobile-first',
+                    'basic-feature3': 'Optimización SEO básica',
+                    'basic-feature4': 'Integración de formulario de contacto',
+                    'basic-feature5': '2 rondas de revisiones',
+                    'basic-feature6': '1 mes de soporte',
+                    'choose-basic': 'Elegir Básico',
+                    'most-popular': 'Más Popular',
+                    'premium-package': 'Paquete Premium',
+                    'premium-feature1': 'Sitio web responsivo de 10 páginas',
+                    'premium-feature2': 'Animaciones e interacciones personalizadas',
+                    'premium-feature3': 'Optimización SEO avanzada',
+                    'premium-feature4': 'Integración CMS',
+                    'premium-feature5': 'Funcionalidad e-commerce',
+                    'premium-feature6': 'Optimización de rendimiento',
+                    'premium-feature7': '5 rondas de revisiones',
+                    'premium-feature8': '3 meses de soporte',
+                    'choose-premium': 'Elegir Premium',
+                    'enterprise-package': 'Paquete Empresarial',
+                    'enterprise-feature1': 'Páginas ilimitadas',
+                    'enterprise-feature2': 'Aplicación web personalizada',
+                    'enterprise-feature3': 'Integraciones avanzadas',
+                    'enterprise-feature4': 'Soporte multiidioma',
+                    'enterprise-feature5': 'Analíticas avanzadas',
+                    'enterprise-feature6': 'Endurecimiento de seguridad',
+                    'enterprise-feature7': 'Revisiones ilimitadas',
+                    'enterprise-feature8': '6 meses de soporte',
+                    'enterprise-feature9': 'Desarrollo prioritario',
+                    'choose-enterprise': 'Elegir Empresarial',
+                    'why-choose-title': '¿Por qué elegirme para tu proyecto Frontend?',
+                    'why-choose-desc1': 'Con mi amplia experiencia en desarrollo frontend y diseño UI/UX, aporto una combinación única de habilidades técnicas y sensibilidad de diseño a cada proyecto. No solo escribo código - creo experiencias que involucran a los usuarios y generan resultados.',
+                    'why-choose-desc2': 'Mi viaje en desarrollo frontend comenzó en 2019, y desde entonces he dominado las últimas tecnologías y mejores prácticas. He trabajado en proyectos diversos que van desde sitios web de pequeñas empresas hasta aplicaciones web complejas, dándome la versatilidad para manejar cualquier desafío.',
+                    'why-choose-desc3': 'Lo que me distingue es mi atención al detalle, compromiso con la calidad y capacidad para entender exactamente lo que tus usuarios necesitan. Me enorgullezco de entregar trabajo que no solo cumple sino que supera las expectativas.',
+                    'service-features-title': 'Características del Servicio',
+                    'feature1': 'Diseño completamente responsivo que funciona perfectamente en todos los dispositivos',
+                    'feature2': 'Marcado HTML5 limpio y semántico',
+                    'feature3': 'CSS/Sass modular y mantenible con metodología BEM',
+                    'feature4': 'Compatibilidad entre navegadores (Chrome, Firefox, Safari, Edge)',
+                    'feature5': 'Rendimiento optimizado con carga perezosa y activos eficientes',
+                    'feature6': 'Estructura y metadatos amigables para SEO',
+                    'feature7': 'Cumplimiento de accesibilidad (estándares WCAG 2.1 AA)',
+                    'feature8': 'Implementación pixel-perfect de diseños',
+                    'feature9': 'Integración con APIs backend y servicios',
+                    'feature10': 'Pruebas exhaustivas en dispositivos y escenarios',
+                    'technologies-tools-title': 'Tecnologías y Herramientas',
+                    'ready-build-title': '¿Listo para construir algo increíble?',
+                    'ready-build-desc': 'Discutamos cómo puedo ayudarte a dar vida a tu visión con desarrollo frontend excepcional.',
+                    'request-service-btn': 'Solicitar Servicio Ahora',
+                    'copyright': '© Mohammed Naeem. Todos los derechos reservados.',
+                    'designed-by': 'Diseñado por Mohammed Naeem'
+                },
+                fr: {
+                    'frontend-title': 'Développement Frontend',
+                    'frontend-subtitle': 'Solutions frontend professionnelles, responsives et pixel-perfect adaptées à vos besoins',
+                    'explore-details-btn': 'Explorer les Détails du Service',
+                    'service-details-title': 'Détails du Service',
+                    'professional-frontend-title': 'Développement Frontend Professionnel',
+                    'frontend-desc1': 'En tant que développeur frontend passionné avec des années d\'expérience, je crée des sites web époustouflants et responsifs qui offrent des expériences utilisateur exceptionnelles sur tous les appareils. Mon approche combine design esthétique et excellence technique pour construire des interfaces à la fois belles et fonctionnelles.',
+                    'frontend-desc2': 'Je me spécialise dans la transformation d\'exigences complexes en interfaces intuitives que les utilisateurs adorent. Que vous ayez besoin d\'un site web complet à partir de zéro ou d\'améliorations à un projet existant, je peux livrer des solutions qui dépassent vos attentes.',
+                    'basic-package': 'Package Basique',
+                    'basic-feature1': 'Site web responsive de 5 pages',
+                    'basic-feature2': 'Design mobile-first',
+                    'basic-feature3': 'Optimisation SEO de base',
+                    'basic-feature4': 'Intégration formulaire de contact',
+                    'basic-feature5': '2 tours de révisions',
+                    'basic-feature6': '1 mois de support',
+                    'choose-basic': 'Choisir Basique',
+                    'most-popular': 'Plus Populaire',
+                    'premium-package': 'Package Premium',
+                    'premium-feature1': 'Site web responsive de 10 pages',
+                    'premium-feature2': 'Animations et interactions personnalisées',
+                    'premium-feature3': 'Optimisation SEO avancée',
+                    'premium-feature4': 'Intégration CMS',
+                    'premium-feature5': 'Fonctionnalité e-commerce',
+                    'premium-feature6': 'Optimisation des performances',
+                    'premium-feature7': '5 tours de révisions',
+                    'premium-feature8': '3 mois de support',
+                    'choose-premium': 'Choisir Premium',
+                    'enterprise-package': 'Package Entreprise',
+                    'enterprise-feature1': 'Pages illimitées',
+                    'enterprise-feature2': 'Application web personnalisée',
+                    'enterprise-feature3': 'Intégrations avancées',
+                    'enterprise-feature4': 'Support multilingue',
+                    'enterprise-feature5': 'Analyses avancées',
+                    'enterprise-feature6': 'Durcissement de sécurité',
+                    'enterprise-feature7': 'Révisions illimitées',
+                    'enterprise-feature8': '6 mois de support',
+                    'enterprise-feature9': 'Développement prioritaire',
+                    'choose-enterprise': 'Choisir Entreprise',
+                    'why-choose-title': 'Pourquoi me choisir pour votre projet Frontend ?',
+                    'why-choose-desc1': 'Avec mon expérience approfondie en développement frontend et design UI/UX, j\'apporte une combinaison unique de compétences techniques et de sensibilité design à chaque projet. Je n\'écris pas seulement du code - je crée des expériences qui engagent les utilisateurs et génèrent des résultats.',
+                    'why-choose-desc2': 'Mon parcours en développement frontend a commencé en 2019, et depuis j\'ai maîtrisé les dernières technologies et meilleures pratiques. J\'ai travaillé sur des projets divers allant de sites web de petites entreprises à des applications web complexes, me donnant la polyvalence pour gérer n\'importe quel défi.',
+                    'why-choose-desc3': 'Ce qui me distingue, c\'est mon attention aux détails, mon engagement envers la qualité et ma capacité à comprendre exactement ce dont vos utilisateurs ont besoin. Je suis fier de livrer un travail qui non seulement répond mais dépasse les attentes.',
+                    'service-features-title': 'Caractéristiques du Service',
+                    'feature1': 'Design entièrement responsive qui fonctionne parfaitement sur tous les appareils',
+                    'feature2': 'Balisage HTML5 propre et sémantique',
+                    'feature3': 'CSS/Sass modulaire et maintenable avec méthodologie BEM',
+                    'feature4': 'Compatibilité cross-browser (Chrome, Firefox, Safari, Edge)',
+                    'feature5': 'Performance optimisée avec chargement paresseux et assets efficaces',
+                    'feature6': 'Structure et métadonnées SEO-friendly',
+                    'feature7': 'Conformité accessibilité (standards WCAG 2.1 AA)',
+                    'feature8': 'Implémentation pixel-perfect des designs',
+                    'feature9': 'Intégration avec APIs backend et services',
+                    'feature10': 'Tests approfondis sur appareils et scénarios',
+                    'technologies-tools-title': 'Technologies et Outils',
+                    'ready-build-title': 'Prêt à construire quelque chose d\'incroyable ?',
+                    'ready-build-desc': 'Discutons de comment je peux vous aider à donner vie à votre vision avec un développement frontend exceptionnel.',
+                    'request-service-btn': 'Demander le Service Maintenant',
+                    'copyright': '© Mohammed Naeem. Tous droits réservés.',
+                    'designed-by': 'Conçu par Mohammed Naeem'
+                },
+                de: {
+                    'frontend-title': 'Frontend-Entwicklung',
+                    'frontend-subtitle': 'Professionelle, responsive und pixelgenaue Frontend-Lösungen, maßgeschneidert für Ihre Bedürfnisse',
+                    'explore-details-btn': 'Service-Details erkunden',
+                    'service-details-title': 'Service-Details',
+                    'professional-frontend-title': 'Professionelle Frontend-Entwicklung',
+                    'frontend-desc1': 'Als leidenschaftlicher Frontend-Entwickler mit jahrelanger Erfahrung erstelle ich atemberaubende, responsive Websites, die außergewöhnliche Benutzererfahrungen auf allen Geräten bieten. Mein Ansatz kombiniert ästhetisches Design mit technischer Exzellenz, um Schnittstellen zu schaffen, die sowohl schön als auch funktional sind.',
+                    'frontend-desc2': 'Ich spezialisiere mich darauf, komplexe Anforderungen in intuitive Schnittstellen zu verwandeln, die Benutzer lieben. Ob Sie eine komplette Website von Grund auf oder Verbesserungen an einem bestehenden Projekt benötigen, ich kann Lösungen liefern, die Ihre Erwartungen übertreffen.',
+                    'basic-package': 'Basis-Paket',
+                    'basic-feature1': '5-seitige responsive Website',
+                    'basic-feature2': 'Mobile-first Design',
+                    'basic-feature3': 'Basis SEO-Optimierung',
+                    'basic-feature4': 'Kontaktformular-Integration',
+                    'basic-feature5': '2 Überarbeitungsrunden',
+                    'basic-feature6': '1 Monat Support',
+                    'choose-basic': 'Basis wählen',
+                    'most-popular': 'Beliebteste',
+                    'premium-package': 'Premium-Paket',
+                    'premium-feature1': '10-seitige responsive Website',
+                    'premium-feature2': 'Benutzerdefinierte Animationen & Interaktionen',
+                    'premium-feature3': 'Erweiterte SEO-Optimierung',
+                    'premium-feature4': 'CMS-Integration',
+                    'premium-feature5': 'E-Commerce-Funktionalität',
+                    'premium-feature6': 'Performance-Optimierung',
+                    'premium-feature7': '5 Überarbeitungsrunden',
+                    'premium-feature8': '3 Monate Support',
+                    'choose-premium': 'Premium wählen',
+                    'enterprise-package': 'Enterprise-Paket',
+                    'enterprise-feature1': 'Unbegrenzte Seiten',
+                    'enterprise-feature2': 'Benutzerdefinierte Webanwendung',
+                    'enterprise-feature3': 'Erweiterte Integrationen',
+                    'enterprise-feature4': 'Mehrsprachiger Support',
+                    'enterprise-feature5': 'Erweiterte Analytik',
+                    'enterprise-feature6': 'Sicherheitshärtung',
+                    'enterprise-feature7': 'Unbegrenzte Überarbeitungen',
+                    'enterprise-feature8': '6 Monate Support',
+                    'enterprise-feature9': 'Prioritätsentwicklung',
+                    'choose-enterprise': 'Enterprise wählen',
+                    'why-choose-title': 'Warum mich für Ihr Frontend-Projekt wählen?',
+                    'why-choose-desc1': 'Mit meiner umfangreichen Erfahrung in Frontend-Entwicklung und UI/UX-Design bringe ich eine einzigartige Kombination aus technischen Fähigkeiten und Design-Sensibilität in jedes Projekt ein. Ich schreibe nicht nur Code - ich schaffe Erfahrungen, die Benutzer einbeziehen und Ergebnisse erzielen.',
+                    'why-choose-desc2': 'Meine Reise in der Frontend-Entwicklung begann 2019, und seitdem habe ich die neuesten Technologien und bewährten Praktiken gemeistert. Ich habe an vielfältigen Projekten gearbeitet, von kleinen Unternehmenswebsites bis hin zu komplexen Webanwendungen, was mir die Vielseitigkeit gibt, jede Herausforderung zu bewältigen.',
+                    'why-choose-desc3': 'Was mich auszeichnet, ist meine Aufmerksamkeit für Details, mein Engagement für Qualität und meine Fähigkeit, genau zu verstehen, was Ihre Benutzer brauchen. Ich bin stolz darauf, Arbeit zu liefern, die nicht nur Erwartungen erfüllt, sondern übertrifft.',
+                    'service-features-title': 'Service-Funktionen',
+                    'feature1': 'Vollständig responsives Design, das perfekt auf allen Geräten funktioniert',
+                    'feature2': 'Sauberes, semantisches HTML5-Markup',
+                    'feature3': 'Modulares, wartbares CSS/Sass mit BEM-Methodologie',
+                    'feature4': 'Cross-Browser-Kompatibilität (Chrome, Firefox, Safari, Edge)',
+                    'feature5': 'Optimierte Performance mit Lazy Loading und effizienten Assets',
+                    'feature6': 'SEO-freundliche Struktur und Metadaten',
+                    'feature7': 'Barrierefreiheits-Compliance (WCAG 2.1 AA Standards)',
+                    'feature8': 'Pixelgenaue Umsetzung von Designs',
+                    'feature9': 'Integration mit Backend-APIs und Services',
+                    'feature10': 'Gründliche Tests auf Geräten und Szenarien',
+                    'technologies-tools-title': 'Technologien & Tools',
+                    'ready-build-title': 'Bereit, etwas Erstaunliches zu bauen?',
+                    'ready-build-desc': 'Lassen Sie uns besprechen, wie ich Ihnen helfen kann, Ihre Vision mit außergewöhnlicher Frontend-Entwicklung zum Leben zu erwecken.',
+                    'request-service-btn': 'Service jetzt anfordern',
+                    'copyright': '© Mohammed Naeem. Alle Rechte vorbehalten.',
+                    'designed-by': 'Entworfen von Mohammed Naeem'
+                }
+            };
+
+            const currentTranslations = translations[langCode] || translations.en;
+            
+            // Apply translations to elements with data-translate attributes
+            Object.keys(currentTranslations).forEach(key => {
+                const elements = document.querySelectorAll(`[data-translate="${key}"]`);
+                elements.forEach(element => {
+                    element.textContent = currentTranslations[key];
+                });
+            });
+
+            // Update document direction for Arabic
+            if (langCode === 'ar') {
+                document.documentElement.setAttribute('dir', 'rtl');
+                document.documentElement.setAttribute('lang', 'ar');
+            } else {
+                document.documentElement.setAttribute('dir', 'ltr');
+                document.documentElement.setAttribute('lang', langCode);
+            }
+        }
+
+        // Load saved language preference on page load
+        window.addEventListener('load', function() {
+            const savedLang = localStorage.getItem('selectedLanguage') || 'en';
+            const savedFlag = localStorage.getItem('selectedFlag') || '🇺🇸';
+            const savedText = localStorage.getItem('selectedText') || 'EN';
+            
+            const selectedLanguage = document.querySelector('.selected-language');
+            if (selectedLanguage) {
+                const flagSpan = selectedLanguage.querySelector('.flag-icon');
+                const textSpan = selectedLanguage.querySelector('.language-text');
+                
+                if (flagSpan) flagSpan.textContent = savedFlag;
+                if (textSpan) textSpan.textContent = savedText;
+                
+                applyTranslations(savedLang);
+            }
+        });
         
         // Particles.js configuration
         particlesJS('particles-js', {

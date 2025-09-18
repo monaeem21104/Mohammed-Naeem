@@ -640,11 +640,144 @@
             color: var(--dark-text);
         }
         
+        /* Pricing Packages Styles */
+        .pricing-packages {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .package-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 2px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .package-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .package-card.most-popular {
+            border-color: var(--primary);
+            transform: scale(1.05);
+        }
+        
+        .popular-badge {
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        .package-card h4 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .package-price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+        
+        .package-features {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 2rem;
+        }
+        
+        .package-features li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--border);
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .package-features li:before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: var(--accent);
+            position: absolute;
+            left: 0;
+        }
+        
+        .package-features li:last-child {
+            border-bottom: none;
+        }
+        
+        .package-button {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid var(--primary);
+        }
+        
+        .package-button:hover {
+            background: transparent;
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+        
+        .basic {
+            border-color: var(--secondary);
+        }
+        
+        .basic .package-button {
+            background: var(--secondary);
+            border-color: var(--secondary);
+        }
+        
+        .basic .package-button:hover {
+            color: var(--secondary);
+        }
+        
+        .enterprise {
+            border-color: var(--accent);
+        }
+        
+        .enterprise .package-button {
+            background: var(--accent);
+            border-color: var(--accent);
+        }
+        
+        .enterprise .package-button:hover {
+            color: var(--accent);
+        }
+        
+        /* Dark Mode Styles */
+        body.dark-mode {
+            background-color: var(--dark-bg);
+            color: var(--dark-text);
+        }
+
         body.dark-mode .service-card,
         body.dark-mode .tool-card,
         body.dark-mode .why-choose,
         body.dark-mode .service-features,
-        body.dark-mode .price-tag {
+        body.dark-mode .price-tag,
+        body.dark-mode .package-card {
             background-color: var(--dark-card-bg);
             border-color: var(--dark-border);
         }
@@ -671,6 +804,116 @@
         .social-links a i {
             color: var(--primary);
         }
+
+        /* Language Selector Styles */
+        .language-selector {
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .language-dropdown {
+            position: relative;
+        }
+
+        .selected-language {
+            display: flex;
+            align-items: center;
+            background: var(--card-bg);
+            border: 2px solid var(--border);
+            border-radius: 25px;
+            padding: 8px 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .selected-language:hover {
+            border-color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+
+        .flag-icon {
+            font-size: 1.2rem;
+            margin-right: 8px;
+        }
+
+        .language-text {
+            font-weight: 500;
+            color: var(--text);
+            margin-right: 8px;
+        }
+
+        .selected-language i {
+            color: var(--text-light);
+            transition: transform 0.3s ease;
+        }
+
+        .language-dropdown.active .selected-language i {
+            transform: rotate(180deg);
+        }
+
+        .language-options {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: var(--card-bg);
+            border: 2px solid var(--border);
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            min-width: 150px;
+            margin-top: 5px;
+        }
+
+        .language-options.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .language-option {
+            display: flex;
+            align-items: center;
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .language-option:last-child {
+            border-bottom: none;
+        }
+
+        .language-option:hover {
+            background: var(--light);
+            color: var(--primary);
+        }
+
+        .language-option .language-text {
+            margin-right: 0;
+        }
+
+        /* Dark mode language selector */
+        body.dark-mode .selected-language,
+        body.dark-mode .language-options {
+            background: var(--dark-card-bg);
+            border-color: var(--dark-border);
+        }
+
+        body.dark-mode .language-text {
+            color: var(--dark-text);
+        }
+
+        body.dark-mode .language-option:hover {
+            background: var(--dark-light);
+            color: var(--dark-primary);
+        }
     </style>
 </head>
 <body>
@@ -691,6 +934,39 @@
         <i class="fas fa-arrow-up"></i>
     </div>
     
+    <!-- Language Selector -->
+    <div class="language-selector">
+        <div class="language-dropdown">
+            <div class="selected-language" onclick="toggleLanguageDropdown()">
+                <span class="flag-icon">🇺🇸</span>
+                <span class="language-text">EN</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="language-options" id="languageOptions">
+                <div class="language-option" onclick="changeLanguage('en', '🇺🇸', 'EN')">
+                    <span class="flag-icon">🇺🇸</span>
+                    <span class="language-text">English</span>
+                </div>
+                <div class="language-option" onclick="changeLanguage('ar', '🇸🇦', 'AR')">
+                    <span class="flag-icon">🇸🇦</span>
+                    <span class="language-text">العربية</span>
+                </div>
+                <div class="language-option" onclick="changeLanguage('es', '🇪🇸', 'ES')">
+                    <span class="flag-icon">🇪🇸</span>
+                    <span class="language-text">Español</span>
+                </div>
+                <div class="language-option" onclick="changeLanguage('fr', '🇫🇷', 'FR')">
+                    <span class="flag-icon">🇫🇷</span>
+                    <span class="language-text">Français</span>
+                </div>
+                <div class="language-option" onclick="changeLanguage('de', '🇩🇪', 'DE')">
+                    <span class="flag-icon">🇩🇪</span>
+                    <span class="language-text">Deutsch</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Dark Mode Toggle -->
     <div class="theme-switch-wrapper">
         <label class="theme-switch" for="checkbox">
@@ -705,9 +981,9 @@
         <div class="particles-js" id="particles-js"></div>
         <div class="header-content">
             <div class="intro">
-                <h1><span class="highlight">Backend Development</span></h1>
-                <p>Robust, scalable, and secure backend solutions to power your applications</p>
-                <a href="#service-details" class="cta-button">Explore Service Details</a>
+                <h1><span class="highlight" data-translate="backend-title">Backend Development</span></h1>
+                <p data-translate="backend-subtitle">Robust, scalable, and secure backend solutions to power your applications</p>
+                <a href="#service-details" class="cta-button" data-translate="explore-details-btn">Explore Service Details</a>
             </div>
             
             <div class="scroll-down">
@@ -718,7 +994,7 @@
     
     <section id="service-details">
         <div class="section-title">
-            <h2>Service Details</h2>
+            <h2 data-translate="service-details-title">Service Details</h2>
         </div>
         
         <div class="service-details">
@@ -727,47 +1003,99 @@
                     <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Backend Development">
                 </div>
                 <div class="service-content">
-                    <h3>Professional Backend Development</h3>
-                    <p>As a full-stack developer with expertise in backend systems, I build secure, high-performance APIs and server-side applications that form the backbone of modern web applications. My solutions are designed for scalability, reliability, and maintainability.</p>
-                    <p>I specialize in creating efficient database architectures, RESTful APIs, authentication systems, and server infrastructure that can handle your application's growth. Whether you need a simple API or a complex microservices architecture, I can deliver solutions that meet your technical and business requirements.</p>
+                    <h3 data-translate="professional-backend-title">Professional Backend Development</h3>
+                    <p data-translate="backend-desc1">As a full-stack developer with expertise in backend systems, I build secure, high-performance APIs and server-side applications that form the backbone of modern web applications. My solutions are designed for scalability, reliability, and maintainability.</p>
+                    <p data-translate="backend-desc2">I specialize in creating efficient database architectures, RESTful APIs, authentication systems, and server infrastructure that can handle your application's growth. Whether you need a simple API or a complex microservices architecture, I can deliver solutions that meet your technical and business requirements.</p>
                     
-                    <div class="price-tag">
-                        <div class="discount-badge">80% OFF LIMITED TIME</div>
-                        <div class="price">$150</div>
-                        <span class="original-price">$750</span>
-                        <a href="index.html#contact" class="cta-button">Request Service</a>
+                    <div class="pricing-packages">
+                        <div class="package-card basic">
+                            <h4 data-translate="basic-package">Basic Package</h4>
+                            <div class="package-price">$200</div>
+                            <ul class="package-features">
+                                <li data-translate="basic-feature1">Simple REST API development</li>
+                                <li data-translate="basic-feature2">Basic database design (up to 5 tables)</li>
+                                <li data-translate="basic-feature3">JWT authentication system</li>
+                                <li data-translate="basic-feature4">Basic CRUD operations</li>
+                                <li data-translate="basic-feature5">API documentation</li>
+                                <li data-translate="basic-feature6">Basic error handling</li>
+                                <li data-translate="basic-feature7">1 month support</li>
+                                <li data-translate="basic-feature8">Source code delivery</li>
+                            </ul>
+                            <a href="index.html#contact" class="package-button" data-translate="choose-basic">Choose Basic</a>
+                        </div>
+                        
+                        <div class="package-card premium most-popular">
+                            <div class="popular-badge" data-translate="most-popular">Most Popular</div>
+                            <h4 data-translate="premium-package">Premium Package</h4>
+                            <div class="package-price">$499</div>
+                            <ul class="package-features">
+                                <li data-translate="premium-feature1">Advanced REST API + GraphQL</li>
+                                <li data-translate="premium-feature2">Complex database design (unlimited tables)</li>
+                                <li data-translate="premium-feature3">OAuth & multi-factor authentication</li>
+                                <li data-translate="premium-feature4">Advanced business logic implementation</li>
+                                <li data-translate="premium-feature5">Third-party API integrations</li>
+                                <li data-translate="premium-feature6">Caching & performance optimization</li>
+                                <li data-translate="premium-feature7">Comprehensive testing suite</li>
+                                <li data-translate="premium-feature8">API rate limiting & security</li>
+                                <li data-translate="premium-feature9">Cloud deployment (AWS/Firebase)</li>
+                                <li data-translate="premium-feature10">3 months support</li>
+                                <li data-translate="premium-feature11">Complete documentation</li>
+                            </ul>
+                            <a href="index.html#contact" class="package-button" data-translate="choose-premium">Choose Premium</a>
+                        </div>
+                        
+                        <div class="package-card enterprise">
+                            <h4 data-translate="enterprise-package">Enterprise Package</h4>
+                            <div class="package-price">$1000</div>
+                            <ul class="package-features">
+                                <li data-translate="enterprise-feature1">Microservices architecture</li>
+                                <li data-translate="enterprise-feature2">Advanced database optimization</li>
+                                <li data-translate="enterprise-feature3">Enterprise-grade security</li>
+                                <li data-translate="enterprise-feature4">Real-time features (WebSockets)</li>
+                                <li data-translate="enterprise-feature5">Advanced analytics & monitoring</li>
+                                <li data-translate="enterprise-feature6">CI/CD pipeline setup</li>
+                                <li data-translate="enterprise-feature7">Load balancing & scaling</li>
+                                <li data-translate="enterprise-feature8">Data backup & recovery systems</li>
+                                <li data-translate="enterprise-feature9">Multi-environment deployment</li>
+                                <li data-translate="enterprise-feature10">Performance monitoring tools</li>
+                                <li data-translate="enterprise-feature11">6 months premium support</li>
+                                <li data-translate="enterprise-feature12">Training & knowledge transfer</li>
+                                <li data-translate="enterprise-feature13">Priority support & maintenance</li>
+                            </ul>
+                            <a href="index.html#contact" class="package-button" data-translate="choose-enterprise">Choose Enterprise</a>
+                        </div>
                     </div>
                 </div>
             </div>
             
             <div class="why-choose">
-                <h3>Why Choose Me for Your Backend Project?</h3>
-                <p>My programming journey began in 2019 when I was still in school. I was fascinated by technology and spent countless hours learning programming fundamentals. Initially focused on frontend development, I expanded my skills in 2023 to include backend technologies, becoming a full-stack developer capable of building complete applications from scratch.</p>
-                <p>What sets me apart is my holistic understanding of both frontend and backend systems, allowing me to create seamless integrations between them. I take pride in writing clean, well-documented code and implementing best practices for security and performance.</p>
-                <p>I approach each project with attention to detail and a commitment to delivering solutions that not only work but excel under real-world conditions. My experience with various database systems and cloud platforms ensures your backend will be optimized for your specific needs.</p>
+                <h3 data-translate="why-choose-title">Why Choose Me for Your Backend Project?</h3>
+                <p data-translate="why-choose-desc1">My programming journey began in 2019 when I was still in school. I was fascinated by technology and spent countless hours learning programming fundamentals. Initially focused on frontend development, I expanded my skills in 2023 to include backend technologies, becoming a full-stack developer capable of building complete applications from scratch.</p>
+                <p data-translate="why-choose-desc2">What sets me apart is my holistic understanding of both frontend and backend systems, allowing me to create seamless integrations between them. I take pride in writing clean, well-documented code and implementing best practices for security and performance.</p>
+                <p data-translate="why-choose-desc3">I approach each project with attention to detail and a commitment to delivering solutions that not only work but excel under real-world conditions. My experience with various database systems and cloud platforms ensures your backend will be optimized for your specific needs.</p>
             </div>
             
             <div class="service-features">
-                <h3>Service Features</h3>
+                <h3 data-translate="service-features-title">Service Features</h3>
                 <ul>
-                    <li>Custom API development (RESTful and GraphQL)</li>
-                    <li>Database design and optimization (SQL and NoSQL)</li>
-                    <li>Authentication and authorization systems (JWT, OAuth)</li>
-                    <li>Server-side logic and business process implementation</li>
-                    <li>Third-party API integrations</li>
-                    <li>Data processing and analytics pipelines</li>
-                    <li>Cloud deployment and server configuration</li>
-                    <li>Performance optimization and caching strategies</li>
-                    <li>Microservices architecture implementation</li>
-                    <li>Comprehensive testing and documentation</li>
-                    <li>Security best practices implementation</li>
-                    <li>Continuous Integration/Continuous Deployment setup</li>
+                    <li data-translate="feature1">Custom API development (RESTful and GraphQL)</li>
+                    <li data-translate="feature2">Database design and optimization (SQL and NoSQL)</li>
+                    <li data-translate="feature3">Authentication and authorization systems (JWT, OAuth)</li>
+                    <li data-translate="feature4">Server-side logic and business process implementation</li>
+                    <li data-translate="feature5">Third-party API integrations</li>
+                    <li data-translate="feature6">Data processing and analytics pipelines</li>
+                    <li data-translate="feature7">Cloud deployment and server configuration</li>
+                    <li data-translate="feature8">Performance optimization and caching strategies</li>
+                    <li data-translate="feature9">Microservices architecture implementation</li>
+                    <li data-translate="feature10">Comprehensive testing and documentation</li>
+                    <li data-translate="feature11">Security best practices implementation</li>
+                    <li data-translate="feature12">Continuous Integration/Continuous Deployment setup</li>
                 </ul>
             </div>
             
             <div class="tools-section">
                 <div class="section-title">
-                    <h2>Technologies & Tools</h2>
+                    <h2 data-translate="technologies-tools-title">Technologies & Tools</h2>
                 </div>
                 
                 <div class="tools-grid">
@@ -823,9 +1151,9 @@
             </div>
             
             <div class="contact-cta">
-                <h3>Ready to Build Your Backend Infrastructure?</h3>
-                <p>Let's discuss how I can create a powerful, scalable backend for your application.</p>
-                <a href="index.html#contact" class="cta-button">Request Service Now</a>
+                <h3 data-translate="ready-build-title">Ready to Build Your Backend Infrastructure?</h3>
+                <p data-translate="ready-build-desc">Let's discuss how I can create a powerful, scalable backend for your application.</p>
+                <a href="index.html#contact" class="cta-button" data-translate="request-service-btn">Request Service Now</a>
             </div>
         </div>
     </section>
@@ -837,8 +1165,8 @@
             <a href="https://x.com/MohammedNaeeeem?t=WMkESJEVaI7K8ZFsbCdkfQ&s=09" target="_blank"><i class="fab fa-twitter"></i></a>
             <a href="mailto:mohammedabdelnaeim18@gmail.com"><i class="fas fa-envelope"></i></a>
         </div>
-        <p>&copy; <span id="year"></span> Mohammed Naeem. All rights reserved.</p>
-        <p class="designer-credit">Designed by Mohammed Naeem</p>
+        <p data-translate="copyright">&copy; <span id="year"></span> Mohammed Naeem. All rights reserved.</p>
+        <p class="designer-credit" data-translate="designed-by">Designed by Mohammed Naeem</p>
     </footer>
 
     <!-- Particles.js -->
@@ -951,6 +1279,441 @@
         }
         
         toggleSwitch.addEventListener('change', switchTheme, false);
+
+        // Language Selector Functions
+        function toggleLanguageDropdown() {
+            const dropdown = document.getElementById('languageOptions');
+            const languageDropdown = document.querySelector('.language-dropdown');
+            dropdown.classList.toggle('show');
+            languageDropdown.classList.toggle('active');
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            const languageSelector = document.querySelector('.language-selector');
+            if (!languageSelector.contains(event.target)) {
+                document.getElementById('languageOptions').classList.remove('show');
+                document.querySelector('.language-dropdown').classList.remove('active');
+            }
+        });
+
+        function changeLanguage(langCode, flagIcon, langText) {
+            const selectedLanguage = document.querySelector('.selected-language');
+            const flagSpan = selectedLanguage.querySelector('.flag-icon');
+            const textSpan = selectedLanguage.querySelector('.language-text');
+            
+            flagSpan.textContent = flagIcon;
+            textSpan.textContent = langText;
+            
+            // Close dropdown
+            document.getElementById('languageOptions').classList.remove('show');
+            document.querySelector('.language-dropdown').classList.remove('active');
+            
+            // Save language preference
+            localStorage.setItem('selectedLanguage', langCode);
+            localStorage.setItem('selectedFlag', flagIcon);
+            localStorage.setItem('selectedText', langText);
+            
+            // Apply translations
+            applyTranslations(langCode);
+        }
+
+        function applyTranslations(langCode) {
+            const translations = {
+                en: {
+                    'backend-title': 'Backend Development',
+                    'backend-subtitle': 'Robust, scalable, and secure backend solutions to power your applications',
+                    'explore-details-btn': 'Explore Service Details',
+                    'service-details-title': 'Service Details',
+                    'professional-backend-title': 'Professional Backend Development',
+                    'backend-desc1': 'As a full-stack developer with expertise in backend systems, I build secure, high-performance APIs and server-side applications that form the backbone of modern web applications. My solutions are designed for scalability, reliability, and maintainability.',
+                    'backend-desc2': 'I specialize in creating efficient database architectures, RESTful APIs, authentication systems, and server infrastructure that can handle your application\'s growth. Whether you need a simple API or a complex microservices architecture, I can deliver solutions that meet your technical and business requirements.',
+                    'basic-package': 'Basic Package',
+                    'basic-feature1': 'Simple REST API development',
+                    'basic-feature2': 'Basic database design (up to 5 tables)',
+                    'basic-feature3': 'JWT authentication system',
+                    'basic-feature4': 'Basic CRUD operations',
+                    'basic-feature5': 'API documentation',
+                    'basic-feature6': 'Basic error handling',
+                    'basic-feature7': '1 month support',
+                    'basic-feature8': 'Source code delivery',
+                    'choose-basic': 'Choose Basic',
+                    'most-popular': 'Most Popular',
+                    'premium-package': 'Premium Package',
+                    'premium-feature1': 'Advanced REST API + GraphQL',
+                    'premium-feature2': 'Complex database design (unlimited tables)',
+                    'premium-feature3': 'OAuth & multi-factor authentication',
+                    'premium-feature4': 'Advanced business logic implementation',
+                    'premium-feature5': 'Third-party API integrations',
+                    'premium-feature6': 'Caching & performance optimization',
+                    'premium-feature7': 'Comprehensive testing suite',
+                    'premium-feature8': 'API rate limiting & security',
+                    'premium-feature9': 'Cloud deployment (AWS/Firebase)',
+                    'premium-feature10': '3 months support',
+                    'premium-feature11': 'Complete documentation',
+                    'choose-premium': 'Choose Premium',
+                    'enterprise-package': 'Enterprise Package',
+                    'enterprise-feature1': 'Microservices architecture',
+                    'enterprise-feature2': 'Advanced database optimization',
+                    'enterprise-feature3': 'Enterprise-grade security',
+                    'enterprise-feature4': 'Real-time features (WebSockets)',
+                    'enterprise-feature5': 'Advanced analytics & monitoring',
+                    'enterprise-feature6': 'CI/CD pipeline setup',
+                    'enterprise-feature7': 'Load balancing & scaling',
+                    'enterprise-feature8': 'Data backup & recovery systems',
+                    'enterprise-feature9': 'Multi-environment deployment',
+                    'enterprise-feature10': 'Performance monitoring tools',
+                    'enterprise-feature11': '6 months premium support',
+                    'enterprise-feature12': 'Training & knowledge transfer',
+                    'enterprise-feature13': 'Priority support & maintenance',
+                    'choose-enterprise': 'Choose Enterprise',
+                    'why-choose-title': 'Why Choose Me for Your Backend Project?',
+                    'why-choose-desc1': 'My programming journey began in 2019 when I was still in school. I was fascinated by technology and spent countless hours learning programming fundamentals. Initially focused on frontend development, I expanded my skills in 2023 to include backend technologies, becoming a full-stack developer capable of building complete applications from scratch.',
+                    'why-choose-desc2': 'What sets me apart is my holistic understanding of both frontend and backend systems, allowing me to create seamless integrations between them. I take pride in writing clean, well-documented code and implementing best practices for security and performance.',
+                    'why-choose-desc3': 'I approach each project with attention to detail and a commitment to delivering solutions that not only work but excel under real-world conditions. My experience with various database systems and cloud platforms ensures your backend will be optimized for your specific needs.',
+                    'service-features-title': 'Service Features',
+                    'feature1': 'Custom API development (RESTful and GraphQL)',
+                    'feature2': 'Database design and optimization (SQL and NoSQL)',
+                    'feature3': 'Authentication and authorization systems (JWT, OAuth)',
+                    'feature4': 'Server-side logic and business process implementation',
+                    'feature5': 'Third-party API integrations',
+                    'feature6': 'Data processing and analytics pipelines',
+                    'feature7': 'Cloud deployment and server configuration',
+                    'feature8': 'Performance optimization and caching strategies',
+                    'feature9': 'Microservices architecture implementation',
+                    'feature10': 'Comprehensive testing and documentation',
+                    'feature11': 'Security best practices implementation',
+                    'feature12': 'Continuous Integration/Continuous Deployment setup',
+                    'technologies-tools-title': 'Technologies & Tools',
+                    'ready-build-title': 'Ready to Build Your Backend Infrastructure?',
+                    'ready-build-desc': 'Let\'s discuss how I can create a powerful, scalable backend for your application.',
+                    'request-service-btn': 'Request Service Now',
+                    'copyright': '© Mohammed Naeem. All rights reserved.',
+                    'designed-by': 'Designed by Mohammed Naeem'
+                },
+                ar: {
+                    'backend-title': 'تطوير الخادم',
+                    'backend-subtitle': 'حلول خادم قوية وقابلة للتوسع وآمنة لتشغيل تطبيقاتك',
+                    'explore-details-btn': 'استكشف تفاصيل الخدمة',
+                    'service-details-title': 'تفاصيل الخدمة',
+                    'professional-backend-title': 'تطوير الخادم الاحترافي',
+                    'backend-desc1': 'كمطور ويب متكامل بخبرة في أنظمة الخادم، أقوم ببناء واجهات برمجة تطبيقات آمنة وعالية الأداء وتطبيقات جانب الخادم التي تشكل العمود الفقري لتطبيقات الويب الحديثة. حلولي مصممة للقابلية للتوسع والموثوقية وسهولة الصيانة.',
+                    'backend-desc2': 'أتخصص في إنشاء هياكل قواعد بيانات فعالة وواجهات برمجة تطبيقات RESTful وأنظمة المصادقة والبنية التحتية للخادم التي يمكنها التعامل مع نمو تطبيقك. سواء كنت تحتاج واجهة برمجة تطبيقات بسيطة أو هيكل خدمات مصغرة معقد، يمكنني تقديم حلول تلبي متطلباتك التقنية والتجارية.',
+                    'basic-package': 'الباقة الأساسية',
+                    'basic-feature1': 'تطوير واجهة برمجة تطبيقات REST بسيطة',
+                    'basic-feature2': 'تصميم قاعدة بيانات أساسي (حتى 5 جداول)',
+                    'basic-feature3': 'نظام مصادقة JWT',
+                    'basic-feature4': 'عمليات CRUD أساسية',
+                    'basic-feature5': 'توثيق واجهة برمجة التطبيقات',
+                    'basic-feature6': 'معالجة أخطاء أساسية',
+                    'basic-feature7': 'دعم لمدة شهر واحد',
+                    'basic-feature8': 'تسليم الكود المصدري',
+                    'choose-basic': 'اختر الأساسية',
+                    'most-popular': 'الأكثر شعبية',
+                    'premium-package': 'الباقة المميزة',
+                    'premium-feature1': 'واجهة برمجة تطبيقات REST متقدمة + GraphQL',
+                    'premium-feature2': 'تصميم قاعدة بيانات معقد (جداول غير محدودة)',
+                    'premium-feature3': 'مصادقة OAuth ومتعددة العوامل',
+                    'premium-feature4': 'تنفيذ منطق الأعمال المتقدم',
+                    'premium-feature5': 'تكاملات واجهة برمجة تطبيقات طرف ثالث',
+                    'premium-feature6': 'التخزين المؤقت وتحسين الأداء',
+                    'premium-feature7': 'مجموعة اختبارات شاملة',
+                    'premium-feature8': 'تحديد معدل واجهة برمجة التطبيقات والأمان',
+                    'premium-feature9': 'النشر السحابي (AWS/Firebase)',
+                    'premium-feature10': 'دعم لمدة 3 أشهر',
+                    'premium-feature11': 'توثيق كامل',
+                    'choose-premium': 'اختر المميزة',
+                    'enterprise-package': 'باقة المؤسسات',
+                    'enterprise-feature1': 'هيكل الخدمات المصغرة',
+                    'enterprise-feature2': 'تحسين قاعدة البيانات المتقدم',
+                    'enterprise-feature3': 'أمان على مستوى المؤسسة',
+                    'enterprise-feature4': 'ميزات الوقت الفعلي (WebSockets)',
+                    'enterprise-feature5': 'التحليلات والمراقبة المتقدمة',
+                    'enterprise-feature6': 'إعداد خط أنابيب CI/CD',
+                    'enterprise-feature7': 'توازن الحمولة والتوسع',
+                    'enterprise-feature8': 'أنظمة النسخ الاحتياطي واستعادة البيانات',
+                    'enterprise-feature9': 'النشر متعدد البيئات',
+                    'enterprise-feature10': 'أدوات مراقبة الأداء',
+                    'enterprise-feature11': 'دعم مميز لمدة 6 أشهر',
+                    'enterprise-feature12': 'التدريب ونقل المعرفة',
+                    'enterprise-feature13': 'الدعم والصيانة ذات الأولوية',
+                    'choose-enterprise': 'اختر المؤسسات',
+                    'why-choose-title': 'لماذا تختارني لمشروع الخادم؟',
+                    'why-choose-desc1': 'بدأت رحلتي في البرمجة عام 2019 عندما كنت لا أزال في المدرسة. كنت مفتوناً بالتكنولوجيا وقضيت ساعات لا تحصى في تعلم أساسيات البرمجة. ركزت في البداية على تطوير الواجهة الأمامية، ووسعت مهاراتي في عام 2023 لتشمل تقنيات الخادم، لأصبح مطور ويب متكامل قادر على بناء تطبيقات كاملة من الصفر.',
+                    'why-choose-desc2': 'ما يميزني هو فهمي الشامل لأنظمة الواجهة الأمامية والخلفية، مما يسمح لي بإنشاء تكاملات سلسة بينهما. أفتخر بكتابة كود نظيف وموثق جيداً وتنفيذ أفضل الممارسات للأمان والأداء.',
+                    'why-choose-desc3': 'أتعامل مع كل مشروع بعناية بالتفاصيل والتزام بتقديم حلول لا تعمل فقط ولكن تتفوق في ظروف العالم الحقيقي. خبرتي مع أنظمة قواعد البيانات المختلفة والمنصات السحابية تضمن أن خادمك سيكون محسناً لاحتياجاتك المحددة.',
+                    'service-features-title': 'ميزات الخدمة',
+                    'feature1': 'تطوير واجهة برمجة تطبيقات مخصصة (RESTful و GraphQL)',
+                    'feature2': 'تصميم وتحسين قاعدة البيانات (SQL و NoSQL)',
+                    'feature3': 'أنظمة المصادقة والترخيص (JWT، OAuth)',
+                    'feature4': 'تنفيذ منطق جانب الخادم وعمليات الأعمال',
+                    'feature5': 'تكاملات واجهة برمجة تطبيقات طرف ثالث',
+                    'feature6': 'معالجة البيانات وخطوط أنابيب التحليلات',
+                    'feature7': 'النشر السحابي وتكوين الخادم',
+                    'feature8': 'تحسين الأداء واستراتيجيات التخزين المؤقت',
+                    'feature9': 'تنفيذ هيكل الخدمات المصغرة',
+                    'feature10': 'الاختبار والتوثيق الشامل',
+                    'feature11': 'تنفيذ أفضل ممارسات الأمان',
+                    'feature12': 'إعداد التكامل المستمر/النشر المستمر',
+                    'technologies-tools-title': 'التقنيات والأدوات',
+                    'ready-build-title': 'مستعد لبناء البنية التحتية للخادم؟',
+                    'ready-build-desc': 'دعنا نناقش كيف يمكنني إنشاء خادم قوي وقابل للتوسع لتطبيقك.',
+                    'request-service-btn': 'اطلب الخدمة الآن',
+                    'copyright': '© محمد نعيم. جميع الحقوق محفوظة.',
+                    'designed-by': 'مصمم بواسطة محمد نعيم'
+                },
+                es: {
+                    'backend-title': 'Desarrollo Backend',
+                    'backend-subtitle': 'Soluciones backend robustas, escalables y seguras para potenciar sus aplicaciones',
+                    'explore-details-btn': 'Explorar Detalles del Servicio',
+                    'service-details-title': 'Detalles del Servicio',
+                    'professional-backend-title': 'Desarrollo Backend Profesional',
+                    'backend-desc1': 'Como desarrollador full-stack con experiencia en sistemas backend, construyo APIs seguras y de alto rendimiento y aplicaciones del lado del servidor que forman la columna vertebral de las aplicaciones web modernas. Mis soluciones están diseñadas para escalabilidad, confiabilidad y mantenibilidad.',
+                    'backend-desc2': 'Me especializo en crear arquitecturas de bases de datos eficientes, APIs RESTful, sistemas de autenticación e infraestructura de servidor que puede manejar el crecimiento de su aplicación. Ya sea que necesite una API simple o una arquitectura de microservicios compleja, puedo entregar soluciones que cumplan con sus requisitos técnicos y comerciales.',
+                    'basic-package': 'Paquete Básico',
+                    'basic-feature1': 'Desarrollo de API REST simple',
+                    'basic-feature2': 'Diseño básico de base de datos (hasta 5 tablas)',
+                    'basic-feature3': 'Sistema de autenticación JWT',
+                    'basic-feature4': 'Operaciones CRUD básicas',
+                    'basic-feature5': 'Documentación de API',
+                    'basic-feature6': 'Manejo básico de errores',
+                    'basic-feature7': 'Soporte de 1 mes',
+                    'basic-feature8': 'Entrega de código fuente',
+                    'choose-basic': 'Elegir Básico',
+                    'most-popular': 'Más Popular',
+                    'premium-package': 'Paquete Premium',
+                    'premium-feature1': 'API REST avanzada + GraphQL',
+                    'premium-feature2': 'Diseño complejo de base de datos (tablas ilimitadas)',
+                    'premium-feature3': 'OAuth y autenticación multifactor',
+                    'premium-feature4': 'Implementación de lógica de negocio avanzada',
+                    'premium-feature5': 'Integraciones de API de terceros',
+                    'premium-feature6': 'Caché y optimización de rendimiento',
+                    'premium-feature7': 'Suite de pruebas integral',
+                    'premium-feature8': 'Limitación de velocidad de API y seguridad',
+                    'premium-feature9': 'Despliegue en la nube (AWS/Firebase)',
+                    'premium-feature10': 'Soporte de 3 meses',
+                    'premium-feature11': 'Documentación completa',
+                    'choose-premium': 'Elegir Premium',
+                    'enterprise-package': 'Paquete Empresarial',
+                    'enterprise-feature1': 'Arquitectura de microservicios',
+                    'enterprise-feature2': 'Optimización avanzada de base de datos',
+                    'enterprise-feature3': 'Seguridad de nivel empresarial',
+                    'enterprise-feature4': 'Características en tiempo real (WebSockets)',
+                    'enterprise-feature5': 'Análisis y monitoreo avanzados',
+                    'enterprise-feature6': 'Configuración de pipeline CI/CD',
+                    'enterprise-feature7': 'Balanceador de carga y escalado',
+                    'enterprise-feature8': 'Sistemas de respaldo y recuperación de datos',
+                    'enterprise-feature9': 'Despliegue multi-entorno',
+                    'enterprise-feature10': 'Herramientas de monitoreo de rendimiento',
+                    'enterprise-feature11': 'Soporte premium de 6 meses',
+                    'enterprise-feature12': 'Capacitación y transferencia de conocimiento',
+                    'enterprise-feature13': 'Soporte y mantenimiento prioritario',
+                    'choose-enterprise': 'Elegir Empresarial',
+                    'why-choose-title': '¿Por qué elegirme para su proyecto Backend?',
+                    'why-choose-desc1': 'Mi viaje de programación comenzó en 2019 cuando aún estaba en la escuela. Estaba fascinado por la tecnología y pasé innumerables horas aprendiendo fundamentos de programación. Inicialmente enfocado en desarrollo frontend, expandí mis habilidades en 2023 para incluir tecnologías backend, convirtiéndome en un desarrollador full-stack capaz de construir aplicaciones completas desde cero.',
+                    'why-choose-desc2': 'Lo que me distingue es mi comprensión holística de los sistemas frontend y backend, permitiéndome crear integraciones perfectas entre ellos. Me enorgullezco de escribir código limpio y bien documentado e implementar mejores prácticas para seguridad y rendimiento.',
+                    'why-choose-desc3': 'Abordo cada proyecto con atención al detalle y compromiso de entregar soluciones que no solo funcionan sino que sobresalen en condiciones del mundo real. Mi experiencia con varios sistemas de bases de datos y plataformas en la nube asegura que su backend esté optimizado para sus necesidades específicas.',
+                    'service-features-title': 'Características del Servicio',
+                    'feature1': 'Desarrollo de API personalizada (RESTful y GraphQL)',
+                    'feature2': 'Diseño y optimización de base de datos (SQL y NoSQL)',
+                    'feature3': 'Sistemas de autenticación y autorización (JWT, OAuth)',
+                    'feature4': 'Lógica del lado del servidor e implementación de procesos de negocio',
+                    'feature5': 'Integraciones de API de terceros',
+                    'feature6': 'Procesamiento de datos y pipelines de análisis',
+                    'feature7': 'Despliegue en la nube y configuración del servidor',
+                    'feature8': 'Optimización de rendimiento y estrategias de caché',
+                    'feature9': 'Implementación de arquitectura de microservicios',
+                    'feature10': 'Pruebas y documentación integral',
+                    'feature11': 'Implementación de mejores prácticas de seguridad',
+                    'feature12': 'Configuración de Integración Continua/Despliegue Continuo',
+                    'technologies-tools-title': 'Tecnologías y Herramientas',
+                    'ready-build-title': '¿Listo para construir su infraestructura Backend?',
+                    'ready-build-desc': 'Discutamos cómo puedo crear un backend poderoso y escalable para su aplicación.',
+                    'request-service-btn': 'Solicitar Servicio Ahora',
+                    'copyright': '© Mohammed Naeem. Todos los derechos reservados.',
+                    'designed-by': 'Diseñado por Mohammed Naeem'
+                },
+                fr: {
+                    'backend-title': 'Développement Backend',
+                    'backend-subtitle': 'Solutions backend robustes, évolutives et sécurisées pour alimenter vos applications',
+                    'explore-details-btn': 'Explorer les détails du service',
+                    'service-details-title': 'Détails du service',
+                    'professional-backend-title': 'Développement Backend Professionnel',
+                    'backend-desc1': 'En tant que développeur full-stack avec une expertise en systèmes backend, je construis des APIs sécurisées et performantes et des applications côté serveur qui forment l\'épine dorsale des applications web modernes. Mes solutions sont conçues pour l\'évolutivité, la fiabilité et la maintenabilité.',
+                    'backend-desc2': 'Je me spécialise dans la création d\'architectures de bases de données efficaces, d\'APIs RESTful, de systèmes d\'authentification et d\'infrastructure serveur qui peuvent gérer la croissance de votre application. Que vous ayez besoin d\'une API simple ou d\'une architecture de microservices complexe, je peux livrer des solutions qui répondent à vos exigences techniques et commerciales.',
+                    'basic-package': 'Package Basique',
+                    'basic-feature1': 'Développement d\'API REST simple',
+                    'basic-feature2': 'Conception de base de données basique (jusqu\'à 5 tables)',
+                    'basic-feature3': 'Système d\'authentification JWT',
+                    'basic-feature4': 'Opérations CRUD basiques',
+                    'basic-feature5': 'Documentation API',
+                    'basic-feature6': 'Gestion d\'erreurs basique',
+                    'basic-feature7': 'Support de 1 mois',
+                    'basic-feature8': 'Livraison du code source',
+                    'choose-basic': 'Choisir Basique',
+                    'most-popular': 'Plus Populaire',
+                    'premium-package': 'Package Premium',
+                    'premium-feature1': 'API REST avancée + GraphQL',
+                    'premium-feature2': 'Conception complexe de base de données (tables illimitées)',
+                    'premium-feature3': 'OAuth et authentification multifacteur',
+                    'premium-feature4': 'Implémentation de logique métier avancée',
+                    'premium-feature5': 'Intégrations d\'API tierces',
+                    'premium-feature6': 'Cache et optimisation des performances',
+                    'premium-feature7': 'Suite de tests complète',
+                    'premium-feature8': 'Limitation de débit API et sécurité',
+                    'premium-feature9': 'Déploiement cloud (AWS/Firebase)',
+                    'premium-feature10': 'Support de 3 mois',
+                    'premium-feature11': 'Documentation complète',
+                    'choose-premium': 'Choisir Premium',
+                    'enterprise-package': 'Package Entreprise',
+                    'enterprise-feature1': 'Architecture de microservices',
+                    'enterprise-feature2': 'Optimisation avancée de base de données',
+                    'enterprise-feature3': 'Sécurité de niveau entreprise',
+                    'enterprise-feature4': 'Fonctionnalités temps réel (WebSockets)',
+                    'enterprise-feature5': 'Analyses et surveillance avancées',
+                    'enterprise-feature6': 'Configuration de pipeline CI/CD',
+                    'enterprise-feature7': 'Équilibrage de charge et mise à l\'échelle',
+                    'enterprise-feature8': 'Systèmes de sauvegarde et récupération de données',
+                    'enterprise-feature9': 'Déploiement multi-environnement',
+                    'enterprise-feature10': 'Outils de surveillance des performances',
+                    'enterprise-feature11': 'Support premium de 6 mois',
+                    'enterprise-feature12': 'Formation et transfert de connaissances',
+                    'enterprise-feature13': 'Support et maintenance prioritaires',
+                    'choose-enterprise': 'Choisir Entreprise',
+                    'why-choose-title': 'Pourquoi me choisir pour votre projet Backend?',
+                    'why-choose-desc1': 'Mon parcours de programmation a commencé en 2019 quand j\'étais encore à l\'école. J\'étais fasciné par la technologie et j\'ai passé d\'innombrables heures à apprendre les fondamentaux de la programmation. Initialement concentré sur le développement frontend, j\'ai élargi mes compétences en 2023 pour inclure les technologies backend, devenant un développeur full-stack capable de construire des applications complètes à partir de zéro.',
+                    'why-choose-desc2': 'Ce qui me distingue est ma compréhension holistique des systèmes frontend et backend, me permettant de créer des intégrations transparentes entre eux. Je suis fier d\'écrire du code propre et bien documenté et d\'implémenter les meilleures pratiques pour la sécurité et les performances.',
+                    'why-choose-desc3': 'J\'aborde chaque projet avec attention aux détails et engagement à livrer des solutions qui non seulement fonctionnent mais excellent dans des conditions réelles. Mon expérience avec divers systèmes de bases de données et plateformes cloud assure que votre backend sera optimisé pour vos besoins spécifiques.',
+                    'service-features-title': 'Caractéristiques du Service',
+                    'feature1': 'Développement d\'API personnalisée (RESTful et GraphQL)',
+                    'feature2': 'Conception et optimisation de base de données (SQL et NoSQL)',
+                    'feature3': 'Systèmes d\'authentification et d\'autorisation (JWT, OAuth)',
+                    'feature4': 'Logique côté serveur et implémentation de processus métier',
+                    'feature5': 'Intégrations d\'API tierces',
+                    'feature6': 'Traitement de données et pipelines d\'analyse',
+                    'feature7': 'Déploiement cloud et configuration serveur',
+                    'feature8': 'Optimisation des performances et stratégies de cache',
+                    'feature9': 'Implémentation d\'architecture de microservices',
+                    'feature10': 'Tests et documentation complets',
+                    'feature11': 'Implémentation des meilleures pratiques de sécurité',
+                    'feature12': 'Configuration d\'Intégration Continue/Déploiement Continu',
+                    'technologies-tools-title': 'Technologies et Outils',
+                    'ready-build-title': 'Prêt à construire votre infrastructure Backend?',
+                    'ready-build-desc': 'Discutons de comment je peux créer un backend puissant et évolutif pour votre application.',
+                    'request-service-btn': 'Demander le Service Maintenant',
+                    'copyright': '© Mohammed Naeem. Tous droits réservés.',
+                    'designed-by': 'Conçu par Mohammed Naeem'
+                },
+                de: {
+                    'backend-title': 'Backend-Entwicklung',
+                    'backend-subtitle': 'Robuste, skalierbare und sichere Backend-Lösungen für Ihre Anwendungen',
+                    'explore-details-btn': 'Service-Details erkunden',
+                    'service-details-title': 'Service-Details',
+                    'professional-backend-title': 'Professionelle Backend-Entwicklung',
+                    'backend-desc1': 'Als Full-Stack-Entwickler mit Expertise in Backend-Systemen erstelle ich sichere, hochperformante APIs und serverseitige Anwendungen, die das Rückgrat moderner Webanwendungen bilden. Meine Lösungen sind für Skalierbarkeit, Zuverlässigkeit und Wartbarkeit konzipiert.',
+                    'backend-desc2': 'Ich spezialisiere mich auf die Erstellung effizienter Datenbankarchitekturen, RESTful APIs, Authentifizierungssysteme und Server-Infrastruktur, die das Wachstum Ihrer Anwendung bewältigen kann. Ob Sie eine einfache API oder eine komplexe Microservices-Architektur benötigen, ich kann Lösungen liefern, die Ihre technischen und geschäftlichen Anforderungen erfüllen.',
+                    'basic-package': 'Basic-Paket',
+                    'basic-feature1': 'Einfache REST-API-Entwicklung',
+                    'basic-feature2': 'Grundlegendes Datenbankdesign (bis zu 5 Tabellen)',
+                    'basic-feature3': 'JWT-Authentifizierungssystem',
+                    'basic-feature4': 'Grundlegende CRUD-Operationen',
+                    'basic-feature5': 'API-Dokumentation',
+                    'basic-feature6': 'Grundlegende Fehlerbehandlung',
+                    'basic-feature7': '1 Monat Support',
+                    'basic-feature8': 'Quellcode-Lieferung',
+                    'choose-basic': 'Basic wählen',
+                    'most-popular': 'Am beliebtesten',
+                    'premium-package': 'Premium-Paket',
+                    'premium-feature1': 'Erweiterte REST-API + GraphQL',
+                    'premium-feature2': 'Komplexes Datenbankdesign (unbegrenzte Tabellen)',
+                    'premium-feature3': 'OAuth & Multi-Faktor-Authentifizierung',
+                    'premium-feature4': 'Erweiterte Geschäftslogik-Implementierung',
+                    'premium-feature5': 'Drittanbieter-API-Integrationen',
+                    'premium-feature6': 'Caching & Performance-Optimierung',
+                    'premium-feature7': 'Umfassende Test-Suite',
+                    'premium-feature8': 'API-Rate-Limiting & Sicherheit',
+                    'premium-feature9': 'Cloud-Deployment (AWS/Firebase)',
+                    'premium-feature10': '3 Monate Support',
+                    'premium-feature11': 'Vollständige Dokumentation',
+                    'choose-premium': 'Premium wählen',
+                    'enterprise-package': 'Enterprise-Paket',
+                    'enterprise-feature1': 'Microservices-Architektur',
+                    'enterprise-feature2': 'Erweiterte Datenbankoptimierung',
+                    'enterprise-feature3': 'Enterprise-Grade-Sicherheit',
+                    'enterprise-feature4': 'Echtzeit-Features (WebSockets)',
+                    'enterprise-feature5': 'Erweiterte Analytik & Überwachung',
+                    'enterprise-feature6': 'CI/CD-Pipeline-Setup',
+                    'enterprise-feature7': 'Load Balancing & Skalierung',
+                    'enterprise-feature8': 'Datensicherung & Wiederherstellungssysteme',
+                    'enterprise-feature9': 'Multi-Umgebungs-Deployment',
+                    'enterprise-feature10': 'Performance-Monitoring-Tools',
+                    'enterprise-feature11': '6 Monate Premium-Support',
+                    'enterprise-feature12': 'Schulung & Wissenstransfer',
+                    'enterprise-feature13': 'Prioritäts-Support & Wartung',
+                    'choose-enterprise': 'Enterprise wählen',
+                    'why-choose-title': 'Warum mich für Ihr Backend-Projekt wählen?',
+                    'why-choose-desc1': 'Meine Programmierreise begann 2019, als ich noch in der Schule war. Ich war von der Technologie fasziniert und verbrachte unzählige Stunden damit, Programmiergrundlagen zu lernen. Zunächst auf Frontend-Entwicklung fokussiert, erweiterte ich meine Fähigkeiten 2023 um Backend-Technologien und wurde ein Full-Stack-Entwickler, der komplette Anwendungen von Grund auf erstellen kann.',
+                    'why-choose-desc2': 'Was mich auszeichnet, ist mein ganzheitliches Verständnis von Frontend- und Backend-Systemen, das es mir ermöglicht, nahtlose Integrationen zwischen ihnen zu schaffen. Ich bin stolz darauf, sauberen, gut dokumentierten Code zu schreiben und Best Practices für Sicherheit und Performance zu implementieren.',
+                    'why-choose-desc3': 'Ich gehe jedes Projekt mit Liebe zum Detail und dem Engagement an, Lösungen zu liefern, die nicht nur funktionieren, sondern unter realen Bedingungen hervorragend abschneiden. Meine Erfahrung mit verschiedenen Datenbanksystemen und Cloud-Plattformen stellt sicher, dass Ihr Backend für Ihre spezifischen Bedürfnisse optimiert wird.',
+                    'service-features-title': 'Service-Features',
+                    'feature1': 'Benutzerdefinierte API-Entwicklung (RESTful und GraphQL)',
+                    'feature2': 'Datenbankdesign und -optimierung (SQL und NoSQL)',
+                    'feature3': 'Authentifizierungs- und Autorisierungssysteme (JWT, OAuth)',
+                    'feature4': 'Serverseitige Logik und Geschäftsprozess-Implementierung',
+                    'feature5': 'Drittanbieter-API-Integrationen',
+                    'feature6': 'Datenverarbeitung und Analyse-Pipelines',
+                    'feature7': 'Cloud-Deployment und Server-Konfiguration',
+                    'feature8': 'Performance-Optimierung und Caching-Strategien',
+                    'feature9': 'Microservices-Architektur-Implementierung',
+                    'feature10': 'Umfassende Tests und Dokumentation',
+                    'feature11': 'Implementierung von Sicherheits-Best-Practices',
+                    'feature12': 'Continuous Integration/Continuous Deployment Setup',
+                    'technologies-tools-title': 'Technologien & Tools',
+                    'ready-build-title': 'Bereit, Ihre Backend-Infrastruktur zu erstellen?',
+                    'ready-build-desc': 'Lassen Sie uns besprechen, wie ich ein leistungsstarkes, skalierbares Backend für Ihre Anwendung erstellen kann.',
+                    'request-service-btn': 'Service jetzt anfordern',
+                    'copyright': '© Mohammed Naeem. Alle Rechte vorbehalten.',
+                    'designed-by': 'Entworfen von Mohammed Naeem'
+                }
+            };
+
+            const currentTranslations = translations[langCode] || translations.en;
+            
+            // Apply translations to elements with data-translate attributes
+            Object.keys(currentTranslations).forEach(key => {
+                const elements = document.querySelectorAll(`[data-translate="${key}"]`);
+                elements.forEach(element => {
+                    element.textContent = currentTranslations[key];
+                });
+            });
+
+            // Update document direction for Arabic
+            if (langCode === 'ar') {
+                document.documentElement.setAttribute('dir', 'rtl');
+                document.documentElement.setAttribute('lang', 'ar');
+            } else {
+                document.documentElement.setAttribute('dir', 'ltr');
+                document.documentElement.setAttribute('lang', langCode);
+            }
+        }
+
+        // Load saved language preference on page load
+        window.addEventListener('load', function() {
+            const savedLang = localStorage.getItem('selectedLanguage') || 'en';
+            const savedFlag = localStorage.getItem('selectedFlag') || '🇺🇸';
+            const savedText = localStorage.getItem('selectedText') || 'EN';
+            
+            const selectedLanguage = document.querySelector('.selected-language');
+            if (selectedLanguage) {
+                const flagSpan = selectedLanguage.querySelector('.flag-icon');
+                const textSpan = selectedLanguage.querySelector('.language-text');
+                
+                if (flagSpan) flagSpan.textContent = savedFlag;
+                if (textSpan) textSpan.textContent = savedText;
+                
+                applyTranslations(savedLang);
+            }
+        });
         
         // Particles.js configuration
         particlesJS('particles-js', {

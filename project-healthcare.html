@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Healthcare Portal Project</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -239,6 +240,104 @@
             to { opacity: 1; transform: translateY(0); }
         }
         
+        /* Language Selector */
+        .language-selector {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        
+        .language-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .selected-language {
+            background-color: white;
+            border: 2px solid var(--primary-color);
+            border-radius: 25px;
+            padding: 8px 15px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .selected-language:hover {
+            border-color: var(--accent-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+        
+        .flag-icon {
+            font-size: 1.2rem;
+        }
+        
+        .language-text {
+            font-weight: 600;
+            color: var(--primary-color);
+            font-size: 0.9rem;
+        }
+        
+        .selected-language i {
+            color: var(--primary-color);
+            font-size: 0.8rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .language-options {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: white;
+            border: 2px solid var(--primary-color);
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            min-width: 150px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 1001;
+            margin-top: 5px;
+        }
+        
+        .language-options.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .language-option {
+            padding: 10px 15px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .language-option:last-child {
+            border-bottom: none;
+        }
+        
+        .language-option:hover {
+            background-color: #e8f5e8;
+            color: var(--primary-color);
+        }
+        
+        .language-option:first-child {
+            border-radius: 13px 13px 0 0;
+        }
+        
+        .language-option:last-child {
+            border-radius: 0 0 13px 13px;
+        }
+        
         @media screen and (max-width: 768px) {
             .project-card {
                 padding: 2rem 1.5rem;
@@ -262,18 +361,55 @@
                 left: 0;
                 text-align: left;
             }
+            
+            .language-selector {
+                top: 10px;
+                right: 10px;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Language Selector -->
+    <div class="language-selector">
+        <div class="language-dropdown">
+            <div class="selected-language" onclick="toggleLanguageDropdown()">
+                <span class="flag-icon">🇺🇸</span>
+                <span class="language-text">EN</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="language-options" id="languageOptions">
+                <div class="language-option" onclick="changeLanguage('en', '🇺🇸', 'EN')">
+                    <span class="flag-icon">🇺🇸</span>
+                    <span class="language-text">English</span>
+                </div>
+                <div class="language-option" onclick="changeLanguage('ar', '🇸🇦', 'AR')">
+                    <span class="flag-icon">🇸🇦</span>
+                    <span class="language-text">العربية</span>
+                </div>
+                <div class="language-option" onclick="changeLanguage('es', '🇪🇸', 'ES')">
+                    <span class="flag-icon">🇪🇸</span>
+                    <span class="language-text">Español</span>
+                </div>
+                <div class="language-option" onclick="changeLanguage('fr', '🇫🇷', 'FR')">
+                    <span class="flag-icon">🇫🇷</span>
+                    <span class="language-text">Français</span>
+                </div>
+                <div class="language-option" onclick="changeLanguage('de', '🇩🇪', 'DE')">
+                    <span class="flag-icon">🇩🇪</span>
+                    <span class="language-text">Deutsch</span>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="container">
         <div class="project-card">
             <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Healthcare Portal" class="project-img">
-            <h1>Healthcare Portal</h1>
-            <h2>HIPAA-compliant patient management system with appointment scheduling and telemedicine</h2>
+            <h1 data-translate="project_title">Healthcare Portal</h1>
+            <h2 data-translate="project_subtitle">HIPAA-compliant patient management system with appointment scheduling and telemedicine</h2>
             
             <div class="project-description">
-                <p>This secure healthcare platform revolutionizes patient management by combining electronic health records, appointment scheduling, and telemedicine capabilities in one HIPAA-compliant solution.</p>
+                <p data-translate="project_description">This secure healthcare platform revolutionizes patient management by combining electronic health records, appointment scheduling, and telemedicine capabilities in one HIPAA-compliant solution.</p>
                 
                 <div class="tech-stack">
                     <span class="tech-item">Angular</span>
@@ -286,31 +422,180 @@
             </div>
             
             <div class="project-details">
-                <h3>Project Highlights</h3>
+                <h3 data-translate="project_highlights_title">Project Highlights</h3>
                 <div class="timeline">
                     <div class="timeline-item left">
                         <div class="timeline-content">
-                            <h4>Technical Implementation</h4>
-                            <p>Built with Angular for the responsive frontend and Django for the secure backend. Used PostgreSQL for reliable data storage and WebRTC for real-time telemedicine capabilities. Implemented full HIPAA compliance for patient data protection.</p>
+                            <h4 data-translate="technical_implementation_title">Technical Implementation</h4>
+                            <p data-translate="technical_implementation_desc">Built with Angular for the responsive frontend and Django for the secure backend. Used PostgreSQL for reliable data storage and WebRTC for real-time telemedicine capabilities. Implemented full HIPAA compliance for patient data protection.</p>
                         </div>
                     </div>
                     <div class="timeline-item right">
                         <div class="timeline-content">
-                            <h4>Challenges Overcome</h4>
-                            <p>Solved complex HIPAA compliance requirements with encryption at rest and in transit. Optimized video streaming for low-bandwidth scenarios. Created intuitive scheduling system that handles provider availability and patient preferences.</p>
+                            <h4 data-translate="challenges_overcome_title">Challenges Overcome</h4>
+                            <p data-translate="challenges_overcome_desc">Solved complex HIPAA compliance requirements with encryption at rest and in transit. Optimized video streaming for low-bandwidth scenarios. Created intuitive scheduling system that handles provider availability and patient preferences.</p>
                         </div>
                     </div>
                     <div class="timeline-item left">
                         <div class="timeline-content">
-                            <h4>Client Satisfaction</h4>
-                            <p>Delivered on time despite strict regulatory requirements. Client reported 60% reduction in administrative workload and 35% increase in patient satisfaction. System became essential infrastructure for their medical practice.</p>
+                            <h4 data-translate="client_satisfaction_title">Client Satisfaction</h4>
+                            <p data-translate="client_satisfaction_desc">Delivered on time despite strict regulatory requirements. Client reported 60% reduction in administrative workload and 35% increase in patient satisfaction. System became essential infrastructure for their medical practice.</p>
                         </div>
                     </div>
                 </div>
                 
-                <a href="index.html#contact-form" class="cta-button">Request a Similar Service</a>
+                <a href="index.html#contact-form" class="cta-button" data-translate="cta_button">Request a Similar Service</a>
             </div>
         </div>
     </div>
+
+    <script>
+        // Language Translation System
+        const translations = {
+            en: {
+                project_title: "Healthcare Portal",
+                project_subtitle: "HIPAA-compliant patient management system with appointment scheduling and telemedicine",
+                project_description: "This secure healthcare platform revolutionizes patient management by combining electronic health records, appointment scheduling, and telemedicine capabilities in one HIPAA-compliant solution.",
+                project_highlights_title: "Project Highlights",
+                technical_implementation_title: "Technical Implementation",
+                technical_implementation_desc: "Built with Angular for the responsive frontend and Django for the secure backend. Used PostgreSQL for reliable data storage and WebRTC for real-time telemedicine capabilities. Implemented full HIPAA compliance for patient data protection.",
+                challenges_overcome_title: "Challenges Overcome",
+                challenges_overcome_desc: "Solved complex HIPAA compliance requirements with encryption at rest and in transit. Optimized video streaming for low-bandwidth scenarios. Created intuitive scheduling system that handles provider availability and patient preferences.",
+                client_satisfaction_title: "Client Satisfaction",
+                client_satisfaction_desc: "Delivered on time despite strict regulatory requirements. Client reported 60% reduction in administrative workload and 35% increase in patient satisfaction. System became essential infrastructure for their medical practice.",
+                cta_button: "Request a Similar Service"
+            },
+            ar: {
+                project_title: "بوابة الرعاية الصحية",
+                project_subtitle: "نظام إدارة المرضى المتوافق مع HIPAA مع جدولة المواعيد والطب عن بُعد",
+                project_description: "تُحدث منصة الرعاية الصحية الآمنة هذه ثورة في إدارة المرضى من خلال دمج السجلات الصحية الإلكترونية وجدولة المواعيد وقدرات الطب عن بُعد في حل واحد متوافق مع HIPAA.",
+                project_highlights_title: "أبرز نقاط المشروع",
+                technical_implementation_title: "التنفيذ التقني",
+                technical_implementation_desc: "تم البناء باستخدام Angular للواجهة الأمامية المتجاوبة و Django للخلفية الآمنة. استخدام PostgreSQL لتخزين البيانات الموثوق و WebRTC لقدرات الطب عن بُعد في الوقت الفعلي. تنفيذ الامتثال الكامل لـ HIPAA لحماية بيانات المرضى.",
+                challenges_overcome_title: "التحديات المتغلب عليها",
+                challenges_overcome_desc: "حل متطلبات الامتثال المعقدة لـ HIPAA مع التشفير في الراحة وأثناء النقل. تحسين تدفق الفيديو لسيناريوهات النطاق الترددي المنخفض. إنشاء نظام جدولة بديهي يتعامل مع توفر مقدم الخدمة وتفضيلات المريض.",
+                client_satisfaction_title: "رضا العميل",
+                client_satisfaction_desc: "تم التسليم في الوقت المحدد رغم المتطلبات التنظيمية الصارمة. أبلغ العميل عن انخفاض بنسبة 60% في عبء العمل الإداري وزيادة بنسبة 35% في رضا المرضى. أصبح النظام بنية تحتية أساسية لممارستهم الطبية.",
+                cta_button: "اطلب خدمة مماثلة"
+            },
+            es: {
+                project_title: "Portal de Salud",
+                project_subtitle: "Sistema de gestión de pacientes compatible con HIPAA con programación de citas y telemedicina",
+                project_description: "Esta plataforma segura de atención médica revoluciona la gestión de pacientes combinando registros médicos electrónicos, programación de citas y capacidades de telemedicina en una solución compatible con HIPAA.",
+                project_highlights_title: "Aspectos Destacados del Proyecto",
+                technical_implementation_title: "Implementación Técnica",
+                technical_implementation_desc: "Construido con Angular para el frontend responsivo y Django para el backend seguro. Usó PostgreSQL para almacenamiento confiable de datos y WebRTC para capacidades de telemedicina en tiempo real. Implementó cumplimiento completo de HIPAA para protección de datos de pacientes.",
+                challenges_overcome_title: "Desafíos Superados",
+                challenges_overcome_desc: "Resolvió requisitos complejos de cumplimiento HIPAA con cifrado en reposo y en tránsito. Optimizó streaming de video para escenarios de bajo ancho de banda. Creó sistema de programación intuitivo que maneja disponibilidad de proveedores y preferencias de pacientes.",
+                client_satisfaction_title: "Satisfacción del Cliente",
+                client_satisfaction_desc: "Entregado a tiempo a pesar de estrictos requisitos regulatorios. El cliente reportó 60% de reducción en carga de trabajo administrativa y 35% de aumento en satisfacción del paciente. El sistema se convirtió en infraestructura esencial para su práctica médica.",
+                cta_button: "Solicitar un Servicio Similar"
+            },
+            fr: {
+                project_title: "Portail de Santé",
+                project_subtitle: "Système de gestion des patients conforme HIPAA avec planification de rendez-vous et télémédecine",
+                project_description: "Cette plateforme de santé sécurisée révolutionne la gestion des patients en combinant dossiers médicaux électroniques, planification de rendez-vous et capacités de télémédecine dans une solution conforme HIPAA.",
+                project_highlights_title: "Points Forts du Projet",
+                technical_implementation_title: "Implémentation Technique",
+                technical_implementation_desc: "Construit avec Angular pour le frontend responsive et Django pour le backend sécurisé. Utilisé PostgreSQL pour le stockage fiable des données et WebRTC pour les capacités de télémédecine en temps réel. Implémenté la conformité HIPAA complète pour la protection des données patients.",
+                challenges_overcome_title: "Défis Surmontés",
+                challenges_overcome_desc: "Résolu les exigences complexes de conformité HIPAA avec chiffrement au repos et en transit. Optimisé le streaming vidéo pour les scénarios de faible bande passante. Créé un système de planification intuitif qui gère la disponibilité des fournisseurs et les préférences des patients.",
+                client_satisfaction_title: "Satisfaction Client",
+                client_satisfaction_desc: "Livré à temps malgré des exigences réglementaires strictes. Le client a rapporté 60% de réduction de la charge de travail administrative et 35% d'augmentation de la satisfaction patient. Le système est devenu une infrastructure essentielle pour leur pratique médicale.",
+                cta_button: "Demander un Service Similaire"
+            },
+            de: {
+                project_title: "Gesundheitsportal",
+                project_subtitle: "HIPAA-konformes Patientenverwaltungssystem mit Terminplanung und Telemedizin",
+                project_description: "Diese sichere Gesundheitsplattform revolutioniert das Patientenmanagement durch die Kombination von elektronischen Gesundheitsakten, Terminplanung und Telemedizin-Funktionen in einer HIPAA-konformen Lösung.",
+                project_highlights_title: "Projekt-Highlights",
+                technical_implementation_title: "Technische Umsetzung",
+                technical_implementation_desc: "Erstellt mit Angular für das responsive Frontend und Django für das sichere Backend. Verwendete PostgreSQL für zuverlässige Datenspeicherung und WebRTC für Echtzeit-Telemedizin-Funktionen. Implementierte vollständige HIPAA-Konformität für Patientendatenschutz.",
+                challenges_overcome_title: "Überwundene Herausforderungen",
+                challenges_overcome_desc: "Löste komplexe HIPAA-Compliance-Anforderungen mit Verschlüsselung in Ruhe und während der Übertragung. Optimierte Video-Streaming für Szenarien mit geringer Bandbreite. Erstellte intuitives Planungssystem, das Anbieter-Verfügbarkeit und Patientenpräferenzen berücksichtigt.",
+                client_satisfaction_title: "Kundenzufriedenheit",
+                client_satisfaction_desc: "Pünktlich geliefert trotz strenger regulatorischer Anforderungen. Kunde berichtete 60% Reduzierung der Verwaltungsarbeit und 35% Steigerung der Patientenzufriedenheit. System wurde zur wesentlichen Infrastruktur für ihre Arztpraxis.",
+                cta_button: "Ähnlichen Service Anfordern"
+            }
+        };
+
+        // Language functions
+        function toggleLanguageDropdown() {
+            const dropdown = document.getElementById('languageOptions');
+            dropdown.classList.toggle('show');
+            
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!event.target.closest('.language-dropdown')) {
+                    dropdown.classList.remove('show');
+                }
+            });
+        }
+
+        function changeLanguage(langCode, flagIcon, langText) {
+            // Update the selected language display
+            const selectedLanguage = document.querySelector('.selected-language');
+            const flagSpan = selectedLanguage.querySelector('.flag-icon');
+            const textSpan = selectedLanguage.querySelector('.language-text');
+            
+            flagSpan.textContent = flagIcon;
+            textSpan.textContent = langText;
+            
+            // Close the dropdown
+            document.getElementById('languageOptions').classList.remove('show');
+            
+            // Apply translations
+            applyTranslations(langCode);
+            
+            // Handle RTL for Arabic
+            if (langCode === 'ar') {
+                document.documentElement.setAttribute('dir', 'rtl');
+                document.documentElement.setAttribute('lang', 'ar');
+            } else {
+                document.documentElement.setAttribute('dir', 'ltr');
+                document.documentElement.setAttribute('lang', langCode);
+            }
+            
+            // Save language preference
+            localStorage.setItem('selectedLanguage', langCode);
+            localStorage.setItem('selectedFlag', flagIcon);
+            localStorage.setItem('selectedText', langText);
+        }
+
+        function applyTranslations(langCode) {
+            const elements = document.querySelectorAll('[data-translate]');
+            elements.forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[langCode] && translations[langCode][key]) {
+                    element.textContent = translations[langCode][key];
+                }
+            });
+        }
+
+        // Load saved language preference on page load
+        window.addEventListener('load', function() {
+            const savedLang = localStorage.getItem('selectedLanguage') || 'en';
+            const savedFlag = localStorage.getItem('selectedFlag') || '🇺🇸';
+            const savedText = localStorage.getItem('selectedText') || 'EN';
+            
+            // Update UI
+            const flagSpan = document.querySelector('.selected-language .flag-icon');
+            const textSpan = document.querySelector('.selected-language .language-text');
+            if (flagSpan) flagSpan.textContent = savedFlag;
+            if (textSpan) textSpan.textContent = savedText;
+            
+            // Apply translations
+            applyTranslations(savedLang);
+            
+            // Handle RTL for Arabic
+            if (savedLang === 'ar') {
+                document.documentElement.setAttribute('dir', 'rtl');
+                document.documentElement.setAttribute('lang', 'ar');
+            } else {
+                document.documentElement.setAttribute('dir', 'ltr');
+                document.documentElement.setAttribute('lang', savedLang);
+            }
+        });
+    </script>
 </body>
 </html>

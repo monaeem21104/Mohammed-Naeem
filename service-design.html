@@ -474,6 +474,113 @@
             margin-bottom: 1rem;
         }
         
+        /* Pricing Packages */
+        .pricing-packages {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .package-card {
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 2px solid var(--border);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .package-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            border-color: var(--primary);
+        }
+        
+        .package-card.featured {
+            border-color: var(--accent);
+            transform: scale(1.05);
+        }
+        
+        .package-card.featured::before {
+            content: 'Most Popular';
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            background: var(--accent);
+            color: white;
+            padding: 5px 40px;
+            transform: rotate(45deg);
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .package-title {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .package-price {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+        
+        .package-price span {
+            font-size: 1rem;
+            color: var(--text-light);
+        }
+        
+        .package-description {
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+        }
+        
+        .package-features {
+            list-style: none;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+        
+        .package-features li {
+            padding: 0.5rem 0;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .package-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+        
+        .package-cta {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .package-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
         /* Service Features Section */
         .service-features {
             background-color: var(--light);
@@ -671,6 +778,124 @@
         .social-links a i {
             color: var(--primary);
         }
+        
+        /* Language Selector */
+        .language-selector {
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            z-index: 1000;
+        }
+        
+        .language-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .selected-language {
+            background-color: var(--card-bg);
+            border: 2px solid var(--border);
+            border-radius: 25px;
+            padding: 8px 15px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .selected-language:hover {
+            border-color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+        
+        .flag-icon {
+            font-size: 1.2rem;
+        }
+        
+        .language-text {
+            font-weight: 600;
+            color: var(--text);
+            font-size: 0.9rem;
+        }
+        
+        .selected-language i {
+            color: var(--text-light);
+            font-size: 0.8rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .language-options {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: var(--card-bg);
+            border: 2px solid var(--border);
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            min-width: 150px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 1001;
+            margin-top: 5px;
+        }
+        
+        .language-options.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .language-option {
+            padding: 10px 15px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .language-option:last-child {
+            border-bottom: none;
+        }
+        
+        .language-option:hover {
+            background-color: var(--light);
+            color: var(--primary);
+        }
+        
+        .language-option:first-child {
+            border-radius: 13px 13px 0 0;
+        }
+        
+        .language-option:last-child {
+            border-radius: 0 0 13px 13px;
+        }
+        
+        /* Dark mode styles for language selector */
+        body.dark-mode .selected-language,
+        body.dark-mode .language-options {
+            background-color: var(--dark-card-bg);
+            border-color: var(--dark-border);
+        }
+        
+        body.dark-mode .language-text {
+            color: var(--dark-text);
+        }
+        
+        body.dark-mode .language-option:hover {
+            background-color: var(--dark-light);
+            color: var(--dark-primary);
+        }
+        
+        body.dark-mode .language-option {
+            border-bottom-color: var(--dark-border);
+        }
     </style>
 </head>
 <body>
@@ -701,13 +926,46 @@
         <i class="fas fa-sun"></i>
     </div>
     
+    <!-- Language Selector -->
+    <div class="language-selector">
+        <div class="language-dropdown">
+            <div class="selected-language" onclick="toggleLanguageDropdown()">
+                <span class="flag-icon">🇺🇸</span>
+                <span class="language-text">EN</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="language-options" id="languageOptions">
+                <div class="language-option" onclick="changeLanguage('en', '🇺🇸', 'EN')">
+                    <span class="flag-icon">🇺🇸</span>
+                    <span class="language-text">English</span>
+                </div>
+                <div class="language-option" onclick="changeLanguage('ar', '🇸🇦', 'AR')">
+                    <span class="flag-icon">🇸🇦</span>
+                    <span class="language-text">العربية</span>
+                </div>
+                <div class="language-option" onclick="changeLanguage('es', '🇪🇸', 'ES')">
+                    <span class="flag-icon">🇪🇸</span>
+                    <span class="language-text">Español</span>
+                </div>
+                <div class="language-option" onclick="changeLanguage('fr', '🇫🇷', 'FR')">
+                    <span class="flag-icon">🇫🇷</span>
+                    <span class="language-text">Français</span>
+                </div>
+                <div class="language-option" onclick="changeLanguage('de', '🇩🇪', 'DE')">
+                    <span class="flag-icon">🇩🇪</span>
+                    <span class="language-text">Deutsch</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     <header>
         <div class="particles-js" id="particles-js"></div>
         <div class="header-content">
             <div class="intro">
-                <h1><span class="highlight">UI/UX Design</span></h1>
-                <p>Beautiful, intuitive interfaces designed for exceptional user experiences</p>
-                <a href="#service-details" class="cta-button">Explore Service Details</a>
+                <h1><span class="highlight" data-translate="hero_title">UI/UX Design</span></h1>
+                <p data-translate="hero_subtitle">Beautiful, intuitive interfaces designed for exceptional user experiences</p>
+                <a href="#service-details" class="cta-button" data-translate="hero_cta">Explore Service Details</a>
             </div>
             
             <div class="scroll-down">
@@ -718,7 +976,7 @@
     
     <section id="service-details">
         <div class="section-title">
-            <h2>Service Details</h2>
+            <h2 data-translate="service_details_title">Service Details</h2>
         </div>
         
         <div class="service-details">
@@ -727,105 +985,169 @@
                     <img src="https://images.unsplash.com/photo-1541462608143-67571c6738dd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="UI/UX Design">
                 </div>
                 <div class="service-content">
-                    <h3>Professional UI/UX Design</h3>
-                    <p>As a UI/UX designer, I create visually stunning and highly functional interfaces that provide seamless user experiences. My designs are not just beautiful but also intuitive, accessible, and aligned with your business goals.</p>
-                    <p>I specialize in transforming complex requirements into clean, user-friendly interfaces that delight users and drive engagement. Whether you need a complete redesign or a new interface from scratch, I can deliver solutions that enhance usability and aesthetics.</p>
+                    <h3 data-translate="service_title">Professional UI/UX Design</h3>
+                    <p data-translate="service_description_1">As a UI/UX designer, I create visually stunning and highly functional interfaces that provide seamless user experiences. My designs are not just beautiful but also intuitive, accessible, and aligned with your business goals.</p>
+                    <p data-translate="service_description_2">I specialize in transforming complex requirements into clean, user-friendly interfaces that delight users and drive engagement. Whether you need a complete redesign or a new interface from scratch, I can deliver solutions that enhance usability and aesthetics.</p>
                     
-                    <div class="price-tag">
-                        <div class="discount-badge">80% OFF LIMITED TIME</div>
+                    <!-- <div class="price-tag">
+                        <div class="discount-badge" data-translate="discount_badge">80% OFF LIMITED TIME</div>
                         <div class="price">$25</div>
                         <span class="original-price">$125</span>
-                        <a href="index.html#contact" class="cta-button">Request Service</a>
-                    </div>
+                        <a href="index.html#contact" class="cta-button" data-translate="request_service">Request Service</a>
+                    </div> -->
                 </div>
             </div>
             
             <div class="why-choose">
-                <h3>Why Choose Me for Your UI/UX Project?</h3>
-                <p>My journey in design began with my programming background in 2019, which gave me a unique technical perspective on interface design. In 2025, I recognized the importance of good design in creating successful digital products and immersed myself in UI/UX design principles.</p>
-                <p>What sets me apart is my combination of technical knowledge and design sensibility. I understand not just how interfaces should look, but how they should work from both user and developer perspectives. This allows me to create designs that are both beautiful and technically feasible.</p>
-                <p>I approach each project with a user-centered mindset, focusing on creating intuitive experiences that solve real problems. My background in development ensures my designs are practical to implement while maintaining high standards of usability and aesthetics.</p>
+                <h3 data-translate="why_choose_title">Why Choose Me for Your UI/UX Project?</h3>
+                <p data-translate="why_choose_p1">My journey in design began with my programming background in 2019, which gave me a unique technical perspective on interface design. In 2025, I recognized the importance of good design in creating successful digital products and immersed myself in UI/UX design principles.</p>
+                <p data-translate="why_choose_p2">What sets me apart is my combination of technical knowledge and design sensibility. I understand not just how interfaces should look, but how they should work from both user and developer perspectives. This allows me to create designs that are both beautiful and technically feasible.</p>
+                <p data-translate="why_choose_p3">I approach each project with a user-centered mindset, focusing on creating intuitive experiences that solve real problems. My background in development ensures my designs are practical to implement while maintaining high standards of usability and aesthetics.</p>
             </div>
             
             <div class="service-features">
-                <h3>Service Features</h3>
+                <h3 data-translate="service_features_title">Service Features</h3>
                 <ul>
-                    <li>User research and personal development</li>
-                    <li>Information architecture and wireframing</li>
-                    <li>Interactive prototyping</li>
-                    <li>UI design with modern aesthetics</li>
-                    <li>UX optimization for better conversion</li>
-                    <li>Mobile-first responsive design</li>
-                    <li>Accessibility compliance (WCAG)</li>
-                    <li>Design system creation</li>
-                    <li>User flow and journey mapping</li>
-                    <li>Usability testing and iteration</li>
-                    <li>Design-to-development handoff</li>
-                    <li>Style guides and design documentation</li>
+                    <li data-translate="feature_1">User research and persona development</li>
+                    <li data-translate="feature_2">Information architecture and wireframing</li>
+                    <li data-translate="feature_3">Interactive prototyping</li>
+                    <li data-translate="feature_4">UI design with modern aesthetics</li>
+                    <li data-translate="feature_5">UX optimization for better conversion</li>
+                    <li data-translate="feature_6">Mobile-first responsive design</li>
+                    <li data-translate="feature_7">Accessibility compliance (WCAG)</li>
+                    <li data-translate="feature_8">Design system creation</li>
+                    <li data-translate="feature_9">User flow and journey mapping</li>
+                    <li data-translate="feature_10">Usability testing and iteration</li>
+                    <li data-translate="feature_11">Design-to-development handoff</li>
+                    <li data-translate="feature_12">Style guides and design documentation</li>
                 </ul>
+            </div>
+            
+            <!-- Pricing Packages Section -->
+            <div class="section-title">
+                <h2 data-translate="pricing-packages-title">Pricing Packages</h2>
+            </div>
+            
+            <div class="pricing-packages">
+                <div class="package-card">
+                    <h3 class="package-title" data-translate="basic-package-title">Basic Package</h3>
+                    <div class="package-price">$199<span data-translate="package-price-suffix">/project</span></div>
+                    <p class="package-description" data-translate="basic-package-desc">Perfect for startups and small projects</p>
+                    <ul class="package-features">
+                        <li data-translate="basic-feature1">UI design for up to 5 screens</li>
+                        <li data-translate="basic-feature2">Basic wireframing</li>
+                        <li data-translate="basic-feature3">Color palette and typography</li>
+                        <li data-translate="basic-feature4">Mobile responsive design</li>
+                        <li data-translate="basic-feature5">Basic style guide</li>
+                        <li data-translate="basic-feature6">2 design revisions</li>
+                        <li data-translate="basic-feature7">1 week delivery time</li>
+                        <li data-translate="basic-feature8">2 weeks free support</li>
+                    </ul>
+                    <a href="index.html#contact" class="package-cta" data-translate="choose-package-btn">Choose Package</a>
+                </div>
+                
+                <div class="package-card featured">
+                    <h3 class="package-title" data-translate="professional-package-title">Professional Package</h3>
+                    <div class="package-price">$399<span data-translate="package-price-suffix">/project</span></div>
+                    <p class="package-description" data-translate="professional-package-desc">Ideal for growing businesses with complex needs</p>
+                    <ul class="package-features">
+                        <li data-translate="pro-feature1">UI/UX design for up to 15 screens</li>
+                        <li data-translate="pro-feature2">User research and personas</li>
+                        <li data-translate="pro-feature3">Advanced wireframing and prototyping</li>
+                        <li data-translate="pro-feature4">Interactive prototypes</li>
+                        <li data-translate="pro-feature5">Complete design system</li>
+                        <li data-translate="pro-feature6">User flow mapping</li>
+                        <li data-translate="pro-feature7">Accessibility compliance</li>
+                        <li data-translate="pro-feature8">5 design revisions</li>
+                        <li data-translate="pro-feature9">3 weeks delivery time</li>
+                        <li data-translate="pro-feature10">1 month free support</li>
+                    </ul>
+                    <a href="index.html#contact" class="package-cta" data-translate="choose-package-btn">Choose Package</a>
+                </div>
+                
+                <div class="package-card">
+                    <h3 class="package-title" data-translate="enterprise-package-title">Enterprise Package</h3>
+                    <div class="package-price">$799<span data-translate="package-price-suffix">/project</span></div>
+                    <p class="package-description" data-translate="enterprise-package-desc">Complete design solution for large-scale projects</p>
+                    <ul class="package-features">
+                        <li data-translate="enterprise-feature1">UI/UX design for unlimited screens</li>
+                        <li data-translate="enterprise-feature2">Comprehensive user research</li>
+                        <li data-translate="enterprise-feature3">Advanced prototyping with animations</li>
+                        <li data-translate="enterprise-feature4">Usability testing and optimization</li>
+                        <li data-translate="enterprise-feature5">Complete design system with components</li>
+                        <li data-translate="enterprise-feature6">User journey mapping</li>
+                        <li data-translate="enterprise-feature7">Multi-platform design (web, mobile, tablet)</li>
+                        <li data-translate="enterprise-feature8">Design-to-development handoff</li>
+                        <li data-translate="enterprise-feature9">Unlimited design revisions</li>
+                        <li data-translate="enterprise-feature10">6 weeks delivery time</li>
+                        <li data-translate="enterprise-feature11">3 months free support</li>
+                        <li data-translate="enterprise-feature12">Design consultation sessions</li>
+                    </ul>
+                    <a href="index.html#contact" class="package-cta" data-translate="choose-package-btn">Choose Package</a>
+                </div>
             </div>
             
             <div class="tools-section">
                 <div class="section-title">
-                    <h2>Design Tools & Methods</h2>
+                    <h2 data-translate="tools_title">Design Tools & Methods</h2>
                 </div>
                 
                 <div class="tools-grid">
                     <div class="tool-card">
                         <i class="fab fa-figma"></i>
-                        <h4>Figma</h4>
+                        <h4 data-translate="tool_figma">Figma</h4>
                     </div>
                     <div class="tool-card">
                         <i class="fas fa-paint-brush"></i>
-                        <h4>Adobe XD</h4>
+                        <h4 data-translate="tool_adobe_xd">Adobe XD</h4>
                     </div>
                     <div class="tool-card">
                         <i class="fas fa-palette"></i>
-                        <h4>Adobe Photoshop</h4>
+                        <h4 data-translate="tool_photoshop">Adobe Photoshop</h4>
                     </div>
                     <div class="tool-card">
                         <i class="fas fa-vector-square"></i>
-                        <h4>Adobe Illustrator</h4>
+                        <h4 data-translate="tool_illustrator">Adobe Illustrator</h4>
                     </div>
                     <div class="tool-card">
                         <i class="fas fa-mobile-alt"></i>
-                        <h4>Responsive Design</h4>
+                        <h4 data-translate="tool_responsive">Responsive Design</h4>
                     </div>
                     <div class="tool-card">
                         <i class="fas fa-users"></i>
-                        <h4>User Research</h4>
+                        <h4 data-translate="tool_research">User Research</h4>
                     </div>
                     <div class="tool-card">
                         <i class="fas fa-project-diagram"></i>
-                        <h4>Wireframing</h4>
+                        <h4 data-translate="tool_wireframing">Wireframing</h4>
                     </div>
                     <div class="tool-card">
                         <i class="fas fa-tasks"></i>
-                        <h4>Prototyping</h4>
+                        <h4 data-translate="tool_prototyping">Prototyping</h4>
                     </div>
                     <div class="tool-card">
                         <i class="fas fa-universal-access"></i>
-                        <h4>Accessibility</h4>
+                        <h4 data-translate="tool_accessibility">Accessibility</h4>
                     </div>
                     <div class="tool-card">
                         <i class="fas fa-chart-line"></i>
-                        <h4>UX Analytics</h4>
+                        <h4 data-translate="tool_analytics">UX Analytics</h4>
                     </div>
                     <div class="tool-card">
                         <i class="fas fa-sitemap"></i>
-                        <h4>Information Architecture</h4>
+                        <h4 data-translate="tool_architecture">Information Architecture</h4>
                     </div>
                     <div class="tool-card">
                         <i class="fas fa-object-group"></i>
-                        <h4>Design Systems</h4>
+                        <h4 data-translate="tool_design_systems">Design Systems</h4>
                     </div>
                 </div>
             </div>
             
             <div class="contact-cta">
-                <h3>Ready to Transform Your User Experience?</h3>
-                <p>Let's discuss how I can create beautiful, intuitive interfaces for your product.</p>
-                <a href="index.html#contact" class="cta-button">Request Service Now</a>
+                <h3 data-translate="cta_title">Ready to Transform Your User Experience?</h3>
+                <p data-translate="cta_description">Let's discuss how I can create beautiful, intuitive interfaces for your product.</p>
+                <a href="index.html#contact" class="cta-button" data-translate="cta_button">Request Service Now</a>
             </div>
         </div>
     </section>
@@ -837,8 +1159,8 @@
             <a href="https://x.com/MohammedNaeeeem?t=WMkESJEVaI7K8ZFsbCdkfQ&s=09" target="_blank"><i class="fab fa-twitter"></i></a>
             <a href="mailto:mohammedabdelnaeim18@gmail.com"><i class="fas fa-envelope"></i></a>
         </div>
-        <p>&copy; <span id="year"></span> Mohammed Naeem. All rights reserved.</p>
-        <p class="designer-credit">Designed by Mohammed Naeem</p>
+        <p data-translate="footer_copyright">&copy; <span id="year"></span> Mohammed Naeem. All rights reserved.</p>
+        <p class="designer-credit" data-translate="footer_designer">Designed by Mohammed Naeem</p>
     </footer>
 
     <!-- Particles.js -->
@@ -951,6 +1273,318 @@
         }
         
         toggleSwitch.addEventListener('change', switchTheme, false);
+        
+        // Language Translation System
+        const translations = {
+            en: {
+                hero_title: "UI/UX Design",
+                hero_subtitle: "Beautiful, intuitive interfaces designed for exceptional user experiences",
+                hero_cta: "Explore Service Details",
+                service_details_title: "Service Details",
+                service_title: "Professional UI/UX Design",
+                service_description_1: "As a UI/UX designer, I create visually stunning and highly functional interfaces that provide seamless user experiences. My designs are not just beautiful but also intuitive, accessible, and aligned with your business goals.",
+                service_description_2: "I specialize in transforming complex requirements into clean, user-friendly interfaces that delight users and drive engagement. Whether you need a complete redesign or a new interface from scratch, I can deliver solutions that enhance usability and aesthetics.",
+                discount_badge: "80% OFF LIMITED TIME",
+                request_service: "Request Service",
+                why_choose_title: "Why Choose Me for Your UI/UX Project?",
+                why_choose_p1: "My journey in design began with my programming background in 2019, which gave me a unique technical perspective on interface design. In 2025, I recognized the importance of good design in creating successful digital products and immersed myself in UI/UX design principles.",
+                why_choose_p2: "What sets me apart is my combination of technical knowledge and design sensibility. I understand not just how interfaces should look, but how they should work from both user and developer perspectives. This allows me to create designs that are both beautiful and technically feasible.",
+                why_choose_p3: "I approach each project with a user-centered mindset, focusing on creating intuitive experiences that solve real problems. My background in development ensures my designs are practical to implement while maintaining high standards of usability and aesthetics.",
+                service_features_title: "Service Features",
+                feature_1: "User research and persona development",
+                feature_2: "Information architecture and wireframing",
+                feature_3: "Interactive prototyping",
+                feature_4: "UI design with modern aesthetics",
+                feature_5: "UX optimization for better conversion",
+                feature_6: "Mobile-first responsive design",
+                feature_7: "Accessibility compliance (WCAG)",
+                feature_8: "Design system creation",
+                feature_9: "User flow and journey mapping",
+                feature_10: "Usability testing and iteration",
+                feature_11: "Design-to-development handoff",
+                feature_12: "Style guides and design documentation",
+                tools_title: "Design Tools & Methods",
+                tool_figma: "Figma",
+                tool_adobe_xd: "Adobe XD",
+                tool_photoshop: "Adobe Photoshop",
+                tool_illustrator: "Adobe Illustrator",
+                tool_responsive: "Responsive Design",
+                tool_research: "User Research",
+                tool_wireframing: "Wireframing",
+                tool_prototyping: "Prototyping",
+                tool_accessibility: "Accessibility",
+                tool_analytics: "UX Analytics",
+                tool_architecture: "Information Architecture",
+                tool_design_systems: "Design Systems",
+                cta_title: "Ready to Transform Your User Experience?",
+                cta_description: "Let's discuss how I can create beautiful, intuitive interfaces for your product.",
+                cta_button: "Request Service Now",
+                footer_copyright: "© 2025 Mohammed Naeem. All rights reserved.",
+                footer_designer: "Designed by Mohammed Naeem"
+            },
+            ar: {
+                hero_title: "تصميم واجهة المستخدم وتجربة المستخدم",
+                hero_subtitle: "واجهات جميلة وبديهية مصممة لتجارب مستخدم استثنائية",
+                hero_cta: "استكشف تفاصيل الخدمة",
+                service_details_title: "تفاصيل الخدمة",
+                service_title: "تصميم واجهة وتجربة المستخدم المحترف",
+                service_description_1: "كمصمم واجهة وتجربة مستخدم، أقوم بإنشاء واجهات مذهلة بصرياً وعملية للغاية توفر تجارب مستخدم سلسة. تصاميمي ليست جميلة فحسب، بل أيضاً بديهية وقابلة للوصول ومتوافقة مع أهداف عملك.",
+                service_description_2: "أتخصص في تحويل المتطلبات المعقدة إلى واجهات نظيفة وسهلة الاستخدام تسعد المستخدمين وتزيد من التفاعل. سواء كنت تحتاج إلى إعادة تصميم كاملة أو واجهة جديدة من الصفر، يمكنني تقديم حلول تعزز سهولة الاستخدام والجماليات.",
+                discount_badge: "خصم 80% لفترة محدودة",
+                request_service: "طلب الخدمة",
+                why_choose_title: "لماذا تختارني لمشروع واجهة وتجربة المستخدم الخاص بك؟",
+                why_choose_p1: "بدأت رحلتي في التصميم بخلفيتي في البرمجة في عام 2019، مما أعطاني منظوراً تقنياً فريداً في تصميم الواجهات. في عام 2025، أدركت أهمية التصميم الجيد في إنشاء منتجات رقمية ناجحة وانغمست في مبادئ تصميم واجهة وتجربة المستخدم.",
+                why_choose_p2: "ما يميزني هو مزيجي من المعرفة التقنية والحس التصميمي. أفهم ليس فقط كيف يجب أن تبدو الواجهات، ولكن كيف يجب أن تعمل من منظور المستخدم والمطور. هذا يسمح لي بإنشاء تصاميم جميلة وقابلة للتنفيذ تقنياً.",
+                why_choose_p3: "أتعامل مع كل مشروع بعقلية تركز على المستخدم، مع التركيز على إنشاء تجارب بديهية تحل المشاكل الحقيقية. خلفيتي في التطوير تضمن أن تصاميمي عملية للتنفيذ مع الحفاظ على معايير عالية من سهولة الاستخدام والجماليات.",
+                service_features_title: "ميزات الخدمة",
+                feature_1: "بحث المستخدمين وتطوير الشخصيات",
+                feature_2: "هندسة المعلومات والإطارات السلكية",
+                feature_3: "النماذج الأولية التفاعلية",
+                feature_4: "تصميم واجهة المستخدم بجماليات حديثة",
+                feature_5: "تحسين تجربة المستخدم لتحويل أفضل",
+                feature_6: "تصميم متجاوب يركز على الهاتف المحمول",
+                feature_7: "الامتثال لإمكانية الوصول (WCAG)",
+                feature_8: "إنشاء نظام التصميم",
+                feature_9: "تدفق المستخدم ورسم خرائط الرحلة",
+                feature_10: "اختبار قابلية الاستخدام والتكرار",
+                feature_11: "تسليم التصميم للتطوير",
+                feature_12: "أدلة الأسلوب وتوثيق التصميم",
+                tools_title: "أدوات وطرق التصميم",
+                tool_figma: "فيجما",
+                tool_adobe_xd: "أدوبي إكس دي",
+                tool_photoshop: "أدوبي فوتوشوب",
+                tool_illustrator: "أدوبي إليستريتر",
+                tool_responsive: "التصميم المتجاوب",
+                tool_research: "بحث المستخدمين",
+                tool_wireframing: "الإطارات السلكية",
+                tool_prototyping: "النماذج الأولية",
+                tool_accessibility: "إمكانية الوصول",
+                tool_analytics: "تحليلات تجربة المستخدم",
+                tool_architecture: "هندسة المعلومات",
+                tool_design_systems: "أنظمة التصميم",
+                cta_title: "هل أنت مستعد لتحويل تجربة المستخدم الخاصة بك؟",
+                cta_description: "دعنا نناقش كيف يمكنني إنشاء واجهات جميلة وبديهية لمنتجك.",
+                cta_button: "اطلب الخدمة الآن",
+                footer_copyright: "© 2025 محمد نعيم. جميع الحقوق محفوظة.",
+                footer_designer: "تصميم محمد نعيم"
+            },
+            es: {
+                hero_title: "Diseño UI/UX",
+                hero_subtitle: "Interfaces hermosas e intuitivas diseñadas para experiencias de usuario excepcionales",
+                hero_cta: "Explorar Detalles del Servicio",
+                service_details_title: "Detalles del Servicio",
+                service_title: "Diseño UI/UX Profesional",
+                service_description_1: "Como diseñador UI/UX, creo interfaces visualmente impresionantes y altamente funcionales que proporcionan experiencias de usuario fluidas. Mis diseños no solo son hermosos, sino también intuitivos, accesibles y alineados con tus objetivos comerciales.",
+                service_description_2: "Me especializo en transformar requisitos complejos en interfaces limpias y fáciles de usar que deleitan a los usuarios e impulsan el compromiso. Ya sea que necesites un rediseño completo o una nueva interfaz desde cero, puedo entregar soluciones que mejoren la usabilidad y la estética.",
+                discount_badge: "80% DE DESCUENTO TIEMPO LIMITADO",
+                request_service: "Solicitar Servicio",
+                why_choose_title: "¿Por Qué Elegirme para Tu Proyecto UI/UX?",
+                why_choose_p1: "Mi viaje en el diseño comenzó con mi experiencia en programación en 2019, lo que me dio una perspectiva técnica única en el diseño de interfaces. En 2025, reconocí la importancia del buen diseño en la creación de productos digitales exitosos y me sumergí en los principios de diseño UI/UX.",
+                why_choose_p2: "Lo que me distingue es mi combinación de conocimiento técnico y sensibilidad de diseño. Entiendo no solo cómo deben verse las interfaces, sino cómo deben funcionar desde las perspectivas del usuario y del desarrollador. Esto me permite crear diseños que son tanto hermosos como técnicamente factibles.",
+                why_choose_p3: "Abordo cada proyecto con una mentalidad centrada en el usuario, enfocándome en crear experiencias intuitivas que resuelvan problemas reales. Mi experiencia en desarrollo asegura que mis diseños sean prácticos de implementar mientras mantengo altos estándares de usabilidad y estética.",
+                service_features_title: "Características del Servicio",
+                feature_1: "Investigación de usuarios y desarrollo de personas",
+                feature_2: "Arquitectura de información y wireframing",
+                feature_3: "Prototipado interactivo",
+                feature_4: "Diseño UI con estética moderna",
+                feature_5: "Optimización UX para mejor conversión",
+                feature_6: "Diseño responsivo mobile-first",
+                feature_7: "Cumplimiento de accesibilidad (WCAG)",
+                feature_8: "Creación de sistema de diseño",
+                feature_9: "Flujo de usuario y mapeo de viaje",
+                feature_10: "Pruebas de usabilidad e iteración",
+                feature_11: "Entrega de diseño a desarrollo",
+                feature_12: "Guías de estilo y documentación de diseño",
+                tools_title: "Herramientas y Métodos de Diseño",
+                tool_figma: "Figma",
+                tool_adobe_xd: "Adobe XD",
+                tool_photoshop: "Adobe Photoshop",
+                tool_illustrator: "Adobe Illustrator",
+                tool_responsive: "Diseño Responsivo",
+                tool_research: "Investigación de Usuarios",
+                tool_wireframing: "Wireframing",
+                tool_prototyping: "Prototipado",
+                tool_accessibility: "Accesibilidad",
+                tool_analytics: "Analíticas UX",
+                tool_architecture: "Arquitectura de Información",
+                tool_design_systems: "Sistemas de Diseño",
+                cta_title: "¿Listo para Transformar Tu Experiencia de Usuario?",
+                cta_description: "Discutamos cómo puedo crear interfaces hermosas e intuitivas para tu producto.",
+                cta_button: "Solicitar Servicio Ahora",
+                footer_copyright: "© 2025 Mohammed Naeem. Todos los derechos reservados.",
+                footer_designer: "Diseñado por Mohammed Naeem"
+            },
+            fr: {
+                hero_title: "Design UI/UX",
+                hero_subtitle: "Interfaces belles et intuitives conçues pour des expériences utilisateur exceptionnelles",
+                hero_cta: "Explorer les Détails du Service",
+                service_details_title: "Détails du Service",
+                service_title: "Design UI/UX Professionnel",
+                service_description_1: "En tant que designer UI/UX, je crée des interfaces visuellement époustouflantes et hautement fonctionnelles qui offrent des expériences utilisateur fluides. Mes designs ne sont pas seulement beaux, mais aussi intuitifs, accessibles et alignés avec vos objectifs commerciaux.",
+                service_description_2: "Je me spécialise dans la transformation d'exigences complexes en interfaces propres et conviviales qui ravissent les utilisateurs et stimulent l'engagement. Que vous ayez besoin d'une refonte complète ou d'une nouvelle interface à partir de zéro, je peux livrer des solutions qui améliorent l'utilisabilité et l'esthétique.",
+                discount_badge: "80% DE RÉDUCTION TEMPS LIMITÉ",
+                request_service: "Demander le Service",
+                why_choose_title: "Pourquoi Me Choisir pour Votre Projet UI/UX ?",
+                why_choose_p1: "Mon parcours dans le design a commencé avec mon expérience en programmation en 2019, ce qui m'a donné une perspective technique unique sur le design d'interface. En 2025, j'ai reconnu l'importance du bon design dans la création de produits numériques réussis et me suis immergé dans les principes de design UI/UX.",
+                why_choose_p2: "Ce qui me distingue, c'est ma combinaison de connaissances techniques et de sensibilité au design. Je comprends non seulement à quoi les interfaces doivent ressembler, mais comment elles doivent fonctionner du point de vue de l'utilisateur et du développeur. Cela me permet de créer des designs qui sont à la fois beaux et techniquement réalisables.",
+                why_choose_p3: "J'aborde chaque projet avec un état d'esprit centré sur l'utilisateur, en me concentrant sur la création d'expériences intuitives qui résolvent de vrais problèmes. Mon expérience en développement garantit que mes designs sont pratiques à implémenter tout en maintenant des standards élevés d'utilisabilité et d'esthétique.",
+                service_features_title: "Caractéristiques du Service",
+                feature_1: "Recherche utilisateur et développement de personas",
+                feature_2: "Architecture de l'information et wireframing",
+                feature_3: "Prototypage interactif",
+                feature_4: "Design UI avec esthétique moderne",
+                feature_5: "Optimisation UX pour une meilleure conversion",
+                feature_6: "Design responsive mobile-first",
+                feature_7: "Conformité à l'accessibilité (WCAG)",
+                feature_8: "Création de système de design",
+                feature_9: "Flux utilisateur et cartographie de parcours",
+                feature_10: "Tests d'utilisabilité et itération",
+                feature_11: "Livraison design vers développement",
+                feature_12: "Guides de style et documentation de design",
+                tools_title: "Outils et Méthodes de Design",
+                tool_figma: "Figma",
+                tool_adobe_xd: "Adobe XD",
+                tool_photoshop: "Adobe Photoshop",
+                tool_illustrator: "Adobe Illustrator",
+                tool_responsive: "Design Responsive",
+                tool_research: "Recherche Utilisateur",
+                tool_wireframing: "Wireframing",
+                tool_prototyping: "Prototypage",
+                tool_accessibility: "Accessibilité",
+                tool_analytics: "Analytiques UX",
+                tool_architecture: "Architecture de l'Information",
+                tool_design_systems: "Systèmes de Design",
+                cta_title: "Prêt à Transformer Votre Expérience Utilisateur ?",
+                cta_description: "Discutons de la façon dont je peux créer des interfaces belles et intuitives pour votre produit.",
+                cta_button: "Demander le Service Maintenant",
+                footer_copyright: "© 2025 Mohammed Naeem. Tous droits réservés.",
+                footer_designer: "Conçu par Mohammed Naeem"
+            },
+            de: {
+                hero_title: "UI/UX Design",
+                hero_subtitle: "Schöne, intuitive Benutzeroberflächen für außergewöhnliche Benutzererfahrungen",
+                hero_cta: "Service-Details Erkunden",
+                service_details_title: "Service-Details",
+                service_title: "Professionelles UI/UX Design",
+                service_description_1: "Als UI/UX Designer erstelle ich visuell beeindruckende und hochfunktionale Benutzeroberflächen, die nahtlose Benutzererfahrungen bieten. Meine Designs sind nicht nur schön, sondern auch intuitiv, zugänglich und auf Ihre Geschäftsziele abgestimmt.",
+                service_description_2: "Ich spezialisiere mich darauf, komplexe Anforderungen in saubere, benutzerfreundliche Oberflächen zu verwandeln, die Benutzer begeistern und das Engagement fördern. Ob Sie ein komplettes Redesign oder eine neue Oberfläche von Grund auf benötigen, ich kann Lösungen liefern, die Benutzerfreundlichkeit und Ästhetik verbessern.",
+                discount_badge: "80% RABATT BEGRENZTE ZEIT",
+                request_service: "Service Anfordern",
+                why_choose_title: "Warum Mich für Ihr UI/UX Projekt Wählen?",
+                why_choose_p1: "Meine Reise im Design begann 2019 mit meinem Programmier-Hintergrund, was mir eine einzigartige technische Perspektive auf Interface-Design gab. 2025 erkannte ich die Bedeutung guten Designs bei der Erstellung erfolgreicher digitaler Produkte und vertiefte mich in UI/UX Design-Prinzipien.",
+                why_choose_p2: "Was mich auszeichnet, ist meine Kombination aus technischem Wissen und Design-Sensibilität. Ich verstehe nicht nur, wie Oberflächen aussehen sollten, sondern wie sie sowohl aus Benutzer- als auch aus Entwicklerperspektive funktionieren sollten. Dies ermöglicht es mir, Designs zu erstellen, die sowohl schön als auch technisch umsetzbar sind.",
+                why_choose_p3: "Ich gehe jedes Projekt mit einer benutzerzentrierten Denkweise an und konzentriere mich darauf, intuitive Erfahrungen zu schaffen, die echte Probleme lösen. Mein Entwicklungshintergrund stellt sicher, dass meine Designs praktisch umsetzbar sind, während hohe Standards für Benutzerfreundlichkeit und Ästhetik beibehalten werden.",
+                service_features_title: "Service-Funktionen",
+                feature_1: "Benutzerforschung und Persona-Entwicklung",
+                feature_2: "Informationsarchitektur und Wireframing",
+                feature_3: "Interaktive Prototypenerstellung",
+                feature_4: "UI-Design mit moderner Ästhetik",
+                feature_5: "UX-Optimierung für bessere Konversion",
+                feature_6: "Mobile-first responsives Design",
+                feature_7: "Barrierefreiheits-Compliance (WCAG)",
+                feature_8: "Design-System-Erstellung",
+                feature_9: "Benutzerfluss und Journey-Mapping",
+                feature_10: "Usability-Tests und Iteration",
+                feature_11: "Design-zu-Entwicklung-Übergabe",
+                feature_12: "Style-Guides und Design-Dokumentation",
+                tools_title: "Design-Tools & Methoden",
+                tool_figma: "Figma",
+                tool_adobe_xd: "Adobe XD",
+                tool_photoshop: "Adobe Photoshop",
+                tool_illustrator: "Adobe Illustrator",
+                tool_responsive: "Responsives Design",
+                tool_research: "Benutzerforschung",
+                tool_wireframing: "Wireframing",
+                tool_prototyping: "Prototyping",
+                tool_accessibility: "Barrierefreiheit",
+                tool_analytics: "UX-Analytik",
+                tool_architecture: "Informationsarchitektur",
+                tool_design_systems: "Design-Systeme",
+                cta_title: "Bereit, Ihre Benutzererfahrung zu Transformieren?",
+                cta_description: "Lassen Sie uns besprechen, wie ich schöne, intuitive Oberflächen für Ihr Produkt erstellen kann.",
+                cta_button: "Service Jetzt Anfordern",
+                footer_copyright: "© 2025 Mohammed Naeem. Alle Rechte vorbehalten.",
+                footer_designer: "Entworfen von Mohammed Naeem"
+            }
+        };
+
+        // Language functions
+        function toggleLanguageDropdown() {
+            const dropdown = document.getElementById('languageOptions');
+            dropdown.classList.toggle('show');
+            
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!event.target.closest('.language-dropdown')) {
+                    dropdown.classList.remove('show');
+                }
+            });
+        }
+
+        function changeLanguage(langCode, flagIcon, langText) {
+            // Update the selected language display
+            const selectedLanguage = document.querySelector('.selected-language');
+            const flagSpan = selectedLanguage.querySelector('.flag-icon');
+            const textSpan = selectedLanguage.querySelector('.language-text');
+            
+            flagSpan.textContent = flagIcon;
+            textSpan.textContent = langText;
+            
+            // Close the dropdown
+            document.getElementById('languageOptions').classList.remove('show');
+            
+            // Apply translations
+            applyTranslations(langCode);
+            
+            // Handle RTL for Arabic
+            if (langCode === 'ar') {
+                document.documentElement.setAttribute('dir', 'rtl');
+                document.documentElement.setAttribute('lang', 'ar');
+            } else {
+                document.documentElement.setAttribute('dir', 'ltr');
+                document.documentElement.setAttribute('lang', langCode);
+            }
+            
+            // Save language preference
+            localStorage.setItem('selectedLanguage', langCode);
+            localStorage.setItem('selectedFlag', flagIcon);
+            localStorage.setItem('selectedText', langText);
+        }
+
+        function applyTranslations(langCode) {
+            const elements = document.querySelectorAll('[data-translate]');
+            elements.forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[langCode] && translations[langCode][key]) {
+                    element.textContent = translations[langCode][key];
+                }
+            });
+        }
+
+        // Load saved language preference on page load
+        window.addEventListener('load', function() {
+            const savedLang = localStorage.getItem('selectedLanguage') || 'en';
+            const savedFlag = localStorage.getItem('selectedFlag') || '🇺🇸';
+            const savedText = localStorage.getItem('selectedText') || 'EN';
+            
+            // Update UI
+            const flagSpan = document.querySelector('.selected-language .flag-icon');
+            const textSpan = document.querySelector('.selected-language .language-text');
+            if (flagSpan) flagSpan.textContent = savedFlag;
+            if (textSpan) textSpan.textContent = savedText;
+            
+            // Apply translations
+            applyTranslations(savedLang);
+            
+            // Handle RTL for Arabic
+            if (savedLang === 'ar') {
+                document.documentElement.setAttribute('dir', 'rtl');
+                document.documentElement.setAttribute('lang', 'ar');
+            } else {
+                document.documentElement.setAttribute('dir', 'ltr');
+                document.documentElement.setAttribute('lang', savedLang);
+            }
+        });
         
         // Particles.js configuration
         particlesJS('particles-js', {

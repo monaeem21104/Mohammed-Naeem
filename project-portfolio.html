@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Learning Management System Project</title>
+    <title>Portfolio Website Project</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #2ecc71;
+            --primary-color: #4CAF50;
             --secondary-color: #ffffff;
-            --accent-color: #27ae60;
+            --accent-color: #45a049;
         }
         
         * {
@@ -206,8 +206,8 @@
         }
         
         .tech-item {
-            background-color: #e3f2fd;
-            color: #1976d2;
+            background-color: #f3e5f5;
+            color: #7b1fa2;
             padding: 8px 15px;
             border-radius: 20px;
             font-size: 14px;
@@ -326,7 +326,7 @@
         }
         
         .language-option:hover {
-            background-color: #e8f5e8;
+            background-color: #f3e5f5;
             color: var(--primary-color);
         }
         
@@ -337,7 +337,7 @@
         .language-option:last-child {
             border-radius: 0 0 13px 13px;
         }
-        
+
         @media screen and (max-width: 768px) {
             .project-card {
                 padding: 2rem 1.5rem;
@@ -404,20 +404,20 @@
     </div>
     <div class="container">
         <div class="project-card">
-            <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Learning Management System" class="project-img">
-            <h1 data-translate="project_title">Learning Management System</h1>
-            <h2 data-translate="project_subtitle">Custom LMS with course creation tools, progress tracking, and interactive quizzes</h2>
+            <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Portfolio Website" class="project-img">
+            <h1 data-translate="project_title">Portfolio Website</h1>
+            <h2 data-translate="project_subtitle">Interactive creative portfolio with 3D animations and dynamic content management</h2>
             
             <div class="project-description">
-                <p data-translate="project_description">This comprehensive learning platform empowers educators to create engaging courses while providing students with intuitive tools for tracking progress and testing knowledge through interactive assessments.</p>
+                <p data-translate="project_description">A cutting-edge portfolio website featuring immersive 3D animations, interactive elements, and a custom content management system. Built for a creative agency to showcase their work with stunning visual effects and seamless user experience.</p>
                 
                 <div class="tech-stack">
+                    <span class="tech-item">Three.js</span>
                     <span class="tech-item">React</span>
-                    <span class="tech-item">Laravel</span>
-                    <span class="tech-item">MySQL</span>
-                    <span class="tech-item">Interactive Quizzes</span>
-                    <span class="tech-item">Progress Analytics</span>
-                    <span class="tech-item">SCORM Compliance</span>
+                    <span class="tech-item">GSAP</span>
+                    <span class="tech-item">Strapi</span>
+                    <span class="tech-item">WebGL</span>
+                    <span class="tech-item">Framer Motion</span>
                 </div>
             </div>
             
@@ -426,20 +426,20 @@
                 <div class="timeline">
                     <div class="timeline-item left">
                         <div class="timeline-content">
-                            <h4 data-translate="technical_implementation_title">Technical Implementation</h4>
-                            <p data-translate="technical_implementation_desc">Built with React for the responsive frontend and Laravel for the robust backend. Used MySQL for reliable data storage and implemented interactive quiz functionality with real-time feedback. Developed comprehensive progress tracking dashboards.</p>
+                            <h4 data-translate="interactive_experience_title">3D Interactive Experience</h4>
+                            <p data-translate="interactive_experience_desc">Created immersive 3D scenes using Three.js and WebGL, featuring particle systems, dynamic lighting, and interactive elements. Optimized for 60fps performance across all devices with progressive enhancement.</p>
                         </div>
                     </div>
                     <div class="timeline-item right">
                         <div class="timeline-content">
-                            <h4 data-translate="challenges_overcome_title">Challenges Overcome</h4>
-                            <p data-translate="challenges_overcome_desc">Solved complex course authoring requirements with intuitive drag-and-drop tools. Optimized quiz engine for various question types and scoring systems. Created seamless integration between learning content and progress tracking.</p>
+                            <h4 data-translate="advanced_animations_title">Advanced Animations</h4>
+                            <p data-translate="advanced_animations_desc">Implemented complex animations using GSAP and Framer Motion, including scroll-triggered effects, morphing shapes, and fluid transitions. Created custom loading sequences and micro-interactions.</p>
                         </div>
                     </div>
                     <div class="timeline-item left">
                         <div class="timeline-content">
-                            <h4 data-translate="client_satisfaction_title">Client Satisfaction</h4>
-                            <p data-translate="client_satisfaction_desc">Delivered on time with all feature requirements exceeded. Client reported 65% increase in course completion rates and 40% reduction in administrative workload. Platform adopted as primary training tool across their organization.</p>
+                            <h4 data-translate="client_success_title">Client Success</h4>
+                            <p data-translate="client_success_desc">Portfolio generated 400% increase in client inquiries and won multiple design awards. Site achieved 95+ PageSpeed score while maintaining rich visual effects. Client reported significant business growth.</p>
                         </div>
                     </div>
                 </div>
@@ -453,68 +453,68 @@
         // Language Translation System
         const translations = {
             en: {
-                project_title: "Learning Management System",
-                project_subtitle: "Custom LMS with course creation tools, progress tracking, and interactive quizzes",
-                project_description: "This comprehensive learning platform empowers educators to create engaging courses while providing students with intuitive tools for tracking progress and testing knowledge through interactive assessments.",
+                project_title: "Portfolio Website",
+                project_subtitle: "Interactive creative portfolio with 3D animations and dynamic content management",
+                project_description: "A cutting-edge portfolio website featuring immersive 3D animations, interactive elements, and a custom content management system. Built for a creative agency to showcase their work with stunning visual effects and seamless user experience.",
                 project_highlights_title: "Project Highlights",
-                technical_implementation_title: "Technical Implementation",
-                technical_implementation_desc: "Built with React for the responsive frontend and Laravel for the robust backend. Used MySQL for reliable data storage and implemented interactive quiz functionality with real-time feedback. Developed comprehensive progress tracking dashboards.",
-                challenges_overcome_title: "Challenges Overcome",
-                challenges_overcome_desc: "Solved complex course authoring requirements with intuitive drag-and-drop tools. Optimized quiz engine for various question types and scoring systems. Created seamless integration between learning content and progress tracking.",
-                client_satisfaction_title: "Client Satisfaction",
-                client_satisfaction_desc: "Delivered on time with all feature requirements exceeded. Client reported 65% increase in course completion rates and 40% reduction in administrative workload. Platform adopted as primary training tool across their organization.",
+                interactive_experience_title: "3D Interactive Experience",
+                interactive_experience_desc: "Created immersive 3D scenes using Three.js and WebGL, featuring particle systems, dynamic lighting, and interactive elements. Optimized for 60fps performance across all devices with progressive enhancement.",
+                advanced_animations_title: "Advanced Animations",
+                advanced_animations_desc: "Implemented complex animations using GSAP and Framer Motion, including scroll-triggered effects, morphing shapes, and fluid transitions. Created custom loading sequences and micro-interactions.",
+                client_success_title: "Client Success",
+                client_success_desc: "Portfolio generated 400% increase in client inquiries and won multiple design awards. Site achieved 95+ PageSpeed score while maintaining rich visual effects. Client reported significant business growth.",
                 cta_button: "Request a Similar Service"
             },
             ar: {
-                project_title: "نظام إدارة التعلم",
-                project_subtitle: "نظام LMS مخصص مع أدوات إنشاء الدورات وتتبع التقدم والاختبارات التفاعلية",
-                project_description: "تمكن منصة التعلم الشاملة هذه المعلمين من إنشاء دورات جذابة بينما توفر للطلاب أدوات بديهية لتتبع التقدم واختبار المعرفة من خلال التقييمات التفاعلية.",
+                project_title: "موقع المحفظة الإلكترونية",
+                project_subtitle: "محفظة إبداعية تفاعلية مع رسوم متحركة ثلاثية الأبعاد وإدارة محتوى ديناميكية",
+                project_description: "موقع محفظة متطور يتميز برسوم متحركة ثلاثية الأبعاد غامرة وعناصر تفاعلية ونظام إدارة محتوى مخصص. تم بناؤه لوكالة إبداعية لعرض أعمالها بتأثيرات بصرية مذهلة وتجربة مستخدم سلسة.",
                 project_highlights_title: "أبرز نقاط المشروع",
-                technical_implementation_title: "التنفيذ التقني",
-                technical_implementation_desc: "تم البناء باستخدام React للواجهة الأمامية المتجاوبة و Laravel للخلفية القوية. استخدام MySQL لتخزين البيانات الموثوق وتنفيذ وظائف الاختبار التفاعلي مع التغذية الراجعة في الوقت الفعلي. تطوير لوحات معلومات شاملة لتتبع التقدم.",
-                challenges_overcome_title: "التحديات المتغلب عليها",
-                challenges_overcome_desc: "حل متطلبات تأليف الدورات المعقدة بأدوات السحب والإفلات البديهية. تحسين محرك الاختبارات لأنواع الأسئلة المختلفة وأنظمة التسجيل. إنشاء تكامل سلس بين محتوى التعلم وتتبع التقدم.",
-                client_satisfaction_title: "رضا العميل",
-                client_satisfaction_desc: "تم التسليم في الوقت المحدد مع تجاوز جميع متطلبات الميزات. أبلغ العميل عن زيادة بنسبة 65% في معدلات إكمال الدورة وانخفاض بنسبة 40% في عبء العمل الإداري. تم اعتماد المنصة كأداة تدريب أساسية عبر منظمتهم.",
+                interactive_experience_title: "تجربة تفاعلية ثلاثية الأبعاد",
+                interactive_experience_desc: "إنشاء مشاهد ثلاثية الأبعاد غامرة باستخدام Three.js و WebGL، تتميز بأنظمة الجسيمات والإضاءة الديناميكية والعناصر التفاعلية. محسنة لأداء 60fps عبر جميع الأجهزة مع التحسين التدريجي.",
+                advanced_animations_title: "رسوم متحركة متقدمة",
+                advanced_animations_desc: "تنفيذ رسوم متحركة معقدة باستخدام GSAP و Framer Motion، بما في ذلك التأثيرات المحفزة بالتمرير والأشكال المتحولة والانتقالات السلسة. إنشاء تسلسلات تحميل مخصصة وتفاعلات دقيقة.",
+                client_success_title: "نجاح العميل",
+                client_success_desc: "حققت المحفظة زيادة بنسبة 400% في استفسارات العملاء وفازت بجوائز تصميم متعددة. حقق الموقع درجة PageSpeed أكثر من 95 مع الحفاظ على التأثيرات البصرية الغنية. أبلغ العميل عن نمو كبير في الأعمال.",
                 cta_button: "اطلب خدمة مماثلة"
             },
             es: {
-                project_title: "Sistema de Gestión de Aprendizaje",
-                project_subtitle: "LMS personalizado con herramientas de creación de cursos, seguimiento de progreso y cuestionarios interactivos",
-                project_description: "Esta plataforma de aprendizaje integral empodera a los educadores para crear cursos atractivos mientras proporciona a los estudiantes herramientas intuitivas para rastrear el progreso y probar conocimientos a través de evaluaciones interactivas.",
+                project_title: "Sitio Web de Portafolio",
+                project_subtitle: "Portafolio creativo interactivo con animaciones 3D y gestión de contenido dinámico",
+                project_description: "Un sitio web de portafolio de vanguardia que presenta animaciones 3D inmersivas, elementos interactivos y un sistema de gestión de contenido personalizado. Construido para una agencia creativa para mostrar su trabajo con efectos visuales impresionantes y experiencia de usuario perfecta.",
                 project_highlights_title: "Aspectos Destacados del Proyecto",
-                technical_implementation_title: "Implementación Técnica",
-                technical_implementation_desc: "Construido con React para el frontend responsivo y Laravel para el backend robusto. Usó MySQL para almacenamiento confiable de datos e implementó funcionalidad de cuestionarios interactivos con retroalimentación en tiempo real. Desarrolló tableros integrales de seguimiento de progreso.",
-                challenges_overcome_title: "Desafíos Superados",
-                challenges_overcome_desc: "Resolvió requisitos complejos de autoría de cursos con herramientas intuitivas de arrastrar y soltar. Optimizó motor de cuestionarios para varios tipos de preguntas y sistemas de puntuación. Creó integración perfecta entre contenido de aprendizaje y seguimiento de progreso.",
-                client_satisfaction_title: "Satisfacción del Cliente",
-                client_satisfaction_desc: "Entregado a tiempo con todos los requisitos de características superados. El cliente reportó 65% de aumento en tasas de finalización de cursos y 40% de reducción en carga de trabajo administrativa. Plataforma adoptada como herramienta de entrenamiento principal en toda su organización.",
+                interactive_experience_title: "Experiencia Interactiva 3D",
+                interactive_experience_desc: "Creó escenas 3D inmersivas usando Three.js y WebGL, con sistemas de partículas, iluminación dinámica y elementos interactivos. Optimizado para rendimiento de 60fps en todos los dispositivos con mejora progresiva.",
+                advanced_animations_title: "Animaciones Avanzadas",
+                advanced_animations_desc: "Implementó animaciones complejas usando GSAP y Framer Motion, incluyendo efectos activados por scroll, formas que se transforman y transiciones fluidas. Creó secuencias de carga personalizadas y micro-interacciones.",
+                client_success_title: "Éxito del Cliente",
+                client_success_desc: "El portafolio generó 400% de aumento en consultas de clientes y ganó múltiples premios de diseño. El sitio logró puntuación PageSpeed 95+ manteniendo efectos visuales ricos. El cliente reportó crecimiento significativo del negocio.",
                 cta_button: "Solicitar un Servicio Similar"
             },
             fr: {
-                project_title: "Système de Gestion d'Apprentissage",
-                project_subtitle: "LMS personnalisé avec outils de création de cours, suivi de progression et quiz interactifs",
-                project_description: "Cette plateforme d'apprentissage complète permet aux éducateurs de créer des cours engageants tout en fournissant aux étudiants des outils intuitifs pour suivre les progrès et tester les connaissances à travers des évaluations interactives.",
+                project_title: "Site Web Portfolio",
+                project_subtitle: "Portfolio créatif interactif avec animations 3D et gestion de contenu dynamique",
+                project_description: "Un site web portfolio de pointe présentant des animations 3D immersives, des éléments interactifs et un système de gestion de contenu personnalisé. Construit pour une agence créative pour présenter leur travail avec des effets visuels époustouflants et une expérience utilisateur fluide.",
                 project_highlights_title: "Points Forts du Projet",
-                technical_implementation_title: "Implémentation Technique",
-                technical_implementation_desc: "Construit avec React pour le frontend responsive et Laravel pour le backend robuste. Utilisé MySQL pour le stockage fiable des données et implémenté la fonctionnalité de quiz interactifs avec feedback en temps réel. Développé des tableaux de bord complets de suivi de progression.",
-                challenges_overcome_title: "Défis Surmontés",
-                challenges_overcome_desc: "Résolu les exigences complexes de création de cours avec des outils intuitifs de glisser-déposer. Optimisé le moteur de quiz pour divers types de questions et systèmes de notation. Créé une intégration transparente entre le contenu d'apprentissage et le suivi de progression.",
-                client_satisfaction_title: "Satisfaction Client",
-                client_satisfaction_desc: "Livré à temps avec toutes les exigences de fonctionnalités dépassées. Le client a rapporté 65% d'augmentation des taux de completion de cours et 40% de réduction de la charge de travail administrative. Plateforme adoptée comme outil de formation principal dans toute leur organisation.",
+                interactive_experience_title: "Expérience Interactive 3D",
+                interactive_experience_desc: "Créé des scènes 3D immersives utilisant Three.js et WebGL, avec systèmes de particules, éclairage dynamique et éléments interactifs. Optimisé pour performance 60fps sur tous appareils avec amélioration progressive.",
+                advanced_animations_title: "Animations Avancées",
+                advanced_animations_desc: "Implémenté des animations complexes utilisant GSAP et Framer Motion, incluant effets déclenchés par scroll, formes morphing et transitions fluides. Créé séquences de chargement personnalisées et micro-interactions.",
+                client_success_title: "Succès Client",
+                client_success_desc: "Le portfolio a généré 400% d'augmentation des demandes clients et remporté plusieurs prix de design. Le site a atteint un score PageSpeed 95+ tout en maintenant des effets visuels riches. Le client a rapporté une croissance significative des affaires.",
                 cta_button: "Demander un Service Similaire"
             },
             de: {
-                project_title: "Lernmanagementsystem",
-                project_subtitle: "Maßgeschneidertes LMS mit Kurserstellungstools, Fortschrittsverfolgung und interaktiven Quiz",
-                project_description: "Diese umfassende Lernplattform ermöglicht es Pädagogen, ansprechende Kurse zu erstellen, während sie Studenten intuitive Tools zur Fortschrittsverfolgung und Wissenstestung durch interaktive Bewertungen bietet.",
+                project_title: "Portfolio-Website",
+                project_subtitle: "Interaktives kreatives Portfolio mit 3D-Animationen und dynamischem Content-Management",
+                project_description: "Eine hochmoderne Portfolio-Website mit immersiven 3D-Animationen, interaktiven Elementen und einem benutzerdefinierten Content-Management-System. Erstellt für eine Kreativagentur, um ihre Arbeit mit atemberaubenden visuellen Effekten und nahtloser Benutzererfahrung zu präsentieren.",
                 project_highlights_title: "Projekt-Highlights",
-                technical_implementation_title: "Technische Umsetzung",
-                technical_implementation_desc: "Erstellt mit React für das responsive Frontend und Laravel für das robuste Backend. Verwendete MySQL für zuverlässige Datenspeicherung und implementierte interaktive Quiz-Funktionalität mit Echtzeit-Feedback. Entwickelte umfassende Fortschrittsverfolgung-Dashboards.",
-                challenges_overcome_title: "Überwundene Herausforderungen",
-                challenges_overcome_desc: "Löste komplexe Kurserstellungsanforderungen mit intuitiven Drag-and-Drop-Tools. Optimierte Quiz-Engine für verschiedene Fragetypen und Bewertungssysteme. Schuf nahtlose Integration zwischen Lerninhalten und Fortschrittsverfolgung.",
-                client_satisfaction_title: "Kundenzufriedenheit",
-                client_satisfaction_desc: "Pünktlich geliefert mit allen Feature-Anforderungen übertroffen. Kunde berichtete 65% Steigerung der Kursabschlussraten und 40% Reduzierung der Verwaltungsarbeit. Plattform als primäres Schulungstool in ihrer gesamten Organisation übernommen.",
+                interactive_experience_title: "3D-Interaktive Erfahrung",
+                interactive_experience_desc: "Erstellte immersive 3D-Szenen mit Three.js und WebGL, mit Partikelsystemen, dynamischer Beleuchtung und interaktiven Elementen. Optimiert für 60fps-Performance auf allen Geräten mit progressiver Verbesserung.",
+                advanced_animations_title: "Erweiterte Animationen",
+                advanced_animations_desc: "Implementierte komplexe Animationen mit GSAP und Framer Motion, einschließlich scroll-ausgelöster Effekte, morphender Formen und fließender Übergänge. Erstellte benutzerdefinierte Ladesequenzen und Mikro-Interaktionen.",
+                client_success_title: "Kundenerfolg",
+                client_success_desc: "Portfolio generierte 400% Steigerung der Kundenanfragen und gewann mehrere Design-Auszeichnungen. Site erreichte 95+ PageSpeed-Score bei Beibehaltung reicher visueller Effekte. Kunde berichtete über signifikantes Geschäftswachstum.",
                 cta_button: "Ähnlichen Service Anfordern"
             }
         };

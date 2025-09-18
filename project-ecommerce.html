@@ -3,18 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Learning Management System Project</title>
+    <title>E-commerce Platform Project</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        :root {
+        /* :root {
+            --primary-color: #e74c3c;
+            --secondary-color: #ffffff;
+            --accent-color: #c0392b;
+        } */
+         :root {
             --primary-color: #2ecc71;
             --secondary-color: #ffffff;
             --accent-color: #27ae60;
         }
-        
         * {
             margin: 0;
             padding: 0;
@@ -206,8 +210,8 @@
         }
         
         .tech-item {
-            background-color: #e3f2fd;
-            color: #1976d2;
+            background-color: #ffebee;
+            color: #c62828;
             padding: 8px 15px;
             border-radius: 20px;
             font-size: 14px;
@@ -326,7 +330,7 @@
         }
         
         .language-option:hover {
-            background-color: #e8f5e8;
+            background-color: #ffebee;
             color: var(--primary-color);
         }
         
@@ -337,7 +341,7 @@
         .language-option:last-child {
             border-radius: 0 0 13px 13px;
         }
-        
+
         @media screen and (max-width: 768px) {
             .project-card {
                 padding: 2rem 1.5rem;
@@ -404,20 +408,20 @@
     </div>
     <div class="container">
         <div class="project-card">
-            <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Learning Management System" class="project-img">
-            <h1 data-translate="project_title">Learning Management System</h1>
-            <h2 data-translate="project_subtitle">Custom LMS with course creation tools, progress tracking, and interactive quizzes</h2>
+            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="E-commerce Platform" class="project-img">
+            <h1 data-translate="project_title">E-commerce Platform</h1>
+            <h2 data-translate="project_subtitle">Full-featured online store with payment processing, inventory management, and analytics</h2>
             
             <div class="project-description">
-                <p data-translate="project_description">This comprehensive learning platform empowers educators to create engaging courses while providing students with intuitive tools for tracking progress and testing knowledge through interactive assessments.</p>
+                <p data-translate="project_description">A comprehensive e-commerce solution built for modern businesses, featuring advanced product management, secure payment processing, and powerful analytics dashboard. The platform supports multiple vendors, complex product variations, and international shipping.</p>
                 
                 <div class="tech-stack">
                     <span class="tech-item">React</span>
-                    <span class="tech-item">Laravel</span>
-                    <span class="tech-item">MySQL</span>
-                    <span class="tech-item">Interactive Quizzes</span>
-                    <span class="tech-item">Progress Analytics</span>
-                    <span class="tech-item">SCORM Compliance</span>
+                    <span class="tech-item">Node.js</span>
+                    <span class="tech-item">MongoDB</span>
+                    <span class="tech-item">Stripe</span>
+                    <span class="tech-item">Redis</span>
+                    <span class="tech-item">AWS</span>
                 </div>
             </div>
             
@@ -426,20 +430,20 @@
                 <div class="timeline">
                     <div class="timeline-item left">
                         <div class="timeline-content">
-                            <h4 data-translate="technical_implementation_title">Technical Implementation</h4>
-                            <p data-translate="technical_implementation_desc">Built with React for the responsive frontend and Laravel for the robust backend. Used MySQL for reliable data storage and implemented interactive quiz functionality with real-time feedback. Developed comprehensive progress tracking dashboards.</p>
+                            <h4 data-translate="tech_architecture_title">Technical Architecture</h4>
+                            <p data-translate="tech_architecture_desc">Built with React for dynamic frontend, Node.js/Express backend, MongoDB for flexible data storage, and Redis for caching. Integrated Stripe for secure payments and AWS for scalable hosting and file storage.</p>
                         </div>
                     </div>
                     <div class="timeline-item right">
                         <div class="timeline-content">
-                            <h4 data-translate="challenges_overcome_title">Challenges Overcome</h4>
-                            <p data-translate="challenges_overcome_desc">Solved complex course authoring requirements with intuitive drag-and-drop tools. Optimized quiz engine for various question types and scoring systems. Created seamless integration between learning content and progress tracking.</p>
+                            <h4 data-translate="key_features_title">Key Features</h4>
+                            <p data-translate="key_features_desc">Multi-vendor marketplace, advanced search and filtering, real-time inventory tracking, automated email marketing, comprehensive admin dashboard, and mobile-responsive design with PWA capabilities.</p>
                         </div>
                     </div>
                     <div class="timeline-item left">
                         <div class="timeline-content">
-                            <h4 data-translate="client_satisfaction_title">Client Satisfaction</h4>
-                            <p data-translate="client_satisfaction_desc">Delivered on time with all feature requirements exceeded. Client reported 65% increase in course completion rates and 40% reduction in administrative workload. Platform adopted as primary training tool across their organization.</p>
+                            <h4 data-translate="business_impact_title">Business Impact</h4>
+                            <p data-translate="business_impact_desc">Increased client's online sales by 300% within first quarter. Reduced cart abandonment by 45% through optimized checkout flow. Platform now processes over $50K monthly transactions with 99.9% uptime.</p>
                         </div>
                     </div>
                 </div>
@@ -453,68 +457,68 @@
         // Language Translation System
         const translations = {
             en: {
-                project_title: "Learning Management System",
-                project_subtitle: "Custom LMS with course creation tools, progress tracking, and interactive quizzes",
-                project_description: "This comprehensive learning platform empowers educators to create engaging courses while providing students with intuitive tools for tracking progress and testing knowledge through interactive assessments.",
+                project_title: "E-commerce Platform",
+                project_subtitle: "Full-featured online store with payment processing, inventory management, and analytics",
+                project_description: "A comprehensive e-commerce solution built for modern businesses, featuring advanced product management, secure payment processing, and powerful analytics dashboard. The platform supports multiple vendors, complex product variations, and international shipping.",
                 project_highlights_title: "Project Highlights",
-                technical_implementation_title: "Technical Implementation",
-                technical_implementation_desc: "Built with React for the responsive frontend and Laravel for the robust backend. Used MySQL for reliable data storage and implemented interactive quiz functionality with real-time feedback. Developed comprehensive progress tracking dashboards.",
-                challenges_overcome_title: "Challenges Overcome",
-                challenges_overcome_desc: "Solved complex course authoring requirements with intuitive drag-and-drop tools. Optimized quiz engine for various question types and scoring systems. Created seamless integration between learning content and progress tracking.",
-                client_satisfaction_title: "Client Satisfaction",
-                client_satisfaction_desc: "Delivered on time with all feature requirements exceeded. Client reported 65% increase in course completion rates and 40% reduction in administrative workload. Platform adopted as primary training tool across their organization.",
+                tech_architecture_title: "Technical Architecture",
+                tech_architecture_desc: "Built with React for dynamic frontend, Node.js/Express backend, MongoDB for flexible data storage, and Redis for caching. Integrated Stripe for secure payments and AWS for scalable hosting and file storage.",
+                key_features_title: "Key Features",
+                key_features_desc: "Multi-vendor marketplace, advanced search and filtering, real-time inventory tracking, automated email marketing, comprehensive admin dashboard, and mobile-responsive design with PWA capabilities.",
+                business_impact_title: "Business Impact",
+                business_impact_desc: "Increased client's online sales by 300% within first quarter. Reduced cart abandonment by 45% through optimized checkout flow. Platform now processes over $50K monthly transactions with 99.9% uptime.",
                 cta_button: "Request a Similar Service"
             },
             ar: {
-                project_title: "نظام إدارة التعلم",
-                project_subtitle: "نظام LMS مخصص مع أدوات إنشاء الدورات وتتبع التقدم والاختبارات التفاعلية",
-                project_description: "تمكن منصة التعلم الشاملة هذه المعلمين من إنشاء دورات جذابة بينما توفر للطلاب أدوات بديهية لتتبع التقدم واختبار المعرفة من خلال التقييمات التفاعلية.",
+                project_title: "منصة التجارة الإلكترونية",
+                project_subtitle: "متجر إلكتروني متكامل مع معالجة المدفوعات وإدارة المخزون والتحليلات",
+                project_description: "حل شامل للتجارة الإلكترونية مصمم للشركات الحديثة، يتميز بإدارة المنتجات المتقدمة ومعالجة المدفوعات الآمنة ولوحة تحليلات قوية. تدعم المنصة عدة موردين وتنويعات المنتجات المعقدة والشحن الدولي.",
                 project_highlights_title: "أبرز نقاط المشروع",
-                technical_implementation_title: "التنفيذ التقني",
-                technical_implementation_desc: "تم البناء باستخدام React للواجهة الأمامية المتجاوبة و Laravel للخلفية القوية. استخدام MySQL لتخزين البيانات الموثوق وتنفيذ وظائف الاختبار التفاعلي مع التغذية الراجعة في الوقت الفعلي. تطوير لوحات معلومات شاملة لتتبع التقدم.",
-                challenges_overcome_title: "التحديات المتغلب عليها",
-                challenges_overcome_desc: "حل متطلبات تأليف الدورات المعقدة بأدوات السحب والإفلات البديهية. تحسين محرك الاختبارات لأنواع الأسئلة المختلفة وأنظمة التسجيل. إنشاء تكامل سلس بين محتوى التعلم وتتبع التقدم.",
-                client_satisfaction_title: "رضا العميل",
-                client_satisfaction_desc: "تم التسليم في الوقت المحدد مع تجاوز جميع متطلبات الميزات. أبلغ العميل عن زيادة بنسبة 65% في معدلات إكمال الدورة وانخفاض بنسبة 40% في عبء العمل الإداري. تم اعتماد المنصة كأداة تدريب أساسية عبر منظمتهم.",
+                tech_architecture_title: "الهندسة التقنية",
+                tech_architecture_desc: "مبني باستخدام React للواجهة الأمامية الديناميكية، وخلفية Node.js/Express، وMongoDB لتخزين البيانات المرن، وRedis للتخزين المؤقت. متكامل مع Stripe للمدفوعات الآمنة وAWS للاستضافة القابلة للتوسع وتخزين الملفات.",
+                key_features_title: "الميزات الرئيسية",
+                key_features_desc: "سوق متعدد الموردين، بحث وتصفية متقدم، تتبع المخزون في الوقت الفعلي، تسويق إلكتروني آلي، لوحة إدارة شاملة، وتصميم متجاوب للهاتف المحمول مع إمكانيات PWA.",
+                business_impact_title: "التأثير التجاري",
+                business_impact_desc: "زيادة مبيعات العميل عبر الإنترنت بنسبة 300% خلال الربع الأول. تقليل هجر عربة التسوق بنسبة 45% من خلال تحسين تدفق الدفع. تعالج المنصة الآن أكثر من 50 ألف دولار من المعاملات الشهرية مع وقت تشغيل 99.9%.",
                 cta_button: "اطلب خدمة مماثلة"
             },
             es: {
-                project_title: "Sistema de Gestión de Aprendizaje",
-                project_subtitle: "LMS personalizado con herramientas de creación de cursos, seguimiento de progreso y cuestionarios interactivos",
-                project_description: "Esta plataforma de aprendizaje integral empodera a los educadores para crear cursos atractivos mientras proporciona a los estudiantes herramientas intuitivas para rastrear el progreso y probar conocimientos a través de evaluaciones interactivas.",
+                project_title: "Plataforma de Comercio Electrónico",
+                project_subtitle: "Tienda en línea completa con procesamiento de pagos, gestión de inventario y análisis",
+                project_description: "Una solución integral de comercio electrónico construida para empresas modernas, con gestión avanzada de productos, procesamiento seguro de pagos y un potente panel de análisis. La plataforma soporta múltiples vendedores, variaciones complejas de productos y envío internacional.",
                 project_highlights_title: "Aspectos Destacados del Proyecto",
-                technical_implementation_title: "Implementación Técnica",
-                technical_implementation_desc: "Construido con React para el frontend responsivo y Laravel para el backend robusto. Usó MySQL para almacenamiento confiable de datos e implementó funcionalidad de cuestionarios interactivos con retroalimentación en tiempo real. Desarrolló tableros integrales de seguimiento de progreso.",
-                challenges_overcome_title: "Desafíos Superados",
-                challenges_overcome_desc: "Resolvió requisitos complejos de autoría de cursos con herramientas intuitivas de arrastrar y soltar. Optimizó motor de cuestionarios para varios tipos de preguntas y sistemas de puntuación. Creó integración perfecta entre contenido de aprendizaje y seguimiento de progreso.",
-                client_satisfaction_title: "Satisfacción del Cliente",
-                client_satisfaction_desc: "Entregado a tiempo con todos los requisitos de características superados. El cliente reportó 65% de aumento en tasas de finalización de cursos y 40% de reducción en carga de trabajo administrativa. Plataforma adoptada como herramienta de entrenamiento principal en toda su organización.",
+                tech_architecture_title: "Arquitectura Técnica",
+                tech_architecture_desc: "Construido con React para frontend dinámico, backend Node.js/Express, MongoDB para almacenamiento flexible de datos, y Redis para caché. Integrado con Stripe para pagos seguros y AWS para hosting escalable y almacenamiento de archivos.",
+                key_features_title: "Características Clave",
+                key_features_desc: "Marketplace multi-vendedor, búsqueda y filtrado avanzado, seguimiento de inventario en tiempo real, marketing por email automatizado, panel de administración integral, y diseño responsivo móvil con capacidades PWA.",
+                business_impact_title: "Impacto Empresarial",
+                business_impact_desc: "Incrementó las ventas en línea del cliente en 300% durante el primer trimestre. Redujo el abandono del carrito en 45% a través del flujo de pago optimizado. La plataforma ahora procesa más de $50K en transacciones mensuales con 99.9% de tiempo de actividad.",
                 cta_button: "Solicitar un Servicio Similar"
             },
             fr: {
-                project_title: "Système de Gestion d'Apprentissage",
-                project_subtitle: "LMS personnalisé avec outils de création de cours, suivi de progression et quiz interactifs",
-                project_description: "Cette plateforme d'apprentissage complète permet aux éducateurs de créer des cours engageants tout en fournissant aux étudiants des outils intuitifs pour suivre les progrès et tester les connaissances à travers des évaluations interactives.",
+                project_title: "Plateforme E-commerce",
+                project_subtitle: "Boutique en ligne complète avec traitement des paiements, gestion d'inventaire et analyses",
+                project_description: "Une solution e-commerce complète conçue pour les entreprises modernes, avec gestion avancée des produits, traitement sécurisé des paiements et tableau de bord d'analyses puissant. La plateforme supporte plusieurs vendeurs, des variations de produits complexes et l'expédition internationale.",
                 project_highlights_title: "Points Forts du Projet",
-                technical_implementation_title: "Implémentation Technique",
-                technical_implementation_desc: "Construit avec React pour le frontend responsive et Laravel pour le backend robuste. Utilisé MySQL pour le stockage fiable des données et implémenté la fonctionnalité de quiz interactifs avec feedback en temps réel. Développé des tableaux de bord complets de suivi de progression.",
-                challenges_overcome_title: "Défis Surmontés",
-                challenges_overcome_desc: "Résolu les exigences complexes de création de cours avec des outils intuitifs de glisser-déposer. Optimisé le moteur de quiz pour divers types de questions et systèmes de notation. Créé une intégration transparente entre le contenu d'apprentissage et le suivi de progression.",
-                client_satisfaction_title: "Satisfaction Client",
-                client_satisfaction_desc: "Livré à temps avec toutes les exigences de fonctionnalités dépassées. Le client a rapporté 65% d'augmentation des taux de completion de cours et 40% de réduction de la charge de travail administrative. Plateforme adoptée comme outil de formation principal dans toute leur organisation.",
+                tech_architecture_title: "Architecture Technique",
+                tech_architecture_desc: "Construit avec React pour le frontend dynamique, backend Node.js/Express, MongoDB pour le stockage flexible des données, et Redis pour la mise en cache. Intégré avec Stripe pour les paiements sécurisés et AWS pour l'hébergement évolutif et le stockage de fichiers.",
+                key_features_title: "Fonctionnalités Clés",
+                key_features_desc: "Marketplace multi-vendeurs, recherche et filtrage avancés, suivi d'inventaire en temps réel, marketing par email automatisé, tableau de bord d'administration complet, et design responsive mobile avec capacités PWA.",
+                business_impact_title: "Impact Commercial",
+                business_impact_desc: "Augmenté les ventes en ligne du client de 300% au cours du premier trimestre. Réduit l'abandon de panier de 45% grâce au flux de paiement optimisé. La plateforme traite maintenant plus de 50K$ de transactions mensuelles avec 99.9% de temps de fonctionnement.",
                 cta_button: "Demander un Service Similaire"
             },
             de: {
-                project_title: "Lernmanagementsystem",
-                project_subtitle: "Maßgeschneidertes LMS mit Kurserstellungstools, Fortschrittsverfolgung und interaktiven Quiz",
-                project_description: "Diese umfassende Lernplattform ermöglicht es Pädagogen, ansprechende Kurse zu erstellen, während sie Studenten intuitive Tools zur Fortschrittsverfolgung und Wissenstestung durch interaktive Bewertungen bietet.",
+                project_title: "E-Commerce-Plattform",
+                project_subtitle: "Vollständiger Online-Shop mit Zahlungsabwicklung, Bestandsverwaltung und Analysen",
+                project_description: "Eine umfassende E-Commerce-Lösung für moderne Unternehmen mit erweiterte Produktverwaltung, sichere Zahlungsabwicklung und leistungsstarkes Analyse-Dashboard. Die Plattform unterstützt mehrere Anbieter, komplexe Produktvariationen und internationalen Versand.",
                 project_highlights_title: "Projekt-Highlights",
-                technical_implementation_title: "Technische Umsetzung",
-                technical_implementation_desc: "Erstellt mit React für das responsive Frontend und Laravel für das robuste Backend. Verwendete MySQL für zuverlässige Datenspeicherung und implementierte interaktive Quiz-Funktionalität mit Echtzeit-Feedback. Entwickelte umfassende Fortschrittsverfolgung-Dashboards.",
-                challenges_overcome_title: "Überwundene Herausforderungen",
-                challenges_overcome_desc: "Löste komplexe Kurserstellungsanforderungen mit intuitiven Drag-and-Drop-Tools. Optimierte Quiz-Engine für verschiedene Fragetypen und Bewertungssysteme. Schuf nahtlose Integration zwischen Lerninhalten und Fortschrittsverfolgung.",
-                client_satisfaction_title: "Kundenzufriedenheit",
-                client_satisfaction_desc: "Pünktlich geliefert mit allen Feature-Anforderungen übertroffen. Kunde berichtete 65% Steigerung der Kursabschlussraten und 40% Reduzierung der Verwaltungsarbeit. Plattform als primäres Schulungstool in ihrer gesamten Organisation übernommen.",
+                tech_architecture_title: "Technische Architektur",
+                tech_architecture_desc: "Erstellt mit React für dynamisches Frontend, Node.js/Express Backend, MongoDB für flexible Datenspeicherung und Redis für Caching. Integriert mit Stripe für sichere Zahlungen und AWS für skalierbares Hosting und Dateispeicherung.",
+                key_features_title: "Hauptfunktionen",
+                key_features_desc: "Multi-Vendor-Marktplatz, erweiterte Suche und Filterung, Echtzeit-Bestandsverfolgung, automatisiertes E-Mail-Marketing, umfassendes Admin-Dashboard und mobile-responsive Design mit PWA-Funktionen.",
+                business_impact_title: "Geschäftliche Auswirkungen",
+                business_impact_desc: "Steigerung der Online-Verkäufe des Kunden um 300% im ersten Quartal. Reduzierung des Warenkorbabbruchs um 45% durch optimierten Checkout-Flow. Die Plattform verarbeitet jetzt über 50.000$ monatliche Transaktionen mit 99,9% Verfügbarkeit.",
                 cta_button: "Ähnlichen Service Anfordern"
             }
         };
